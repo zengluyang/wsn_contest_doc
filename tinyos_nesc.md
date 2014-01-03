@@ -11,6 +11,7 @@
 在最后两行添加
 	deb http://tinyprod.net/repos/debian squeeze main
 	deb http://tinyprod.net/repos/debian msp430-46 main
+
 ###安装相应工具链
 	sudo apt-get update
 	sudo apt-get install nesc tinyos-tools msp430-46 avr-tinyos
