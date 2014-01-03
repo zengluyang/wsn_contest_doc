@@ -6,8 +6,11 @@
 
 ###添加tinyprod源
 	cd /etc/apt/sources.list.d
-	sudo echo "deb http://tinyprod.net/repos/debian squeeze main" >> tinyprod-debian.list
-	sudo echo "deb http://tinyprod.net/repos/debian msp430-46 main" >> tinyprod-debian.list
+	gedit sources.list
+
+在最后两行添加
+	deb http://tinyprod.net/repos/debian squeeze main
+	deb http://tinyprod.net/repos/debian msp430-46 main
 ###安装相应工具链
 	sudo apt-get update
 	sudo apt-get install nesc tinyos-tools msp430-46 avr-tinyos
