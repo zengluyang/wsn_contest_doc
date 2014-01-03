@@ -9,6 +9,7 @@
 	gedit sources.list
 
 在最后两行添加
+
 	deb http://tinyprod.net/repos/debian squeeze main
 	deb http://tinyprod.net/repos/debian msp430-46 main
 
