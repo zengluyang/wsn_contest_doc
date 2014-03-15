@@ -1,0 +1,498 @@
+<?xml version="1.0" ?><component loc="1:SerialToRadioAppC.nc" nicename="SerialToRadioAppC" qname="SerialToRadioAppC">
+      <configuration/>
+      <wiring>
+        <wire loc="12:SerialToRadioAppC.nc">
+          <from><interface-ref name="Boot" ref="0x407131a8" scoped=""/></from>
+          <to><interface-ref name="Boot" ref="0x406101c8" scoped=""/></to>
+        </wire>
+        <wire loc="13:SerialToRadioAppC.nc">
+          <from><interface-ref name="Timer0" ref="0x40728010" scoped=""/></from>
+          <to><interface-ref name="Timer" ref="0x40631d80" scoped=""/></to>
+        </wire>
+        <wire loc="14:SerialToRadioAppC.nc">
+          <from><interface-ref name="Packet" ref="0x4071f010" scoped=""/></from>
+          <to><interface-ref name="Packet" ref="0x40865868" scoped=""/></to>
+        </wire>
+        <wire loc="15:SerialToRadioAppC.nc">
+          <from><interface-ref name="AMSend" ref="0x407657d0" scoped=""/></from>
+          <to><interface-ref name="AMSend" ref="0x410c06a0" scoped=""/></to>
+        </wire>
+        <wire loc="16:SerialToRadioAppC.nc">
+          <from><interface-ref name="SerialReceive" ref="0x407609a0" scoped=""/></from>
+          <to><interface-ref name="Receive" ref="0x41126638" scoped=""/>
+          <arguments>
+            <value cst="I:200">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </to>
+        </wire>
+        <wire loc="17:SerialToRadioAppC.nc">
+          <from><interface-ref name="AMControl" ref="0x40732370" scoped=""/></from>
+          <to><interface-ref name="SplitControl" ref="0x4086aac0" scoped=""/></to>
+        </wire>
+        <wire loc="18:SerialToRadioAppC.nc">
+          <from><interface-ref name="SerialControl" ref="0x40732a50" scoped=""/></from>
+          <to><interface-ref name="SplitControl" ref="0x41129330" scoped=""/></to>
+        </wire>
+        <wire loc="19:SerialToRadioAppC.nc">
+          <from><interface-ref name="SerialPacket" ref="0x40760d98" scoped=""/></from>
+          <to><interface-ref name="Packet" ref="0x41126990" scoped=""/></to>
+        </wire>
+      </wiring>
+    <specification/><referenced><interface loc="57:/home/zly/tinyos-main/tos/system/MainC.nc" name="Boot" provided="1" ref="0x406101c8">
+      <component-ref nicename="tos.system.MainC" qname="MainC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Boot" ref="0x406101c8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Boot" qname="Boot"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="booted" ref="0x406103a0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="11:SerialToRadioC.nc" name="Timer0" provided="0" ref="0x40728010">
+      <component-ref nicename="SerialToRadioC" qname="SerialToRadioC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Timer0" ref="0x40728010" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.lib.timer.Timer" qname="Timer"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0x40614868"/>
+            <typename><typedef-ref name="TMilli" ref="0x40614a30"/></typename>
+          </type-tag>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="getNow" ref="0x40727b00" scoped=""/>
+        <function-ref name="fired" ref="0x40728d90" scoped=""/>
+        <function-ref name="startPeriodicAt" ref="0x407274c0" scoped=""/>
+        <function-ref name="isOneShot" ref="0x40727268" scoped=""/>
+        <function-ref name="getdt" ref="0x40721010" scoped=""/>
+        <function-ref name="gett0" ref="0x40727d58" scoped=""/>
+        <function-ref name="isRunning" ref="0x40727010" scoped=""/>
+        <function-ref name="startPeriodic" ref="0x40728638" scoped=""/>
+        <function-ref name="startOneShotAt" ref="0x407277e0" scoped=""/>
+        <function-ref name="startOneShot" ref="0x407288b8" scoped=""/>
+        <function-ref name="stop" ref="0x40728b38" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="16:SerialToRadioC.nc" name="SerialReceive" provided="0" ref="0x407609a0">
+      <component-ref nicename="SerialToRadioC" qname="SerialToRadioC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="SerialReceive" ref="0x407609a0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Receive" qname="Receive"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="receive" ref="0x40760b78" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="12:SerialToRadioC.nc" name="AMControl" provided="0" ref="0x40732370">
+      <component-ref nicename="SerialToRadioC" qname="SerialToRadioC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="AMControl" ref="0x40732370" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.SplitControl" qname="SplitControl"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="startDone" ref="0x40732548" scoped=""/>
+        <function-ref name="stopDone" ref="0x40732628" scoped=""/>
+        <function-ref name="start" ref="0x40732708" scoped=""/>
+        <function-ref name="stop" ref="0x407327e8" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="49:/home/zly/tinyos-main/tos/system/AMSenderC.nc" name="AMSend" provided="1" ref="0x410c06a0">
+      <component-ref nicename="tos.system.AMSenderC" qname="SerialToRadioAppC.Sender"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="AMSend" ref="0x410c06a0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.AMSend" qname="AMSend"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="send" ref="0x410c0878" scoped=""/>
+        <function-ref name="getPayload" ref="0x410c0958" scoped=""/>
+        <function-ref name="maxPayloadLength" ref="0x410c0a38" scoped=""/>
+        <function-ref name="cancel" ref="0x410c0b18" scoped=""/>
+        <function-ref name="sendDone" ref="0x410c0bf8" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="10:SerialToRadioC.nc" name="Boot" provided="0" ref="0x407131a8">
+      <component-ref nicename="SerialToRadioC" qname="SerialToRadioC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Boot" ref="0x407131a8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Boot" qname="Boot"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="booted" ref="0x40713380" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="17:SerialToRadioC.nc" name="SerialPacket" provided="0" ref="0x40760d98">
+      <component-ref nicename="SerialToRadioC" qname="SerialToRadioC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="SerialPacket" ref="0x40760d98" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Packet" qname="Packet"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="clear" ref="0x40769010" scoped=""/>
+        <function-ref name="payloadLength" ref="0x407690f0" scoped=""/>
+        <function-ref name="getPayload" ref="0x407691d0" scoped=""/>
+        <function-ref name="maxPayloadLength" ref="0x407692b0" scoped=""/>
+        <function-ref name="setPayloadLength" ref="0x40769390" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="48:/home/zly/tinyos-main/tos/lib/serial/SerialActiveMessageC.nc" name="Receive" provided="1" ref="0x41126638">
+      <component-ref nicename="tos.lib.serial.SerialActiveMessageC" qname="SerialActiveMessageC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Receive" ref="0x41126638" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Receive" qname="Receive"/>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+          <typename><typedef-ref name="am_id_t" ref="0x4074eae0"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="receive" ref="0x41126810" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="13:SerialToRadioC.nc" name="SerialControl" provided="0" ref="0x40732a50">
+      <component-ref nicename="SerialToRadioC" qname="SerialToRadioC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="SerialControl" ref="0x40732a50" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.SplitControl" qname="SplitControl"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="startDone" ref="0x40732c28" scoped=""/>
+        <function-ref name="stopDone" ref="0x40732d08" scoped=""/>
+        <function-ref name="start" ref="0x40732de8" scoped=""/>
+        <function-ref name="stop" ref="0x40732ec8" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="14:SerialToRadioC.nc" name="Packet" provided="0" ref="0x4071f010">
+      <component-ref nicename="SerialToRadioC" qname="SerialToRadioC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Packet" ref="0x4071f010" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Packet" qname="Packet"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="clear" ref="0x4071f1e8" scoped=""/>
+        <function-ref name="payloadLength" ref="0x4071f2c8" scoped=""/>
+        <function-ref name="getPayload" ref="0x4071f3a8" scoped=""/>
+        <function-ref name="maxPayloadLength" ref="0x4071f488" scoped=""/>
+        <function-ref name="setPayloadLength" ref="0x4071f568" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="46:/home/zly/tinyos-main/tos/lib/serial/SerialActiveMessageC.nc" name="SplitControl" provided="1" ref="0x41129330">
+      <component-ref nicename="tos.lib.serial.SerialActiveMessageC" qname="SerialActiveMessageC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="SplitControl" ref="0x41129330" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.SplitControl" qname="SplitControl"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="startDone" ref="0x41129508" scoped=""/>
+        <function-ref name="stopDone" ref="0x411295e8" scoped=""/>
+        <function-ref name="start" ref="0x411296c8" scoped=""/>
+        <function-ref name="stop" ref="0x411297a8" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="67:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc" name="Packet" provided="1" ref="0x40865868">
+      <component-ref nicename="tos.platforms.telosa.ActiveMessageC" qname="ActiveMessageC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Packet" ref="0x40865868" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Packet" qname="Packet"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="clear" ref="0x40865a40" scoped=""/>
+        <function-ref name="payloadLength" ref="0x40865b20" scoped=""/>
+        <function-ref name="getPayload" ref="0x40865c00" scoped=""/>
+        <function-ref name="maxPayloadLength" ref="0x40865ce0" scoped=""/>
+        <function-ref name="setPayloadLength" ref="0x40865dc0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="15:SerialToRadioC.nc" name="AMSend" provided="0" ref="0x407657d0">
+      <component-ref nicename="SerialToRadioC" qname="SerialToRadioC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="AMSend" ref="0x407657d0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.AMSend" qname="AMSend"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="send" ref="0x407659a8" scoped=""/>
+        <function-ref name="getPayload" ref="0x40765a88" scoped=""/>
+        <function-ref name="maxPayloadLength" ref="0x40765b68" scoped=""/>
+        <function-ref name="cancel" ref="0x40765c48" scoped=""/>
+        <function-ref name="sendDone" ref="0x40765d28" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="45:/home/zly/tinyos-main/tos/system/TimerMilliC.nc" name="Timer" provided="1" ref="0x40631d80">
+      <component-ref nicename="tos.system.TimerMilliC" qname="SerialToRadioAppC.Timer0"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Timer" ref="0x40631d80" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.lib.timer.Timer" qname="Timer"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0x40614868"/>
+            <typename><typedef-ref name="TMilli" ref="0x40614a30"/></typename>
+          </type-tag>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="getNow" ref="0x4077c8a8" scoped=""/>
+        <function-ref name="fired" ref="0x4076bb18" scoped=""/>
+        <function-ref name="startPeriodicAt" ref="0x4077c268" scoped=""/>
+        <function-ref name="isOneShot" ref="0x4077c010" scoped=""/>
+        <function-ref name="getdt" ref="0x4077cd58" scoped=""/>
+        <function-ref name="gett0" ref="0x4077cb00" scoped=""/>
+        <function-ref name="isRunning" ref="0x4076bd70" scoped=""/>
+        <function-ref name="startPeriodic" ref="0x4076b3c0" scoped=""/>
+        <function-ref name="startOneShotAt" ref="0x4077c588" scoped=""/>
+        <function-ref name="startOneShot" ref="0x4076b640" scoped=""/>
+        <function-ref name="stop" ref="0x4076b8c0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="61:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc" name="SplitControl" provided="1" ref="0x4086aac0">
+      <component-ref nicename="tos.platforms.telosa.ActiveMessageC" qname="ActiveMessageC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="SplitControl" ref="0x4086aac0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.SplitControl" qname="SplitControl"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="startDone" ref="0x4086ac98" scoped=""/>
+        <function-ref name="stopDone" ref="0x4086ad78" scoped=""/>
+        <function-ref name="start" ref="0x4086ae58" scoped=""/>
+        <function-ref name="stop" ref="0x40866010" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="49:/home/zly/tinyos-main/tos/lib/serial/SerialActiveMessageC.nc" name="Packet" provided="1" ref="0x41126990">
+      <component-ref nicename="tos.lib.serial.SerialActiveMessageC" qname="SerialActiveMessageC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Packet" ref="0x41126990" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Packet" qname="Packet"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="clear" ref="0x41126b68" scoped=""/>
+        <function-ref name="payloadLength" ref="0x41126c48" scoped=""/>
+        <function-ref name="getPayload" ref="0x41126d28" scoped=""/>
+        <function-ref name="maxPayloadLength" ref="0x41126e08" scoped=""/>
+        <function-ref name="setPayloadLength" ref="0x41126ee8" scoped=""/>
+      </interface-functions>
+    </interface><component loc="7:SerialToRadioC.nc" nicename="SerialToRadioC" qname="SerialToRadioC">
+      <module/>
+    </component><component loc="47(SerialToRadioAppC.Sender):/home/zly/tinyos-main/tos/system/AMSenderC.nc" nicename="tos.system.AMSenderC" qname="SerialToRadioAppC.Sender">
+      <documentation loc="33:/home/zly/tinyos-main/tos/system/AMSenderC.nc">
+        <short>
+ The virtualized active message send abstraction.</short>
+        <long>
+ The virtualized active message send abstraction. Each instantiation
+ of AMSenderC has its own queue of depth one. Therefore, it does not
+ have to contend with other AMSenderC instantiations for queue space.
+ The underlying implementation schedules the packets in these queues
+ using some form of fair-share queueing.
+
+ @author Philip Levis
+ @date   Jan 16 2006
+ @see    TEP 116: Packet Protocols
+</long>
+      </documentation>
+      <instance number="0">
+        <component-ref nicename="tos.system.AMSenderC" qname="AMSenderC"/>
+        <arguments>
+          <value cst="I:200">
+            <type-int alignment="I:2" cname="int" size="I:2"/>
+          </value>
+        </arguments>
+      </instance>
+      <configuration/>
+      <wiring>
+        <wire loc="64:/home/zly/tinyos-main/tos/system/AMSenderC.nc">
+          <from><interface-ref name="AMSend" ref="0x410c06a0" scoped=""/></from>
+          <to><interface-ref name="AMSend" ref="0x417a3200" scoped=""/></to>
+        </wire>
+        <wire loc="65:/home/zly/tinyos-main/tos/system/AMSenderC.nc">
+          <from><interface-ref name="Packet" ref="0x410c0d38" scoped=""/></from>
+          <to><interface-ref name="Packet" ref="0x417a3898" scoped=""/></to>
+        </wire>
+        <wire loc="66:/home/zly/tinyos-main/tos/system/AMSenderC.nc">
+          <from><interface-ref name="AMPacket" ref="0x4112b3f0" scoped=""/></from>
+          <to><interface-ref name="AMPacket" ref="0x417a2010" scoped=""/></to>
+        </wire>
+        <wire loc="67:/home/zly/tinyos-main/tos/system/AMSenderC.nc">
+          <from><interface-ref name="Acks" ref="0x4112a010" scoped=""/></from>
+          <to><interface-ref name="Acks" ref="0x417a2c08" scoped=""/></to>
+        </wire>
+      </wiring>
+    </component><component loc="59:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc" nicename="tos.platforms.telosa.ActiveMessageC" qname="ActiveMessageC">
+      <documentation loc="49:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc">
+        <short>
+
+ The Active Message layer on the Telos platform.</short>
+        <long>
+
+ The Active Message layer on the Telos platform. This is a naming wrapper
+ around the CC2420 Active Message layer.
+
+ @author Philip Levis
+ @version $Revision: 1.9 $ $Date: 2010-06-29 22:07:55 $
+</long>
+      </documentation>
+      <configuration/>
+      <wiring>
+        <wire loc="78:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc">
+          <from><interface-ref name="SplitControl" ref="0x4086aac0" scoped=""/></from>
+          <to><interface-ref name="SplitControl" ref="0x40891788" scoped=""/></to>
+        </wire>
+        <wire loc="80:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc">
+          <from><interface-ref name="AMSend" ref="0x40866470" scoped=""/></from>
+          <to><interface-ref name="AMSend" ref="0x40890100" scoped=""/></to>
+        </wire>
+        <wire loc="82:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc">
+          <from><interface-ref name="Snoop" ref="0x40865510" scoped=""/></from>
+          <to><interface-ref name="Snoop" ref="0x4088e178" scoped=""/></to>
+        </wire>
+        <wire loc="83:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc">
+          <from><interface-ref name="Packet" ref="0x40865868" scoped=""/></from>
+          <to><interface-ref name="Packet" ref="0x4088d190" scoped=""/></to>
+        </wire>
+        <wire loc="89:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc">
+          <from><interface-ref name="PacketTimeStamp32khz" ref="0x40883408" scoped=""/></from>
+          <to><interface-ref name="PacketTimeStamp32khz" ref="0x40f67668" scoped=""/></to>
+        </wire>
+        <wire loc="86:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc">
+          <from><interface-ref name="LowPowerListening" ref="0x4087cba8" scoped=""/></from>
+          <to><interface-ref name="LowPowerListening" ref="0x4088b948" scoped=""/></to>
+        </wire>
+        <wire loc="81:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc">
+          <from><interface-ref name="Receive" ref="0x40866e30" scoped=""/></from>
+          <to><interface-ref name="Receive" ref="0x40890ac0" scoped=""/></to>
+        </wire>
+        <wire loc="85:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc">
+          <from><interface-ref name="PacketAcknowledgements" ref="0x4086fa90" scoped=""/></from>
+          <to><interface-ref name="PacketAcknowledgements" ref="0x4088c230" scoped=""/></to>
+        </wire>
+        <wire loc="84:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc">
+          <from><interface-ref name="AMPacket" ref="0x408727b0" scoped=""/></from>
+          <to><interface-ref name="AMPacket" ref="0x4088e4e8" scoped=""/></to>
+        </wire>
+        <wire loc="90:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc">
+          <from><interface-ref name="PacketTimeStampMilli" ref="0x40873db8" scoped=""/></from>
+          <to><interface-ref name="PacketTimeStampMilli" ref="0x40f64100" scoped=""/></to>
+        </wire>
+      </wiring>
+    </component><component loc="44:/home/zly/tinyos-main/tos/lib/serial/SerialActiveMessageC.nc" nicename="tos.lib.serial.SerialActiveMessageC" qname="SerialActiveMessageC">
+      <documentation loc="71:/home/zly/tinyos-main/tos/lib/serial/Serial.h">
+        <short>
+ </short>
+        <long>
+ @author Phil Buonadonna
+ @author Lewis Girod
+ @author Ben Greenstein
+ @author Philip Levis
+ @date   August 7 2005
+</long>
+      </documentation>
+      <configuration/>
+      <wiring>
+        <wire loc="61:/home/zly/tinyos-main/tos/lib/serial/SerialActiveMessageC.nc">
+          <from><interface-ref name="SplitControl" ref="0x41129330" scoped=""/></from>
+          <to><interface-ref name="SplitControl" ref="0x4116a8f0" scoped=""/></to>
+        </wire>
+        <wire loc="63:/home/zly/tinyos-main/tos/lib/serial/SerialActiveMessageC.nc">
+          <from><interface-ref name="AMSend" ref="0x41129c08" scoped=""/></from>
+          <to><interface-ref name="AMSend" ref="0x41122738" scoped=""/></to>
+        </wire>
+        <wire loc="65:/home/zly/tinyos-main/tos/lib/serial/SerialActiveMessageC.nc">
+          <from><interface-ref name="Packet" ref="0x41126990" scoped=""/></from>
+          <to><interface-ref name="Packet" ref="0x41121d88" scoped=""/></to>
+        </wire>
+        <wire loc="64:/home/zly/tinyos-main/tos/lib/serial/SerialActiveMessageC.nc">
+          <from><interface-ref name="Receive" ref="0x41126638" scoped=""/></from>
+          <to><interface-ref name="Receive" ref="0x41122e78" scoped=""/></to>
+        </wire>
+        <wire loc="67:/home/zly/tinyos-main/tos/lib/serial/SerialActiveMessageC.nc">
+          <from><interface-ref name="PacketAcknowledgements" ref="0x41125d70" scoped=""/></from>
+          <to><interface-ref name="PacketAcknowledgements" ref="0x4112f4d0" scoped=""/></to>
+        </wire>
+        <wire loc="66:/home/zly/tinyos-main/tos/lib/serial/SerialActiveMessageC.nc">
+          <from><interface-ref name="AMPacket" ref="0x411250b8" scoped=""/></from>
+          <to><interface-ref name="AMPacket" ref="0x411211b0" scoped=""/></to>
+        </wire>
+        <wire loc="59:/home/zly/tinyos-main/tos/lib/serial/SerialActiveMessageC.nc">
+          <from><interface-ref name="SoftwareInit" ref="0x40610df0" scoped=""/></from>
+          <to><interface-ref name="Init" ref="0x4116a558" scoped=""/></to>
+        </wire>
+        <wire loc="60:/home/zly/tinyos-main/tos/lib/serial/SerialActiveMessageC.nc">
+          <from><interface-ref name="Leds" ref="0x411653f0" scoped=""/></from>
+          <to><interface-ref name="Leds" ref="0x41124370" scoped=""/></to>
+        </wire>
+        <wire loc="69:/home/zly/tinyos-main/tos/lib/serial/SerialActiveMessageC.nc">
+          <from><interface-ref name="SubSend" ref="0x4112f9f8" scoped=""/></from>
+          <to><interface-ref name="Send" ref="0x411677e0" scoped=""/>
+          <arguments>
+            <value cst="I:0">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </to>
+        </wire>
+        <wire loc="70:/home/zly/tinyos-main/tos/lib/serial/SerialActiveMessageC.nc">
+          <from><interface-ref name="SubReceive" ref="0x4116b170" scoped=""/></from>
+          <to><interface-ref name="Receive" ref="0x411671d8" scoped=""/>
+          <arguments>
+            <value cst="I:0">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </to>
+        </wire>
+        <wire loc="72:/home/zly/tinyos-main/tos/lib/serial/SerialActiveMessageC.nc">
+          <from><interface-ref name="SerialPacketInfo" ref="0x41163ea8" scoped=""/>
+          <arguments>
+            <value cst="I:0">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </from>
+          <to><interface-ref name="Info" ref="0x41304be8" scoped=""/></to>
+        </wire>
+      </wiring>
+    </component><component loc="44(SerialToRadioAppC.Timer0):/home/zly/tinyos-main/tos/system/TimerMilliC.nc" nicename="tos.system.TimerMilliC" qname="SerialToRadioAppC.Timer0">
+      <documentation loc="33:/home/zly/tinyos-main/tos/system/TimerMilliC.nc">
+        <short>
+ The virtualized millisecond timer abstraction.</short>
+        <long>
+ The virtualized millisecond timer abstraction. Instantiating this 
+ component gives an independent millisecond granularity timer.
+
+ @author Philip Levis
+ @date   January 16 2006
+ @see    TEP 102: Timers
+</long>
+      </documentation>
+      <instance number="0">
+        <component-ref nicename="tos.system.TimerMilliC" qname="TimerMilliC"/>
+      </instance>
+      <configuration/>
+      <wiring>
+        <wire loc="52:/home/zly/tinyos-main/tos/system/TimerMilliC.nc">
+          <from><interface-ref name="Timer" ref="0x40631d80" scoped=""/></from>
+          <to><interface-ref name="TimerMilli" ref="0x4077b3f0" scoped=""/>
+          <arguments>
+            <value cst="I:0">
+              <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned=""/>
+            </value>
+          </arguments>
+          </to>
+        </wire>
+      </wiring>
+    </component><component loc="56:/home/zly/tinyos-main/tos/system/MainC.nc" nicename="tos.system.MainC" qname="MainC">
+      <documentation loc="45:/home/zly/tinyos-main/tos/system/MainC.nc">
+        <short>
+ MainC is the system interface the TinyOS boot sequence.</short>
+        <long>
+ MainC is the system interface the TinyOS boot sequence. It wires the
+ boot sequence implementation to the scheduler and hardware resources.
+
+ @author Philip Levis
+ @date   August 6 2005
+ @see    TEP 107: Boot Sequence
+</long>
+      </documentation>
+      <configuration/>
+      <wiring>
+        <wire loc="72:/home/zly/tinyos-main/tos/system/MainC.nc">
+          <from><interface-ref name="Boot" ref="0x406101c8" scoped=""/></from>
+          <to><interface-ref name="Boot" ref="0x40611840" scoped=""/></to>
+        </wire>
+        <wire loc="67:/home/zly/tinyos-main/tos/system/MainC.nc">
+          <from><interface-ref name="Scheduler" ref="0x40611bd8" scoped=""/></from>
+          <to><interface-ref name="Scheduler" ref="0x403875f0" scoped=""/></to>
+        </wire>
+        <wire loc="68:/home/zly/tinyos-main/tos/system/MainC.nc">
+          <from><interface-ref name="PlatformInit" ref="0x4062f240" scoped=""/></from>
+          <to><interface-ref name="Init" ref="0x406126f8" scoped=""/></to>
+        </wire>
+        <wire loc="71:/home/zly/tinyos-main/tos/system/MainC.nc">
+          <from><interface-ref name="SoftwareInit" ref="0x4062f648" scoped=""/></from>
+          <to><interface-ref name="SoftwareInit" ref="0x40610df0" scoped=""/></to>
+        </wire>
+      </wiring>
+    </component></referenced></component>

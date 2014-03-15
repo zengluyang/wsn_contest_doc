@@ -1,0 +1,76 @@
+<?xml version="1.0" ?><component abstract="" loc="65:/home/zly/tinyos-main/tos/system/StateC.nc" nicename="tos.system.StateC" qname="StateC">
+      <documentation loc="32:/home/zly/tinyos-main/tos/types/State.h">
+        <short>
+ </short>
+        <long>
+ @author David Moss
+</long>
+      </documentation>
+      <parameters>
+      </parameters>
+      <configuration/>
+      <wiring>
+        <wire loc="74:/home/zly/tinyos-main/tos/system/StateC.nc">
+          <from><interface-ref name="State" ref="0x40be70f8" scoped=""/></from>
+          <to><interface-ref name="State" ref="0x40be4100" scoped=""/>
+          <arguments>
+            <value cst="U:">
+              <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned=""/>
+            </value>
+          </arguments>
+          </to>
+        </wire>
+      </wiring>
+    <specification><interface loc="67:/home/zly/tinyos-main/tos/system/StateC.nc" name="State" provided="1" ref="0x40be70f8">
+      <component-ref nicename="tos.system.StateC" qname="StateC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="State" ref="0x40be70f8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.State" qname="State"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="getState" ref="0x40be72d0" scoped=""/>
+        <function-ref name="toIdle" ref="0x40be73b0" scoped=""/>
+        <function-ref name="isState" ref="0x40be7490" scoped=""/>
+        <function-ref name="isIdle" ref="0x40be7570" scoped=""/>
+        <function-ref name="requestState" ref="0x40be7650" scoped=""/>
+        <function-ref name="forceState" ref="0x40be7730" scoped=""/>
+      </interface-functions>
+    </interface></specification><referenced><interface loc="66:/home/zly/tinyos-main/tos/system/StateImplC.nc" name="State" provided="1" ref="0x40be4100">
+      <component-ref nicename="tos.system.StateImplC" qname="StateImplC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="State" ref="0x40be4100" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.State" qname="State"/>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+          <typename><typedef-ref name="uint8_t" ref="0x40212dc8"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="getState" ref="0x40be42d8" scoped=""/>
+        <function-ref name="toIdle" ref="0x40be43b8" scoped=""/>
+        <function-ref name="isState" ref="0x40be4498" scoped=""/>
+        <function-ref name="isIdle" ref="0x40be4578" scoped=""/>
+        <function-ref name="requestState" ref="0x40be4658" scoped=""/>
+        <function-ref name="forceState" ref="0x40be4738" scoped=""/>
+      </interface-functions>
+    </interface><component loc="64:/home/zly/tinyos-main/tos/system/StateImplC.nc" nicename="tos.system.StateImplC" qname="StateImplC">
+      <documentation loc="32:/home/zly/tinyos-main/tos/types/State.h">
+        <short>
+ </short>
+        <long>
+ @author David Moss
+</long>
+      </documentation>
+      <configuration/>
+      <wiring>
+        <wire loc="75:/home/zly/tinyos-main/tos/system/StateImplC.nc">
+          <from><interface-ref name="State" ref="0x40be4100" scoped=""/></from>
+          <to><interface-ref name="State" ref="0x40c09758" scoped=""/></to>
+        </wire>
+        <wire loc="74:/home/zly/tinyos-main/tos/system/StateImplC.nc">
+          <from><interface-ref name="SoftwareInit" ref="0x40610df0" scoped=""/></from>
+          <to><interface-ref name="Init" ref="0x40c09128" scoped=""/></to>
+        </wire>
+      </wiring>
+    </component></referenced></component>

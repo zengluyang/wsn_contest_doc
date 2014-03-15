@@ -1,0 +1,331 @@
+<?xml version="1.0" ?><component abstract="" loc="47:/home/zly/tinyos-main/tos/system/DirectAMSenderC.nc" nicename="tos.system.DirectAMSenderC" qname="DirectAMSenderC">
+      <documentation loc="33:/home/zly/tinyos-main/tos/system/DirectAMSenderC.nc">
+        <short>
+ The virtualized active message send abstraction.</short>
+        <long>
+ The virtualized active message send abstraction. Each instantiation
+ of AMSenderC has its own queue of depth one. Therefore, it does not
+ have to contend with other AMSenderC instantiations for queue space.
+ The underlying implementation schedules the packets in these queues
+ using some form of fair-share queueing.
+
+ @author Philip Levis
+ @date   Jan 16 2006
+ @see    TEP 116: Packet Protocols
+</long>
+      </documentation>
+      <parameters>
+        <constant loc="47:/home/zly/tinyos-main/tos/system/DirectAMSenderC.nc" name="AMId" ref="0x410bd8f0">
+          <component-ref nicename="tos.system.DirectAMSenderC" qname="DirectAMSenderC"/>
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="am_id_t" ref="0x4074eae0"/></typename>
+          </type-int>
+        </constant>
+      </parameters>
+      <configuration/>
+      <wiring>
+        <wire loc="63:/home/zly/tinyos-main/tos/system/DirectAMSenderC.nc">
+          <from><interface-ref name="AMSend" ref="0x410bdb78" scoped=""/></from>
+          <to><interface-ref name="AMSend" ref="0x410b7cb0" scoped=""/></to>
+        </wire>
+        <wire loc="64:/home/zly/tinyos-main/tos/system/DirectAMSenderC.nc">
+          <from><interface-ref name="Packet" ref="0x410ba270" scoped=""/></from>
+          <to><interface-ref name="Packet" ref="0x40865868" scoped=""/></to>
+        </wire>
+        <wire loc="65:/home/zly/tinyos-main/tos/system/DirectAMSenderC.nc">
+          <from><interface-ref name="AMPacket" ref="0x410ba960" scoped=""/></from>
+          <to><interface-ref name="AMPacket" ref="0x408727b0" scoped=""/></to>
+        </wire>
+        <wire loc="66:/home/zly/tinyos-main/tos/system/DirectAMSenderC.nc">
+          <from><interface-ref name="Acks" ref="0x410b96e0" scoped=""/></from>
+          <to><interface-ref name="PacketAcknowledgements" ref="0x4086fa90" scoped=""/></to>
+        </wire>
+        <wire loc="60:/home/zly/tinyos-main/tos/system/DirectAMSenderC.nc">
+          <from><interface-ref name="Send" ref="0x410b6420" scoped=""/></from>
+          <to><interface-ref name="Send" ref="0x410e8688" scoped=""/>
+          <arguments>
+            <value cst="U:">
+              <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned=""/>
+            </value>
+          </arguments>
+          </to>
+        </wire>
+        <wire loc="61:/home/zly/tinyos-main/tos/system/DirectAMSenderC.nc">
+          <from><interface-ref name="AMPacket" ref="0x410b6ab8" scoped=""/></from>
+          <to><interface-ref name="AMPacket" ref="0x408727b0" scoped=""/></to>
+        </wire>
+      </wiring>
+    <specification><interface loc="49:/home/zly/tinyos-main/tos/system/DirectAMSenderC.nc" name="AMSend" provided="1" ref="0x410bdb78">
+      <component-ref nicename="tos.system.DirectAMSenderC" qname="DirectAMSenderC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="AMSend" ref="0x410bdb78" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.AMSend" qname="AMSend"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="send" ref="0x410bdd50" scoped=""/>
+        <function-ref name="getPayload" ref="0x410bde30" scoped=""/>
+        <function-ref name="maxPayloadLength" ref="0x410bdf10" scoped=""/>
+        <function-ref name="cancel" ref="0x410ba010" scoped=""/>
+        <function-ref name="sendDone" ref="0x410ba0f0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="50:/home/zly/tinyos-main/tos/system/DirectAMSenderC.nc" name="Packet" provided="1" ref="0x410ba270">
+      <component-ref nicename="tos.system.DirectAMSenderC" qname="DirectAMSenderC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Packet" ref="0x410ba270" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Packet" qname="Packet"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="clear" ref="0x410ba448" scoped=""/>
+        <function-ref name="payloadLength" ref="0x410ba528" scoped=""/>
+        <function-ref name="getPayload" ref="0x410ba608" scoped=""/>
+        <function-ref name="maxPayloadLength" ref="0x410ba6e8" scoped=""/>
+        <function-ref name="setPayloadLength" ref="0x410ba7c8" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="51:/home/zly/tinyos-main/tos/system/DirectAMSenderC.nc" name="AMPacket" provided="1" ref="0x410ba960">
+      <component-ref nicename="tos.system.DirectAMSenderC" qname="DirectAMSenderC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="AMPacket" ref="0x410ba960" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.AMPacket" qname="AMPacket"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="group" ref="0x410bab38" scoped=""/>
+        <function-ref name="source" ref="0x410bac18" scoped=""/>
+        <function-ref name="address" ref="0x410bacf8" scoped=""/>
+        <function-ref name="destination" ref="0x410badd8" scoped=""/>
+        <function-ref name="setSource" ref="0x410baeb8" scoped=""/>
+        <function-ref name="setDestination" ref="0x410b9010" scoped=""/>
+        <function-ref name="type" ref="0x410b90f0" scoped=""/>
+        <function-ref name="setType" ref="0x410b91d0" scoped=""/>
+        <function-ref name="isForMe" ref="0x410b92b0" scoped=""/>
+        <function-ref name="setGroup" ref="0x410b9390" scoped=""/>
+        <function-ref name="localGroup" ref="0x410b9470" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="52:/home/zly/tinyos-main/tos/system/DirectAMSenderC.nc" name="Acks" provided="1" ref="0x410b96e0">
+      <component-ref nicename="tos.system.DirectAMSenderC" qname="DirectAMSenderC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Acks" ref="0x410b96e0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.PacketAcknowledgements" qname="PacketAcknowledgements"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="requestAck" ref="0x410b98b8" scoped=""/>
+        <function-ref name="noAck" ref="0x410b9998" scoped=""/>
+        <function-ref name="wasAcked" ref="0x410b9a78" scoped=""/>
+      </interface-functions>
+    </interface></specification><referenced><interface loc="47:/home/zly/tinyos-main/tos/system/AMQueueEntryP.nc" name="AMPacket" provided="0" ref="0x410b6ab8">
+      <component-ref nicename="tos.system.AMQueueEntryP" qname="DirectAMSenderC.AMQueueEntryP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="AMPacket" ref="0x410b6ab8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.AMPacket" qname="AMPacket"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="group" ref="0x410b6c90" scoped=""/>
+        <function-ref name="source" ref="0x410b6d70" scoped=""/>
+        <function-ref name="address" ref="0x410b6e50" scoped=""/>
+        <function-ref name="destination" ref="0x410e9010" scoped=""/>
+        <function-ref name="setSource" ref="0x410e90f0" scoped=""/>
+        <function-ref name="setDestination" ref="0x410e91d0" scoped=""/>
+        <function-ref name="type" ref="0x410e92b0" scoped=""/>
+        <function-ref name="setType" ref="0x410e9390" scoped=""/>
+        <function-ref name="isForMe" ref="0x410e9470" scoped=""/>
+        <function-ref name="setGroup" ref="0x410e9550" scoped=""/>
+        <function-ref name="localGroup" ref="0x410e9630" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="69:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc" name="PacketAcknowledgements" provided="1" ref="0x4086fa90">
+      <component-ref nicename="tos.platforms.telosa.ActiveMessageC" qname="ActiveMessageC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="PacketAcknowledgements" ref="0x4086fa90" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.PacketAcknowledgements" qname="PacketAcknowledgements"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="requestAck" ref="0x4086fc68" scoped=""/>
+        <function-ref name="noAck" ref="0x4086fd48" scoped=""/>
+        <function-ref name="wasAcked" ref="0x4086fe28" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="46:/home/zly/tinyos-main/tos/system/AMQueueEntryP.nc" name="Send" provided="0" ref="0x410b6420">
+      <component-ref nicename="tos.system.AMQueueEntryP" qname="DirectAMSenderC.AMQueueEntryP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Send" ref="0x410b6420" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Send" qname="Send"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="send" ref="0x410b65f8" scoped=""/>
+        <function-ref name="getPayload" ref="0x410b66d8" scoped=""/>
+        <function-ref name="maxPayloadLength" ref="0x410b67b8" scoped=""/>
+        <function-ref name="cancel" ref="0x410b6898" scoped=""/>
+        <function-ref name="sendDone" ref="0x410b6978" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="68:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc" name="AMPacket" provided="1" ref="0x408727b0">
+      <component-ref nicename="tos.platforms.telosa.ActiveMessageC" qname="ActiveMessageC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="AMPacket" ref="0x408727b0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.AMPacket" qname="AMPacket"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="group" ref="0x40872988" scoped=""/>
+        <function-ref name="source" ref="0x40872a68" scoped=""/>
+        <function-ref name="address" ref="0x40872b48" scoped=""/>
+        <function-ref name="destination" ref="0x40872c28" scoped=""/>
+        <function-ref name="setSource" ref="0x40872d08" scoped=""/>
+        <function-ref name="setDestination" ref="0x40872de8" scoped=""/>
+        <function-ref name="type" ref="0x40872ec8" scoped=""/>
+        <function-ref name="setType" ref="0x40863010" scoped=""/>
+        <function-ref name="isForMe" ref="0x408630f0" scoped=""/>
+        <function-ref name="setGroup" ref="0x408631d0" scoped=""/>
+        <function-ref name="localGroup" ref="0x408632b0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="67:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc" name="Packet" provided="1" ref="0x40865868">
+      <component-ref nicename="tos.platforms.telosa.ActiveMessageC" qname="ActiveMessageC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Packet" ref="0x40865868" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Packet" qname="Packet"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="clear" ref="0x40865a40" scoped=""/>
+        <function-ref name="payloadLength" ref="0x40865b20" scoped=""/>
+        <function-ref name="getPayload" ref="0x40865c00" scoped=""/>
+        <function-ref name="maxPayloadLength" ref="0x40865ce0" scoped=""/>
+        <function-ref name="setPayloadLength" ref="0x40865dc0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="43:/home/zly/tinyos-main/tos/system/AMQueueP.nc" name="Send" provided="1" ref="0x410e8688">
+      <component-ref nicename="tos.system.AMQueueP" qname="AMQueueP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Send" ref="0x410e8688" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Send" qname="Send"/>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+          <typename><typedef-ref name="uint8_t" ref="0x40212dc8"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="send" ref="0x410e8860" scoped=""/>
+        <function-ref name="getPayload" ref="0x410e8940" scoped=""/>
+        <function-ref name="maxPayloadLength" ref="0x410e8a20" scoped=""/>
+        <function-ref name="cancel" ref="0x410e8b00" scoped=""/>
+        <function-ref name="sendDone" ref="0x410e8be0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="44:/home/zly/tinyos-main/tos/system/AMQueueEntryP.nc" name="AMSend" provided="1" ref="0x410b7cb0">
+      <component-ref nicename="tos.system.AMQueueEntryP" qname="DirectAMSenderC.AMQueueEntryP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="AMSend" ref="0x410b7cb0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.AMSend" qname="AMSend"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="send" ref="0x410b7e88" scoped=""/>
+        <function-ref name="getPayload" ref="0x410b6010" scoped=""/>
+        <function-ref name="maxPayloadLength" ref="0x410b60f0" scoped=""/>
+        <function-ref name="cancel" ref="0x410b61d0" scoped=""/>
+        <function-ref name="sendDone" ref="0x410b62b0" scoped=""/>
+      </interface-functions>
+    </interface><component abstract="" loc="43(DirectAMSenderC.AMQueueEntryP):/home/zly/tinyos-main/tos/system/AMQueueEntryP.nc" nicename="tos.system.AMQueueEntryP" qname="DirectAMSenderC.AMQueueEntryP">
+      <documentation loc="33:/home/zly/tinyos-main/tos/system/AMQueueEntryP.nc">
+        <short>
+ Internal AM component that fills in needed packet fields for the 
+ AMSend -&gt; Send transformation.</short>
+        <long>
+ Internal AM component that fills in needed packet fields for the 
+ AMSend -&gt; Send transformation.
+
+ @author Philip Levis
+ @date   Jan 16 2006
+</long>
+      </documentation>
+      <instance>
+        <component-ref nicename="tos.system.AMQueueEntryP" qname="AMQueueEntryP"/>
+        <arguments>
+          <value cst="U:">
+            <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+              <typename><typedef-ref name="am_id_t" ref="0x4074eae0"/></typename>
+            </type-int>
+          </value>
+        </arguments>
+      </instance>
+      <module/>
+    </component><component loc="59:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc" nicename="tos.platforms.telosa.ActiveMessageC" qname="ActiveMessageC">
+      <documentation loc="49:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc">
+        <short>
+
+ The Active Message layer on the Telos platform.</short>
+        <long>
+
+ The Active Message layer on the Telos platform. This is a naming wrapper
+ around the CC2420 Active Message layer.
+
+ @author Philip Levis
+ @version $Revision: 1.9 $ $Date: 2010-06-29 22:07:55 $
+</long>
+      </documentation>
+      <configuration/>
+      <wiring>
+        <wire loc="78:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc">
+          <from><interface-ref name="SplitControl" ref="0x4086aac0" scoped=""/></from>
+          <to><interface-ref name="SplitControl" ref="0x40891788" scoped=""/></to>
+        </wire>
+        <wire loc="80:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc">
+          <from><interface-ref name="AMSend" ref="0x40866470" scoped=""/></from>
+          <to><interface-ref name="AMSend" ref="0x40890100" scoped=""/></to>
+        </wire>
+        <wire loc="82:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc">
+          <from><interface-ref name="Snoop" ref="0x40865510" scoped=""/></from>
+          <to><interface-ref name="Snoop" ref="0x4088e178" scoped=""/></to>
+        </wire>
+        <wire loc="83:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc">
+          <from><interface-ref name="Packet" ref="0x40865868" scoped=""/></from>
+          <to><interface-ref name="Packet" ref="0x4088d190" scoped=""/></to>
+        </wire>
+        <wire loc="89:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc">
+          <from><interface-ref name="PacketTimeStamp32khz" ref="0x40883408" scoped=""/></from>
+          <to><interface-ref name="PacketTimeStamp32khz" ref="0x40f67668" scoped=""/></to>
+        </wire>
+        <wire loc="86:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc">
+          <from><interface-ref name="LowPowerListening" ref="0x4087cba8" scoped=""/></from>
+          <to><interface-ref name="LowPowerListening" ref="0x4088b948" scoped=""/></to>
+        </wire>
+        <wire loc="81:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc">
+          <from><interface-ref name="Receive" ref="0x40866e30" scoped=""/></from>
+          <to><interface-ref name="Receive" ref="0x40890ac0" scoped=""/></to>
+        </wire>
+        <wire loc="85:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc">
+          <from><interface-ref name="PacketAcknowledgements" ref="0x4086fa90" scoped=""/></from>
+          <to><interface-ref name="PacketAcknowledgements" ref="0x4088c230" scoped=""/></to>
+        </wire>
+        <wire loc="84:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc">
+          <from><interface-ref name="AMPacket" ref="0x408727b0" scoped=""/></from>
+          <to><interface-ref name="AMPacket" ref="0x4088e4e8" scoped=""/></to>
+        </wire>
+        <wire loc="90:/home/zly/tinyos-main/tos/platforms/telosa/ActiveMessageC.nc">
+          <from><interface-ref name="PacketTimeStampMilli" ref="0x40873db8" scoped=""/></from>
+          <to><interface-ref name="PacketTimeStampMilli" ref="0x40f64100" scoped=""/></to>
+        </wire>
+      </wiring>
+    </component><component loc="42:/home/zly/tinyos-main/tos/system/AMQueueP.nc" nicename="tos.system.AMQueueP" qname="AMQueueP">
+      <documentation loc="33:/home/zly/tinyos-main/tos/system/AMQueueP.nc">
+        <short>
+ The fair-share send queue for AM radio communication.</short>
+        <long>
+ The fair-share send queue for AM radio communication.
+
+ @author Philip Levis
+ @date   Jan 16 2006
+</long>
+      </documentation>
+      <configuration/>
+      <wiring>
+        <wire loc="53:/home/zly/tinyos-main/tos/system/AMQueueP.nc">
+          <from><interface-ref name="Send" ref="0x410e8688" scoped=""/></from>
+          <to><interface-ref name="Send" ref="0x410e2538" scoped=""/></to>
+        </wire>
+        <wire loc="54:/home/zly/tinyos-main/tos/system/AMQueueP.nc">
+          <from><interface-ref name="AMSend" ref="0x410e2ca8" scoped=""/></from>
+          <to><interface-ref name="AMSend" ref="0x40866470" scoped=""/></to>
+        </wire>
+        <wire loc="55:/home/zly/tinyos-main/tos/system/AMQueueP.nc">
+          <from><interface-ref name="AMPacket" ref="0x410f73f0" scoped=""/></from>
+          <to><interface-ref name="AMPacket" ref="0x408727b0" scoped=""/></to>
+        </wire>
+        <wire loc="56:/home/zly/tinyos-main/tos/system/AMQueueP.nc">
+          <from><interface-ref name="Packet" ref="0x410f6010" scoped=""/></from>
+          <to><interface-ref name="Packet" ref="0x40865868" scoped=""/></to>
+        </wire>
+      </wiring>
+    </component></referenced></component>
