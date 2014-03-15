@@ -6,7 +6,7 @@
 
 ###添加tinyprod源
 	cd /etc/apt/sources.list.d
-	gedit sources.list
+	sudo gedit sources.list
 
 在最后两行添加
 
