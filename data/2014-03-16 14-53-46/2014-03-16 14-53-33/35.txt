@@ -1,0 +1,1 @@
+java net.tinyos.tools.PrintfClient -comm serial@/dev/ttyUSB36:telos
