@@ -63,7 +63,7 @@
 			"file": "SerialToRadioAppC.nc",
 			"settings":
 			{
-				"buffer_size": 728,
+				"buffer_size": 730,
 				"line_ending": "Unix"
 			}
 		},
@@ -71,7 +71,7 @@
 			"file": "SerialToRadioC.nc",
 			"settings":
 			{
-				"buffer_size": 2162,
+				"buffer_size": 2199,
 				"line_ending": "Unix"
 			}
 		},
@@ -327,15 +327,15 @@
 					"file": "SerialToRadioAppC.nc",
 					"settings":
 					{
-						"buffer_size": 728,
+						"buffer_size": 730,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								107,
-								107
+								19,
+								19
 							]
 						],
 						"settings":
@@ -354,15 +354,15 @@
 					"file": "SerialToRadioC.nc",
 					"settings":
 					{
-						"buffer_size": 2162,
+						"buffer_size": 2199,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								913,
-								913
+								1220,
+								1220
 							]
 						],
 						"settings":
@@ -371,7 +371,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 612.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -454,6 +454,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"stra",
+				"SerialToRadioAppC.nc"
+			],
 			[
 				"de",
 				"dec2bin"

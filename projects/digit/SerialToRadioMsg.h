@@ -2,10 +2,6 @@
 #define SerialToRadioMsg_H_
 
 
-
-#define START_WAIT 1000;
-#define SEND_DELTA 2000;
-
 enum
 {
 	MY_AM_ID = 0xC8

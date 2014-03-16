@@ -1,4 +1,4 @@
-#define USE_PRINT
+//#define USE_PRINT
 
 configuration SerialToRadioAppC{
 }

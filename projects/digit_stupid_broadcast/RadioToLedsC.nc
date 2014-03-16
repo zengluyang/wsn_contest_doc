@@ -90,7 +90,14 @@ implementation {
 					received_counts[rm->count] = 1;
 					send_count++;
 					busy = TRUE;
-					//printf("RadioToLedsC SEND\n");
+					printf("RadioToLedsC SEND %d %d %d %d %d %d\n",
+						TOS_NODE_ID,
+						rm->number,
+						rm->color,
+						rm->count,
+						(on== 0 ? 1 : 0),
+						send_count
+					);
 				}
 			}
 		}

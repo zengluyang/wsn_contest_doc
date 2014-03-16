@@ -6,10 +6,10 @@
 #include "SerialToRadioMsg.h"
 #include "printf.h"
 
-#define START_WAIT 1000
+#define START_WAIT 15000
 #define SEND_DELTA 2000
 
-
+#define SEND_CNT_SUM 30
 
 const uint8_t number_array[10] = {
 	9,8,7,6,5,4,3,2,1,0
@@ -65,11 +65,11 @@ implementation
 		
 		test_send_msg_t *rm = (test_send_msg_t*)call SerialPacket.getPayload(&serial_msg,sizeof(test_send_msg_t));
 		test_send_msg_t *send = (test_send_msg_t*)call AMSend.getPayload(&packet,sizeof(test_send_msg_t));
-		printf("SerialToRadioC FIRE %d %d %d\n",send->number,send->color,send->count);
+		//printf("SerialToRadioC FIRE %d %d %d\n",send->number,send->color,send->count);
 		send->number = number_array[send->count%10];
 		send->color  = color_array[send->count%3];
 		send->count = count;
-		if(!busy && count<2)
+		if(!busy && count<SEND_CNT_SUM)
 		{
 			if(call AMSend.send(AM_BROADCAST_ADDR, &packet, sizeof(test_send_msg_t))==SUCCESS)
 		  	{
