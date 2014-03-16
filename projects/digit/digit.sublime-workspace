@@ -361,8 +361,8 @@
 						"selection":
 						[
 							[
-								948,
-								961
+								913,
+								913
 							]
 						],
 						"settings":
@@ -494,6 +494,10 @@
 		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"",
+				"/D/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/digit_stupid_broadcast.sublime-project"
+			]
 		],
 		"width": 380.0
 	},

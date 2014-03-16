@@ -9,7 +9,7 @@
 	"build_systems": [
 		{
 			"name": "Make telosb",
-			"cmd": ["make", "telosb"]
+			"cmd": ["make","telosb"]
 		}
 	]
 }

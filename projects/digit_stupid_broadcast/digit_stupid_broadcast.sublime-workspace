@@ -64,37 +64,34 @@
 			}
 		},
 		{
-			"contents": "#include \"Timer.h\"\n#include \"RadioMsg.h\"\n#include \"printf.h\"\n\n\n\nmodule RadioToLedsC {\n	uses {\n		interface Boot;\n		interface SplitControl as AMControl;\n		interface Packet;\n		interface AMSend;\n		interface Receive;\n		interface Leds;\n	}\n}\n\nimplementation {\n	bool busy = FALSE;\n	message_t packet;\n	uint8_t received_counts[256];\n\n	uint16_t send_count = 0;\n\n	event void Boot.booted() {\n		uint16_t i=0;\n		printf(\"RadioToLedsC BOOT\\n\");\n		//call Leds.led0On();\n		//call Leds.led1On();\n		//call Leds.led2On();\n		for(i=0;i<256;i++) {\n			received_counts[i]=0;\n		}\n		call AMControl.start();\n	}\n\n\n	\n\n	event void AMControl.startDone(error_t err) {\n		if(err==SUCCESS) {\n			//good!\n		} else {\n			call AMControl.start();\n		}\n	}\n\n	event void AMControl.stopDone(error_t error) {}\n\n	event message_t* Receive.receive(message_t *msg, \n		void *payload, uint8_t len) {\n		test_send_msg_t *rm;\n		uint16_t on = 0; //important! cannot be bool\n		uint8_t count = (rm->count)%256;\n		packet = *msg;\n		\n		if(len == sizeof(test_send_msg_t)) {\n			rm = (test_send_msg_t *) payload;\n			on = (PATTERN[rm->number].frag[3-(TOS_NODE_ID/16)%4]) & (0x1<<(TOS_NODE_ID%16));\n			printf(\"RadioToLedsC RECV %d %d %d %d %d %d\\n\",\n				TOS_NODE_ID, \n				rm->number, \n				rm->color, \n				rm->count,\n				(on==0 ? 1 : 0),\n				send_count\n			);\n			//printf(\"sizeof(PATTERN): %d\\n\",sizeof(PATTERN));\n			//printf(\"PATTERN[0].frag[3-(11/16)%%4] %0x\\n\",PATTERN[0].frag[3-(11/16)%4]);\n			switch((rm->color)%4) {\n				case 0:\n					if(on!=0) call Leds.led0On();\n					else call Leds.led0Off();\n					break;\n				case 1:\n					if(on!=0) call Leds.led1On();\n					else call Leds.led1Off();\n					break;\n				case 2:\n					if(on!=0) call Leds.led2On();\n					else call Leds.led1Off();\n					break;\n				default:	\n					break;\n			}\n			//printf(\"RadioToLedsC received_counts[rm->count] %d\\n\", received_counts[rm->count]);\n			if(!busy && received_counts[rm->count]==0) {\n				if(call AMSend.send(AM_BROADCAST_ADDR, \n					&packet, sizeof(test_send_msg_t))) {\n					received_counts[rm->count] = 1;\n					send_count++;\n					busy = TRUE;\n					//printf(\"RadioToLedsC SEND\\n\");\n				}\n			}\n		}\n		return msg;\n	}\n\n	event void AMSend.sendDone(message_t *msg, error_t error) \n	{\n		busy=FALSE;\n	}\n\n\n}",
 			"file": "RadioToLedsC.nc",
-			"file_size": 2199,
-			"file_write_time": 1394884817000000,
 			"settings":
 			{
-				"buffer_size": 2202,
+				"buffer_size": 2199,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "RadioMsg.h",
+			"file": "/C/Users/ZLY/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
 			"settings":
 			{
-				"buffer_size": 1779,
+				"buffer_size": 13705,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "dec2bin.c",
+			"file": "/C/Users/ZLY/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
 			"settings":
 			{
-				"buffer_size": 4216,
+				"buffer_size": 30635,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Makefile",
+			"file": "digit_stupid_broadcast.sublime-project",
 			"settings":
 			{
-				"buffer_size": 204,
+				"buffer_size": 173,
 				"line_ending": "Unix"
 			}
 		}
@@ -191,6 +188,9 @@
 	},
 	"file_history":
 	[
+		"/D/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/RadioMsg.h",
+		"/D/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/dec2bin.c",
+		"/D/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/Makefile",
 		"/home/zly/tinyos-main/support/make/Makerules",
 		"/mnt/hgfs/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/digit_stupid_broadcast.sublime-workspace",
 		"/mnt/hgfs/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/PacketMsg.h",
@@ -285,6 +285,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ctrl+b",
+			"build",
 			"CONFIG_DIR",
 			"start",
 			"t",
@@ -349,8 +351,8 @@
 						"selection":
 						[
 							[
-								259,
-								259
+								110,
+								110
 							]
 						],
 						"settings":
@@ -369,15 +371,15 @@
 					"file": "RadioToLedsC.nc",
 					"settings":
 					{
-						"buffer_size": 2202,
+						"buffer_size": 2199,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								62,
-								62
+								82,
+								82
 							]
 						],
 						"settings":
@@ -393,24 +395,24 @@
 				},
 				{
 					"buffer": 2,
-					"file": "RadioMsg.h",
+					"file": "/C/Users/ZLY/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
 					"settings":
 					{
-						"buffer_size": 1779,
+						"buffer_size": 13705,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								65,
+								65
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 2,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -421,50 +423,51 @@
 				},
 				{
 					"buffer": 3,
-					"file": "dec2bin.c",
+					"file": "/C/Users/ZLY/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
 					"settings":
 					{
-						"buffer_size": 4216,
+						"buffer_size": 30635,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3115,
-								3115
+								12836,
+								12836
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C.tmLanguage",
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1071.0,
+						"translation.y": 4270.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "Makefile",
+					"file": "digit_stupid_broadcast.sublime-project",
 					"settings":
 					{
-						"buffer_size": 204,
+						"buffer_size": 173,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								204,
-								204
+								161,
+								161
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -568,6 +571,10 @@
 		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"",
+				"/D/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/digit_stupid_broadcast.sublime-project"
+			]
 		],
 		"width": 380.0
 	},
