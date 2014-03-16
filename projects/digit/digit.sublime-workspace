@@ -76,13 +76,26 @@
 			}
 		},
 		{
-			"contents": "#ifndef SerialToRadioMsg_H_\n#define SerialToRadioMsg_H_\n\n\n\n\n\nenum\n{\n	MY_AM_ID = 0xC8\n};\n\ntypedef nx_struct test_send_msg {\n  nx_uint8_t  number;\n  nx_uint8_t  color;\n  nx_uint8_t  count;\n}test_send_msg_t;\n\n#endif\n",
 			"file": "SerialToRadioMsg.h",
-			"file_size": 262,
-			"file_write_time": 1394888607000000,
 			"settings":
 			{
-				"buffer_size": 213,
+				"buffer_size": 210,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/D/Dropbox/Documents/undergraduate/wsn_contest/data/2014-03-16 14-45-37/2014-03-16 14-44-01/calc_send_count.sh",
+			"settings":
+			{
+				"buffer_size": 101,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Makefile",
+			"settings":
+			{
+				"buffer_size": 207,
 				"line_ending": "Unix"
 			}
 		}
@@ -175,6 +188,7 @@
 	},
 	"file_history":
 	[
+		"/D/Dropbox/Documents/undergraduate/wsn_contest/data/2014-03-16 14-45-37/2014-03-16 14-44-01/calc_send_count.sh",
 		"/mnt/hgfs/Dropbox/Documents/undergraduate/wsn_contest/projects/digit/digit.sublime-project",
 		"/mnt/hgfs/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/digit_stupid_broadcast.sublime-workspace",
 		"/mnt/hgfs/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/PacketMsg.h",
@@ -319,7 +333,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -361,8 +375,8 @@
 						"selection":
 						[
 							[
-								1220,
-								1220
+								506,
+								506
 							]
 						],
 						"settings":
@@ -381,20 +395,72 @@
 					"file": "SerialToRadioMsg.h",
 					"settings":
 					{
-						"buffer_size": 213,
+						"buffer_size": 210,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								59,
-								59
+								210,
+								84
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/D/Dropbox/Documents/undergraduate/wsn_contest/data/2014-03-16 14-45-37/2014-03-16 14-44-01/calc_send_count.sh",
+					"settings":
+					{
+						"buffer_size": 101,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								101,
+								101
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Makefile",
+					"settings":
+					{
+						"buffer_size": 207,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								183,
+								183
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -454,6 +520,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"mak",
+				"Makefile"
+			],
 			[
 				"stra",
 				"SerialToRadioAppC.nc"

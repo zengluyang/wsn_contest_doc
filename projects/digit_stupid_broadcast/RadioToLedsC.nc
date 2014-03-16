@@ -35,7 +35,6 @@ implementation {
 	}
 
 
-	
 
 	event void AMControl.startDone(error_t err) {
 		if(err==SUCCESS) {
@@ -101,6 +100,7 @@ implementation {
 				}
 			}
 		}
+		printfflush();
 		return msg;
 	}
 

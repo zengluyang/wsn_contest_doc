@@ -1,8 +1,6 @@
 #include "RadioMsg.h"
 //#define USE_PRINT
 
-
-
 configuration RadioToLedsAppC {}
 implementation {
 	components MainC;
