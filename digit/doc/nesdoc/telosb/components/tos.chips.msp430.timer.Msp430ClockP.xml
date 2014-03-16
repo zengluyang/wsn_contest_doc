@@ -1,0 +1,37 @@
+<?xml version="1.0" ?><component loc="43:/home/zly/tinyos-main/tos/chips/msp430/timer/Msp430ClockP.nc" nicename="tos.chips.msp430.timer.Msp430ClockP" qname="Msp430ClockP" safe="">
+      <module/>
+    <specification><interface loc="46:/home/zly/tinyos-main/tos/chips/msp430/timer/Msp430ClockP.nc" name="Msp430ClockInit" provided="1" ref="0x406444c8">
+      <component-ref nicename="tos.chips.msp430.timer.Msp430ClockP" qname="Msp430ClockP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Msp430ClockInit" ref="0x406444c8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430ClockInit" qname="Msp430ClockInit"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="defaultInitClocks" ref="0x40644cc0" scoped=""/>
+        <function-ref name="initTimerB" ref="0x40644780" scoped=""/>
+        <function-ref name="defaultInitTimerA" ref="0x40644860" scoped=""/>
+        <function-ref name="initTimerA" ref="0x40644940" scoped=""/>
+        <function-ref name="defaultInitTimerB" ref="0x406446a0" scoped=""/>
+        <function-ref name="defaultSetupDcoCalibrate" ref="0x40644a20" scoped=""/>
+        <function-ref name="setupDcoCalibrate" ref="0x40644b00" scoped=""/>
+        <function-ref name="initClocks" ref="0x40644be0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="47:/home/zly/tinyos-main/tos/chips/msp430/timer/Msp430ClockP.nc" name="McuPowerOverride" provided="1" ref="0x40644ec8">
+      <component-ref nicename="tos.chips.msp430.timer.Msp430ClockP" qname="Msp430ClockP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="McuPowerOverride" ref="0x40644ec8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.McuPowerOverride" qname="McuPowerOverride"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="lowestState" ref="0x406430c0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="45:/home/zly/tinyos-main/tos/chips/msp430/timer/Msp430ClockP.nc" name="Init" provided="1" ref="0x406440f8">
+      <component-ref nicename="tos.chips.msp430.timer.Msp430ClockP" qname="Msp430ClockP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Init" ref="0x406440f8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Init" qname="Init"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="init" ref="0x406442d0" scoped=""/>
+      </interface-functions>
+    </interface></specification><referenced/></component>

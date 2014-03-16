@@ -1,0 +1,26 @@
+digraph "SerialToRadioAppC" {
+  "SerialToRadioC" [fontsize=12, shape=box, URL="../chtml/SerialToRadioC.html"];
+  "MainC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.system.MainC.html"];
+  "SerialToRadioC" [fontsize=12, shape=box, URL="../chtml/SerialToRadioC.html"];
+  "SerialToRadioAppC.Timer0" [fontsize=12, shape=box,peripheries=2, style=dashed, label="TimerMilliC\n(Timer0)", URL="../chtml/tos.system.TimerMilliC.html"];
+  "SerialToRadioC" [fontsize=12, shape=box, URL="../chtml/SerialToRadioC.html"];
+  "ActiveMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.platforms.telosa.ActiveMessageC.html"];
+  "SerialToRadioC" [fontsize=12, shape=box, URL="../chtml/SerialToRadioC.html"];
+  "SerialToRadioAppC.Sender" [fontsize=12, shape=box,peripheries=2, style=dashed, label="AMSenderC\n(Sender)", URL="../chtml/tos.system.AMSenderC.html"];
+  "SerialToRadioC" [fontsize=12, shape=box, URL="../chtml/SerialToRadioC.html"];
+  "SerialActiveMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.lib.serial.SerialActiveMessageC.html"];
+  "SerialToRadioC" [fontsize=12, shape=box, URL="../chtml/SerialToRadioC.html"];
+  "ActiveMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.platforms.telosa.ActiveMessageC.html"];
+  "SerialToRadioC" [fontsize=12, shape=box, URL="../chtml/SerialToRadioC.html"];
+  "SerialActiveMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.lib.serial.SerialActiveMessageC.html"];
+  "SerialToRadioC" [fontsize=12, shape=box, URL="../chtml/SerialToRadioC.html"];
+  "SerialActiveMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.lib.serial.SerialActiveMessageC.html"];
+  "SerialToRadioC" -> "MainC" [label="Boot", URL="../ihtml/tos.interfaces.Boot.html", fontsize=10];
+  "SerialToRadioC" -> "SerialToRadioAppC.Timer0" [label="Timer<TMilli>", URL="../ihtml/tos.lib.timer.Timer.html", fontsize=10];
+  "SerialToRadioC" -> "ActiveMessageC" [label="Packet", URL="../ihtml/tos.interfaces.Packet.html", fontsize=10];
+  "SerialToRadioC" -> "SerialToRadioAppC.Sender" [label="AMSend", URL="../ihtml/tos.interfaces.AMSend.html", fontsize=10];
+  "SerialToRadioC" -> "SerialActiveMessageC" [label="Receive", URL="../ihtml/tos.interfaces.Receive.html", fontsize=10];
+  "SerialToRadioC" -> "ActiveMessageC" [label="SplitControl", URL="../ihtml/tos.interfaces.SplitControl.html", fontsize=10];
+  "SerialToRadioC" -> "SerialActiveMessageC" [label="SplitControl", URL="../ihtml/tos.interfaces.SplitControl.html", fontsize=10];
+  "SerialToRadioC" -> "SerialActiveMessageC" [label="Packet", URL="../ihtml/tos.interfaces.Packet.html", fontsize=10];
+}
