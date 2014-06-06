@@ -2449,7 +2449,7 @@ error_t error);
 # 110 "/home/zly/tinyos-main/tos/interfaces/AMSend.nc"
 static void /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__AMSend__sendDone(
 # 48 "/home/zly/tinyos-main/tos/system/AMQueueImplP.nc"
-am_id_t arg_0x408f30a0, 
+am_id_t arg_0x4090f0a0, 
 # 103 "/home/zly/tinyos-main/tos/interfaces/AMSend.nc"
 message_t * msg, 
 
@@ -2847,23 +2847,23 @@ uint16_t data);
 # 120 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static error_t CC2420SpiP__Resource__release(
 # 45 "/home/zly/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
-uint8_t arg_0x40b9f558);
+uint8_t arg_0x40b9e558);
 # 97 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static error_t CC2420SpiP__Resource__immediateRequest(
 # 45 "/home/zly/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
-uint8_t arg_0x40b9f558);
+uint8_t arg_0x40b9e558);
 # 88 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static error_t CC2420SpiP__Resource__request(
 # 45 "/home/zly/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
-uint8_t arg_0x40b9f558);
+uint8_t arg_0x40b9e558);
 # 102 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static void CC2420SpiP__Resource__default__granted(
 # 45 "/home/zly/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
-uint8_t arg_0x40b9f558);
+uint8_t arg_0x40b9e558);
 # 128 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static bool CC2420SpiP__Resource__isOwner(
 # 45 "/home/zly/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
-uint8_t arg_0x40b9f558);
+uint8_t arg_0x40b9e558);
 # 75 "/home/zly/tinyos-main/tos/interfaces/TaskBasic.nc"
 static void CC2420SpiP__grant__runTask(void );
 # 53 "/home/zly/tinyos-main/tos/chips/cc2420/interfaces/CC2420Strobe.nc"
@@ -2875,21 +2875,21 @@ static error_t StateImplP__Init__init(void );
 # 56 "/home/zly/tinyos-main/tos/interfaces/State.nc"
 static void StateImplP__State__toIdle(
 # 67 "/home/zly/tinyos-main/tos/system/StateImplP.nc"
-uint8_t arg_0x40bd3d08);
+uint8_t arg_0x40bd2d08);
 # 66 "/home/zly/tinyos-main/tos/interfaces/State.nc"
 static bool StateImplP__State__isState(
 # 67 "/home/zly/tinyos-main/tos/system/StateImplP.nc"
-uint8_t arg_0x40bd3d08, 
+uint8_t arg_0x40bd2d08, 
 # 66 "/home/zly/tinyos-main/tos/interfaces/State.nc"
 uint8_t myState);
 #line 61
 static bool StateImplP__State__isIdle(
 # 67 "/home/zly/tinyos-main/tos/system/StateImplP.nc"
-uint8_t arg_0x40bd3d08);
+uint8_t arg_0x40bd2d08);
 # 45 "/home/zly/tinyos-main/tos/interfaces/State.nc"
 static error_t StateImplP__State__requestState(
 # 67 "/home/zly/tinyos-main/tos/system/StateImplP.nc"
-uint8_t arg_0x40bd3d08, 
+uint8_t arg_0x40bd2d08, 
 # 45 "/home/zly/tinyos-main/tos/interfaces/State.nc"
 uint8_t reqState);
 
@@ -2899,7 +2899,7 @@ uint8_t reqState);
 
 static void StateImplP__State__forceState(
 # 67 "/home/zly/tinyos-main/tos/system/StateImplP.nc"
-uint8_t arg_0x40bd3d08, 
+uint8_t arg_0x40bd2d08, 
 # 51 "/home/zly/tinyos-main/tos/interfaces/State.nc"
 uint8_t reqState);
 # 65 "/home/zly/tinyos-main/tos/interfaces/ResourceConfigure.nc"
@@ -2950,23 +2950,23 @@ static uint8_t /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__SpiByte__write(uint8
 # 120 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__default__release(
 # 81 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430SpiNoDmaP.nc"
-uint8_t arg_0x40c4b718);
+uint8_t arg_0x40c4a718);
 # 97 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__default__immediateRequest(
 # 81 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430SpiNoDmaP.nc"
-uint8_t arg_0x40c4b718);
+uint8_t arg_0x40c4a718);
 # 88 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__default__request(
 # 81 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430SpiNoDmaP.nc"
-uint8_t arg_0x40c4b718);
+uint8_t arg_0x40c4a718);
 # 102 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static void /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__granted(
 # 81 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430SpiNoDmaP.nc"
-uint8_t arg_0x40c4b718);
+uint8_t arg_0x40c4a718);
 # 128 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static bool /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__default__isOwner(
 # 81 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430SpiNoDmaP.nc"
-uint8_t arg_0x40c4b718);
+uint8_t arg_0x40c4a718);
 # 120 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__Resource__release(
 # 75 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430SpiNoDmaP.nc"
@@ -3308,7 +3308,7 @@ static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__TimerFrom__f
 #line 83
 static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__default__fired(
 # 48 "/home/zly/tinyos-main/tos/lib/timer/VirtualizeTimerC.nc"
-uint8_t arg_0x40fbe678);
+uint8_t arg_0x40fbd678);
 # 82 "/home/zly/tinyos-main/tos/lib/timer/Counter.nc"
 static void /*HilTimerMilliC.CounterToLocalTimeC*/CounterToLocalTimeC__1__Counter__overflow(void );
 # 52 "/home/zly/tinyos-main/tos/interfaces/Random.nc"
@@ -3688,7 +3688,7 @@ uint8_t arg_0x4113d410);
 # 46 "/home/zly/tinyos-main/tos/interfaces/UartByte.nc"
 static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UartByte__send(
 # 46 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x4113c738, 
+uint8_t arg_0x4113b738, 
 # 46 "/home/zly/tinyos-main/tos/interfaces/UartByte.nc"
 uint8_t byte);
 # 39 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartConfigure.nc"
@@ -4832,7 +4832,7 @@ static void RadioToLedsC__Leds__led1Off(void );
 static void RadioToLedsC__Leds__led0On(void );
 #line 89
 static void RadioToLedsC__Leds__led2On(void );
-# 16 "RadioToLedsC.nc"
+# 19 "RadioToLedsC.nc"
 bool RadioToLedsC__busy = FALSE;
 message_t RadioToLedsC__packet;
 uint8_t RadioToLedsC__received_counts[256];
@@ -4840,7 +4840,7 @@ uint8_t RadioToLedsC__received_counts[256];
 uint16_t RadioToLedsC__send_count = 0;
 
 static inline void RadioToLedsC__Boot__booted(void );
-#line 37
+#line 39
 static inline void RadioToLedsC__AMControl__startDone(error_t err);
 
 
@@ -4853,7 +4853,7 @@ static inline void RadioToLedsC__AMControl__stopDone(error_t error);
 
 static inline message_t *RadioToLedsC__Receive__receive(message_t *msg, 
 void *payload, uint8_t len);
-#line 97
+#line 107
 static inline void RadioToLedsC__AMSend__sendDone(message_t *msg, error_t error);
 # 46 "/home/zly/tinyos-main/tos/interfaces/GeneralIO.nc"
 static void LedsP__Led0__makeOutput(void );
@@ -5131,7 +5131,7 @@ static inline void /*RadioToLedsAppC.AMSenderC.SenderC.AMQueueEntryP*/AMQueueEnt
 # 80 "/home/zly/tinyos-main/tos/interfaces/AMSend.nc"
 static error_t /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__AMSend__send(
 # 48 "/home/zly/tinyos-main/tos/system/AMQueueImplP.nc"
-am_id_t arg_0x408f30a0, 
+am_id_t arg_0x4090f0a0, 
 # 80 "/home/zly/tinyos-main/tos/interfaces/AMSend.nc"
 am_addr_t addr, 
 #line 71
@@ -6130,7 +6130,7 @@ static bool CC2420SpiP__SpiResource__isOwner(void );
 #line 102
 static void CC2420SpiP__Resource__granted(
 # 45 "/home/zly/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
-uint8_t arg_0x40b9f558);
+uint8_t arg_0x40b9e558);
 # 67 "/home/zly/tinyos-main/tos/interfaces/TaskBasic.nc"
 static error_t CC2420SpiP__grant__postTask(void );
 # 88 "/home/zly/tinyos-main/tos/chips/cc2420/spi/CC2420SpiP.nc"
@@ -6334,19 +6334,19 @@ static void /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__Usart__disableSpi(void 
 # 120 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__release(
 # 81 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430SpiNoDmaP.nc"
-uint8_t arg_0x40c4b718);
+uint8_t arg_0x40c4a718);
 # 97 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__immediateRequest(
 # 81 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430SpiNoDmaP.nc"
-uint8_t arg_0x40c4b718);
+uint8_t arg_0x40c4a718);
 # 88 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__request(
 # 81 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430SpiNoDmaP.nc"
-uint8_t arg_0x40c4b718);
+uint8_t arg_0x40c4a718);
 # 128 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static bool /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__isOwner(
 # 81 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430SpiNoDmaP.nc"
-uint8_t arg_0x40c4b718);
+uint8_t arg_0x40c4a718);
 # 102 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static void /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__Resource__granted(
 # 75 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430SpiNoDmaP.nc"
@@ -7615,7 +7615,7 @@ static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__TimerFrom__s
 
 static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__fired(
 # 48 "/home/zly/tinyos-main/tos/lib/timer/VirtualizeTimerC.nc"
-uint8_t arg_0x40fbe678);
+uint8_t arg_0x40fbd678);
 #line 71
 enum /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0____nesc_unnamed4345 {
 #line 71
@@ -10678,13 +10678,13 @@ static inline bool /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__d
 }
 
 # 128 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
-inline static bool /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__isOwner(uint8_t arg_0x40c4b718){
+inline static bool /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__isOwner(uint8_t arg_0x40c4a718){
 #line 128
   unsigned char __nesc_result;
 #line 128
 
 #line 128
-  switch (arg_0x40c4b718) {
+  switch (arg_0x40c4a718) {
 #line 128
     case /*CC2420SpiWireC.HplCC2420SpiC.SpiC*/Msp430Spi0C__0__CLIENT_ID:
 #line 128
@@ -10694,7 +10694,7 @@ inline static bool /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__i
 #line 128
     default:
 #line 128
-      __nesc_result = /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__default__isOwner(arg_0x40c4b718);
+      __nesc_result = /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__default__isOwner(arg_0x40c4a718);
 #line 128
       break;
 #line 128
@@ -10860,13 +10860,13 @@ static inline error_t /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource
 }
 
 # 97 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
-inline static error_t /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__immediateRequest(uint8_t arg_0x40c4b718){
+inline static error_t /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__immediateRequest(uint8_t arg_0x40c4a718){
 #line 97
   unsigned char __nesc_result;
 #line 97
 
 #line 97
-  switch (arg_0x40c4b718) {
+  switch (arg_0x40c4a718) {
 #line 97
     case /*CC2420SpiWireC.HplCC2420SpiC.SpiC*/Msp430Spi0C__0__CLIENT_ID:
 #line 97
@@ -10876,7 +10876,7 @@ inline static error_t /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource
 #line 97
     default:
 #line 97
-      __nesc_result = /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__default__immediateRequest(arg_0x40c4b718);
+      __nesc_result = /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__default__immediateRequest(arg_0x40c4a718);
 #line 97
       break;
 #line 97
@@ -11314,13 +11314,13 @@ static inline error_t /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource
 }
 
 # 88 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
-inline static error_t /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__request(uint8_t arg_0x40c4b718){
+inline static error_t /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__request(uint8_t arg_0x40c4a718){
 #line 88
   unsigned char __nesc_result;
 #line 88
 
 #line 88
-  switch (arg_0x40c4b718) {
+  switch (arg_0x40c4a718) {
 #line 88
     case /*CC2420SpiWireC.HplCC2420SpiC.SpiC*/Msp430Spi0C__0__CLIENT_ID:
 #line 88
@@ -11330,7 +11330,7 @@ inline static error_t /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource
 #line 88
     default:
 #line 88
-      __nesc_result = /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__default__request(arg_0x40c4b718);
+      __nesc_result = /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__default__request(arg_0x40c4a718);
 #line 88
       break;
 #line 88
@@ -11677,13 +11677,13 @@ static inline error_t /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource
 }
 
 # 120 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
-inline static error_t /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__release(uint8_t arg_0x40c4b718){
+inline static error_t /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__release(uint8_t arg_0x40c4a718){
 #line 120
   unsigned char __nesc_result;
 #line 120
 
 #line 120
-  switch (arg_0x40c4b718) {
+  switch (arg_0x40c4a718) {
 #line 120
     case /*CC2420SpiWireC.HplCC2420SpiC.SpiC*/Msp430Spi0C__0__CLIENT_ID:
 #line 120
@@ -11693,7 +11693,7 @@ inline static error_t /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource
 #line 120
     default:
 #line 120
-      __nesc_result = /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__default__release(arg_0x40c4b718);
+      __nesc_result = /*Msp430SpiNoDma0P.SpiP*/Msp430SpiNoDmaP__0__UsartResource__default__release(arg_0x40c4a718);
 #line 120
       break;
 #line 120
@@ -16748,9 +16748,9 @@ static inline void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer
 }
 
 # 83 "/home/zly/tinyos-main/tos/lib/timer/Timer.nc"
-inline static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__fired(uint8_t arg_0x40fbe678){
+inline static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__fired(uint8_t arg_0x40fbd678){
 #line 83
-    /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__default__fired(arg_0x40fbe678);
+    /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__default__fired(arg_0x40fbd678);
 #line 83
 }
 #line 83
@@ -16899,13 +16899,13 @@ inline static message_t * CC2420ActiveMessageP__Snoop__receive(am_id_t arg_0x410
 }
 #line 78
 # 80 "/home/zly/tinyos-main/tos/interfaces/AMSend.nc"
-inline static error_t /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__AMSend__send(am_id_t arg_0x408f30a0, am_addr_t addr, message_t * msg, uint8_t len){
+inline static error_t /*AMQueueP.AMQueueImplP*/AMQueueImplP__0__AMSend__send(am_id_t arg_0x4090f0a0, am_addr_t addr, message_t * msg, uint8_t len){
 #line 80
   unsigned char __nesc_result;
 #line 80
 
 #line 80
-  __nesc_result = CC2420ActiveMessageP__AMSend__send(arg_0x408f30a0, addr, msg, len);
+  __nesc_result = CC2420ActiveMessageP__AMSend__send(arg_0x4090f0a0, addr, msg, len);
 #line 80
 
 #line 80
@@ -17258,16 +17258,14 @@ inline static void RadioToLedsC__Leds__led0On(void ){
 #line 56
 }
 #line 56
-# 47 "RadioToLedsC.nc"
+# 49 "RadioToLedsC.nc"
 static inline message_t *RadioToLedsC__Receive__receive(message_t *msg, 
 void *payload, uint8_t len)
-#line 48
+#line 50
 {
   test_send_msg_t *rm;
   uint16_t on = 0;
-  uint8_t count = __nesc_ntoh_uint8(rm->count.nxdata) % 256;
 
-#line 52
   RadioToLedsC__packet = *msg;
 
   if (len == sizeof(test_send_msg_t )) {
@@ -17286,36 +17284,36 @@ void *payload, uint8_t len)
       switch (__nesc_ntoh_uint8(rm->color.nxdata) % 4) {
           case 0: 
             if (on != 0) {
-#line 69
+#line 71
               RadioToLedsC__Leds__led0On();
               }
             else {
-#line 70
+#line 72
               RadioToLedsC__Leds__led0Off();
               }
-#line 71
+#line 73
           break;
           case 1: 
             if (on != 0) {
-#line 73
+#line 75
               RadioToLedsC__Leds__led1On();
               }
             else {
-#line 74
+#line 76
               RadioToLedsC__Leds__led1Off();
               }
-#line 75
+#line 77
           break;
           case 2: 
             if (on != 0) {
-#line 77
+#line 79
               RadioToLedsC__Leds__led2On();
               }
             else {
-#line 78
+#line 80
               RadioToLedsC__Leds__led1Off();
               }
-#line 79
+#line 81
           break;
           default: 
             break;
@@ -17327,10 +17325,18 @@ void *payload, uint8_t len)
               RadioToLedsC__received_counts[__nesc_ntoh_uint8(rm->count.nxdata)] = 1;
               RadioToLedsC__send_count++;
               RadioToLedsC__busy = TRUE;
+              printf("RadioToLedsC SEND %d %d %d %d %d %d\n", 
+              TOS_NODE_ID, __nesc_ntoh_uint8(
+              rm->number.nxdata), __nesc_ntoh_uint8(
+              rm->color.nxdata), __nesc_ntoh_uint8(
+              rm->count.nxdata), 
+              on == 0 ? 1 : 0, 
+              RadioToLedsC__send_count);
             }
         }
     }
 
+  printfflush();
   return msg;
 }
 
@@ -19335,9 +19341,9 @@ static inline void CC2420SpiP__Resource__default__granted(uint8_t id)
 }
 
 # 102 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
-inline static void CC2420SpiP__Resource__granted(uint8_t arg_0x40b9f558){
+inline static void CC2420SpiP__Resource__granted(uint8_t arg_0x40b9e558){
 #line 102
-  switch (arg_0x40b9f558) {
+  switch (arg_0x40b9e558) {
 #line 102
     case /*CC2420ControlC.Spi*/CC2420SpiC__0__CLIENT_ID:
 #line 102
@@ -19371,7 +19377,7 @@ inline static void CC2420SpiP__Resource__granted(uint8_t arg_0x40b9f558){
 #line 102
     default:
 #line 102
-      CC2420SpiP__Resource__default__granted(arg_0x40b9f558);
+      CC2420SpiP__Resource__default__granted(arg_0x40b9e558);
 #line 102
       break;
 #line 102
@@ -19892,9 +19898,9 @@ static inline void CC2420CsmaP__sendDone_task__runTask(void )
   CC2420CsmaP__Send__sendDone(CC2420CsmaP__m_msg, packetErr);
 }
 
-# 45 "RadioToLedsC.nc"
+# 47 "RadioToLedsC.nc"
 static inline void RadioToLedsC__AMControl__stopDone(error_t error)
-#line 45
+#line 47
 {
 }
 
@@ -19928,9 +19934,9 @@ inline static error_t RadioToLedsC__AMControl__start(void ){
 #line 104
 }
 #line 104
-# 37 "RadioToLedsC.nc"
+# 39 "RadioToLedsC.nc"
 static inline void RadioToLedsC__AMControl__startDone(error_t err)
-#line 37
+#line 39
 {
   if (err == SUCCESS) {
     }
@@ -20293,7 +20299,7 @@ inline static error_t CC2420CsmaP__CC2420Power__startVReg(void ){
 #line 51
 }
 #line 51
-# 97 "RadioToLedsC.nc"
+# 107 "RadioToLedsC.nc"
 static inline void RadioToLedsC__AMSend__sendDone(message_t *msg, error_t error)
 {
   RadioToLedsC__busy = FALSE;
@@ -21443,13 +21449,13 @@ inline static /*BusyWaitMicroC.BusyWaitCounterC*/BusyWaitCounterC__0__Counter__s
 #line 64
 }
 #line 64
-# 22 "RadioToLedsC.nc"
+# 25 "RadioToLedsC.nc"
 static inline void RadioToLedsC__Boot__booted(void )
-#line 22
+#line 25
 {
   uint16_t i = 0;
 
-#line 24
+#line 27
   printf("RadioToLedsC BOOT\n");
 
 
@@ -25057,6 +25063,13 @@ static uint16_t CC2420ControlP__CC2420Config__getShortAddr(void )
     __nesc_atomic_end(__nesc_atomic); }
 }
 
+# 64 "/home/zly/tinyos-main/tos/lib/printf/SerialPrintfP.nc"
+  int printfflush(void )
+#line 64
+{
+  return SUCCESS;
+}
+
 # 769 "/home/zly/tinyos-main/tos/chips/cc2420/receive/CC2420ReceiveP.nc"
 static void CC2420ReceiveP__waitForNextPacket(void )
 #line 769
@@ -25559,13 +25572,6 @@ __attribute((wakeup)) __attribute((interrupt(0x0010)))  void sig_UART0TX_VECTOR(
 #line 105
     HplMsp430Usart0P__Interrupts__txDone();
     }
-}
-
-# 64 "/home/zly/tinyos-main/tos/lib/printf/SerialPrintfP.nc"
-  int printfflush(void )
-#line 64
-{
-  return SUCCESS;
 }
 
 # 96 "/home/zly/tinyos-main/tos/chips/msp430/usart/HplMsp430Usart1P.nc"

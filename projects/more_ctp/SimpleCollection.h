@@ -15,7 +15,8 @@ typedef nx_struct BeaconMsg {
 
 
 typedef nx_struct ControlMsg {
-	nx_uint16_t nodeid;
+	nx_uint16_t srcNodeid;
+	nx_uint16_t rootNodeid;
 	nx_uint8_t isSource;
 } ControlMsg;
 

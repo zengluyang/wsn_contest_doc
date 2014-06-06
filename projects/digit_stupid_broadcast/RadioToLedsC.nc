@@ -50,7 +50,7 @@ implementation {
 		void *payload, uint8_t len) {
 		test_send_msg_t *rm;
 		uint16_t on = 0; //important! cannot be bool
-		uint8_t count = (rm->count)%256;
+		//uint8_t count = (rm->count)%256;
 		packet = *msg;
 		
 		if(len == sizeof(test_send_msg_t)) {

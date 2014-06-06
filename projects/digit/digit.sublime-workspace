@@ -84,14 +84,6 @@
 			}
 		},
 		{
-			"file": "/D/Dropbox/Documents/undergraduate/wsn_contest/data/2014-03-16 14-45-37/2014-03-16 14-44-01/calc_send_count.sh",
-			"settings":
-			{
-				"buffer_size": 101,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "Makefile",
 			"settings":
 			{
@@ -333,7 +325,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -375,8 +367,8 @@
 						"selection":
 						[
 							[
-								506,
-								506
+								1036,
+								1036
 							]
 						],
 						"settings":
@@ -402,8 +394,8 @@
 						"selection":
 						[
 							[
-								210,
-								84
+								81,
+								81
 							]
 						],
 						"settings":
@@ -418,32 +410,6 @@
 				},
 				{
 					"buffer": 3,
-					"file": "/D/Dropbox/Documents/undergraduate/wsn_contest/data/2014-03-16 14-45-37/2014-03-16 14-44-01/calc_send_count.sh",
-					"settings":
-					{
-						"buffer_size": 101,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								101,
-								101
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "Makefile",
 					"settings":
 					{

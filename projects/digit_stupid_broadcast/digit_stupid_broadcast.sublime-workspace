@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"bak",
+				"background-color"
+			],
+			[
 				"send",
 				"send_count"
 			],
@@ -59,70 +63,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "RadioToLedsAppC.nc",
-			"settings":
-			{
-				"buffer_size": 513,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "RadioToLedsC.nc",
-			"settings":
-			{
-				"buffer_size": 2337,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": ".gitignore",
-			"settings":
-			{
-				"buffer_size": 49,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/ZLY/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 13705,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/Users/ZLY/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
-			"settings":
-			{
-				"buffer_size": 30635,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "digit_stupid_broadcast.sublime-project",
-			"settings":
-			{
-				"buffer_size": 173,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "dec2bin.c",
-			"settings":
-			{
-				"buffer_size": 4216,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Makefile",
-			"settings":
-			{
-				"buffer_size": 204,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "Make telosb",
 	"command_palette":
@@ -216,10 +156,17 @@
 	},
 	"file_history":
 	[
+		"/D/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/RadioToLedsAppC.nc",
+		"/D/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/RadioToLedsC.nc",
+		"/d/Desktop/bgBlack.html",
+		"/D/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/Makefile",
+		"/D/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/dec2bin.c",
+		"/D/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/digit_stupid_broadcast.sublime-project",
+		"/C/Users/ZLY/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/ZLY/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/D/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/.gitignore",
 		"/D/Dropbox/Documents/undergraduate/wsn_contest/projects/Makefile",
 		"/D/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/RadioMsg.h",
-		"/D/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/dec2bin.c",
-		"/D/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/Makefile",
 		"/home/zly/tinyos-main/support/make/Makerules",
 		"/mnt/hgfs/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/digit_stupid_broadcast.sublime-workspace",
 		"/mnt/hgfs/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/PacketMsg.h",
@@ -237,7 +184,6 @@
 		"/C/Users/ZLY/AppData/Roaming/Sublime Text 2/Packages/User/CL.sublime-build",
 		"/D/Desktop/digit_stupid_broadcast/dec2bin",
 		"/C/Users/ZLY/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-		"/C/Users/ZLY/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
 		"/C/Users/ZLY/AppData/Roaming/Sublime Text 2/Packages/User/necC.sublime-build",
 		"/D/Desktop/digit_stupid_broadcast/digit_stupid_broadcast.sublime-project",
 		"/D/Desktop/digit_stupid_broadcast/digit_stupid_broadcast.sublime-workspace",
@@ -288,7 +234,6 @@
 		"/D/cygwin/usr/include/stdio.h",
 		"/D/cygwin/usr/include/sys/reent.h",
 		"/D/Dropbox/coding/workspace/hello.c",
-		"/C/Users/ZLY/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
 		"/C/Dev-Cpp/bin/gcc.exe",
 		"/D/Dropbox/coding/workspace/hello.exe",
 		"/d/Desktop/object-cache.php",
@@ -365,225 +310,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "RadioToLedsAppC.nc",
-					"settings":
-					{
-						"buffer_size": 513,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								21,
-								21
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/nesC.tmbundle/Syntaxes/nesC.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "RadioToLedsC.nc",
-					"settings":
-					{
-						"buffer_size": 2337,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1640,
-								1640
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/nesC.tmbundle/Syntaxes/nesC.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": ".gitignore",
-					"settings":
-					{
-						"buffer_size": 49,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								49,
-								49
-							]
-						],
-						"settings":
-						{
-							"_anf_new": "",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/C/Users/ZLY/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
-					"settings":
-					{
-						"buffer_size": 13705,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								65,
-								65
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/C/Users/ZLY/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
-					"settings":
-					{
-						"buffer_size": 30635,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								12836,
-								12836
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 4270.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "digit_stupid_broadcast.sublime-project",
-					"settings":
-					{
-						"buffer_size": 173,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								161,
-								161
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "dec2bin.c",
-					"settings":
-					{
-						"buffer_size": 4216,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "Makefile",
-					"settings":
-					{
-						"buffer_size": 204,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Makefile/Makefile.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -637,6 +365,10 @@
 		"selected_items":
 		[
 			[
+				"m",
+				"Makefile"
+			],
+			[
 				"ra",
 				"RadioMsg.h"
 			],
@@ -661,10 +393,6 @@
 				"build/telosb/app.c"
 			],
 			[
-				"m",
-				"Makefile"
-			],
-			[
 				"subli",
 				"/C/Users/ZLY/AppData/Roaming/Sublime Text 2/Packages/SublimeREPL/SublimeREPL.sublime-settings"
 			],
@@ -682,7 +410,11 @@
 		[
 			[
 				"",
-				"/D/Dropbox/Documents/undergraduate/wsn_contest/projects/digit/digit.sublime-project"
+				"/mnt/hgfs/Dropbox/Documents/undergraduate/wsn_contest/projects/more_ctp/more_ctp.sublime-project"
+			],
+			[
+				"the",
+				"/D/Dropbox/Documents/coding/毕设/thesis_src/thesis.sublime-project"
 			]
 		],
 		"width": 380.0
