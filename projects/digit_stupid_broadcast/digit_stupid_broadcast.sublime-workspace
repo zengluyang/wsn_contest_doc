@@ -63,6 +63,30 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "RadioToLedsC.nc",
+			"settings":
+			{
+				"buffer_size": 2354,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "RadioMsg.h",
+			"settings":
+			{
+				"buffer_size": 1779,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "digit_stupid_broadcast.sublime-project",
+			"settings":
+			{
+				"buffer_size": 173,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "Make telosb",
 	"command_palette":
@@ -156,6 +180,8 @@
 	},
 	"file_history":
 	[
+		"/mnt/hgfs/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/PacketMsg.h",
+		"/mnt/hgfs/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/RadioToLedsAppC.nc",
 		"/D/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/RadioToLedsAppC.nc",
 		"/D/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/RadioToLedsC.nc",
 		"/d/Desktop/bgBlack.html",
@@ -169,7 +195,6 @@
 		"/D/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/RadioMsg.h",
 		"/home/zly/tinyos-main/support/make/Makerules",
 		"/mnt/hgfs/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/digit_stupid_broadcast.sublime-workspace",
-		"/mnt/hgfs/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/PacketMsg.h",
 		"/mnt/hgfs/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/RadioToLedsC.nc",
 		"/mnt/hgfs/Dropbox/Documents/undergraduate/wsn_contest/projects/digit_stupid_broadcast/digit_stupid_broadcast.sublime-project",
 		"/home/zly/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
@@ -310,8 +335,91 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "RadioToLedsC.nc",
+					"settings":
+					{
+						"buffer_size": 2354,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								758,
+								758
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/nesC.tmbundle/Syntaxes/nesC.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "RadioMsg.h",
+					"settings":
+					{
+						"buffer_size": 1779,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								68,
+								68
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "digit_stupid_broadcast.sublime-project",
+					"settings":
+					{
+						"buffer_size": 173,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								173,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -423,6 +531,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 332.0,
+	"side_bar_width": 221.0,
 	"status_bar_visible": true
 }

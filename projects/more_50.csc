@@ -25,7 +25,7 @@
       se.sics.cooja.mspmote.SkyMoteType
       <identifier>sky1</identifier>
       <description>ctp</description>
-      <firmware EXPORT="copy">[CONFIG_DIR]/more_ctp/build/telosb/main.exe</firmware>
+      <firmware EXPORT="copy">[CONFIG_DIR]/more_manual/build/telosb/main.exe</firmware>
       <moteinterface>se.sics.cooja.interfaces.Position</moteinterface>
       <moteinterface>se.sics.cooja.interfaces.RimeAddress</moteinterface>
       <moteinterface>se.sics.cooja.interfaces.IPAddress</moteinterface>

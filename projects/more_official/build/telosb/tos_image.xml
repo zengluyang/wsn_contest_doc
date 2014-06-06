@@ -1,11 +1,11 @@
 <tos_image>
   <ident>
-    <uidhash>B35EBE9CL</uidhash>
+    <uidhash>DAE512D3L</uidhash>
     <hostname>ubuntu</hostname>
     <username>zly</username>
     <appname>BeaconAppC</appname>
     <userhash>6D32B8E6L</userhash>
-    <timestamp>53909765L</timestamp>
+    <timestamp>53913F34L</timestamp>
     <deluge_support>no</deluge_support>
     <platform>telosb</platform>
   </ident>

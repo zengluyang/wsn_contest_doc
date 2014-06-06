@@ -1,0 +1,14 @@
+{
+	"folders":
+	[
+		{
+			"path": "/home/zly/wsn_contest/projects/more_manual"
+		}
+	],
+	"build_systems": [
+		{
+			"name": "Make telosb",
+			"cmd": ["make","telosb"]
+		}
+	]
+}
