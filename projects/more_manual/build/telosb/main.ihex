@@ -1,15 +1,3 @@
-<tos_image>
-  <ident>
-    <uidhash>A1A637E3L</uidhash>
-    <hostname>ubuntu</hostname>
-    <username>zly</username>
-    <appname>SimpleRoutingAp</appname>
-    <userhash>6D32B8E6L</userhash>
-    <timestamp>5393FF06L</timestamp>
-    <deluge_support>no</deluge_support>
-    <platform>telosb</platform>
-  </ident>
-  <image format="ihex">
 :104000005542200135D0085A8245BA153140003951
 :104010003F4034000F9308249242BA1520012F83A9
 :104020009F4FD6840011F8233F4086040F93072446
@@ -1120,5 +1108,3 @@
 :10FFF000B27656767A457A45907472747A450040A6
 :0400000300004000B9
 :00000001FF
-  </image>
-</tos_image>

@@ -1,12 +1,15 @@
 #include "SimpleRouting.h"
-//#define USE_PRINT
+#include <Timer.h>
+#define USE_PRINT
 
 configuration SimpleRoutingAppC {
 }
 implementation {
 	components MainC, ActiveMessageC;
+	components RandomC;
 
-    //components new TimerMilliC() as ControlTimer;
+	components new TimerMilliC() as Timer0;
+	components new TimerMilliC() as Timer1;
 
 	components new AMReceiverC(AM_BEACON) as AMDataReceiverC;
 	components new AMReceiverC(AM_CONTROL) as AMControlReceiverC;
@@ -24,9 +27,11 @@ implementation {
 	#endif
 
 	App.Boot -> MainC.Boot;
+	App.Random -> RandomC;
 
     //App.ControlTimer -> ControlTimer;
-
+    App.Timer0 -> Timer0;
+    App.Timer1 -> Timer1;
 	App.AMControl -> ActiveMessageC;
 
 	App.RoutePacket->AMRouteSenderC;

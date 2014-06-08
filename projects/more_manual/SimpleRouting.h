@@ -28,6 +28,7 @@ typedef nx_struct ControlMsg {
 } ControlMsg;
 
 typedef nx_struct RouteMsg{
+	nx_uint16_t id;
 	nx_uint16_t nodeid;
 	nx_uint16_t metric;
 } RouteMsg;
