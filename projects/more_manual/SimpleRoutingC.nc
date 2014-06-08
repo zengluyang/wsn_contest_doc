@@ -41,6 +41,9 @@ implementation {
     event void Boot.booted(){
         call AMControl.start();
         printf("SimpleRoutingC BOOT\n");
+        if(TOS_NODE_ID == RECV_NODE_ID){
+            type=DST;
+        }
         //printfflush();
     }
 
@@ -112,8 +115,9 @@ implementation {
         BeaconMsg* bpkt;
         ControlMsg* cpkt;
         uint8_t i;
+        
         if(len == sizeof(BeaconMsg)) {
-            printf("SimpleRoutingC RECV_DATA %d %d\n", bm->nodeid, bm->counter);
+           printf("SimpleRoutingC RECV_DATA %d %d\n", bm->nodeid, bm->counter);
             if(call AMDataPacket.destination(msg)==AM_BROADCAST_ADDR){
                 type=PSP;
                 is_PSP[TOS_NODE_ID]=TRUE;
@@ -137,7 +141,7 @@ implementation {
                 printf("SimpleRoutingC SEND_DATA %d %d %d\n",bpkt->nodeid,bpkt->counter,bpkt->data[0]);
             }
         }
-        //printfflush();
+        printfflush();
         return msg;
 
     }

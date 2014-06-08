@@ -3820,25 +3820,25 @@ static error_t SerialPrintfP__StdControl__start(void );
 # 65 "/home/zly/tinyos-main/tos/interfaces/ResourceConfigure.nc"
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__ResourceConfigure__unconfigure(
 # 44 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x411897d0);
+uint8_t arg_0x41188410);
 # 59 "/home/zly/tinyos-main/tos/interfaces/ResourceConfigure.nc"
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__ResourceConfigure__configure(
 # 44 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x411897d0);
+uint8_t arg_0x41188410);
 # 46 "/home/zly/tinyos-main/tos/interfaces/UartByte.nc"
 static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UartByte__send(
 # 46 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x41188bc0, 
+uint8_t arg_0x41187738, 
 # 46 "/home/zly/tinyos-main/tos/interfaces/UartByte.nc"
 uint8_t byte);
 # 39 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartConfigure.nc"
 static msp430_uart_union_config_t */*Msp430Uart1P.UartP*/Msp430UartP__0__Msp430UartConfigure__default__getConfig(
 # 49 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x41186eb8);
+uint8_t arg_0x41185a68);
 # 48 "/home/zly/tinyos-main/tos/interfaces/UartStream.nc"
 static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__send(
 # 45 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x41188010, 
+uint8_t arg_0x41188b70, 
 # 44 "/home/zly/tinyos-main/tos/interfaces/UartStream.nc"
 uint8_t * buf, 
 
@@ -3848,13 +3848,13 @@ uint16_t len);
 #line 79
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__receivedByte(
 # 45 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x41188010, 
+uint8_t arg_0x41188b70, 
 # 79 "/home/zly/tinyos-main/tos/interfaces/UartStream.nc"
 uint8_t byte);
 #line 99
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__receiveDone(
 # 45 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x41188010, 
+uint8_t arg_0x41188b70, 
 # 95 "/home/zly/tinyos-main/tos/interfaces/UartStream.nc"
 uint8_t * buf, 
 
@@ -3864,7 +3864,7 @@ uint16_t len, error_t error);
 #line 57
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__sendDone(
 # 45 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x41188010, 
+uint8_t arg_0x41188b70, 
 # 53 "/home/zly/tinyos-main/tos/interfaces/UartStream.nc"
 uint8_t * buf, 
 
@@ -3876,41 +3876,41 @@ static void /*Msp430Uart1P.UartP*/Msp430UartP__0__Counter__overflow(void );
 # 120 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__release(
 # 48 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x41186460);
+uint8_t arg_0x41185010);
 # 97 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__immediateRequest(
 # 48 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x41186460);
+uint8_t arg_0x41185010);
 # 102 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__granted(
 # 48 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x41186460);
+uint8_t arg_0x41185010);
 # 128 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static bool /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__isOwner(
 # 48 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x41186460);
+uint8_t arg_0x41185010);
 # 120 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__release(
 # 43 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x4114ed48);
+uint8_t arg_0x4118b910);
 # 97 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__immediateRequest(
 # 43 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x4114ed48);
+uint8_t arg_0x4118b910);
 # 102 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__default__granted(
 # 43 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x4114ed48);
+uint8_t arg_0x4118b910);
 # 54 "/home/zly/tinyos-main/tos/chips/msp430/usart/HplMsp430UsartInterrupts.nc"
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartInterrupts__rxDone(
 # 51 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x41182010, 
+uint8_t arg_0x41182b30, 
 # 54 "/home/zly/tinyos-main/tos/chips/msp430/usart/HplMsp430UsartInterrupts.nc"
 uint8_t data);
 #line 49
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartInterrupts__txDone(
 # 51 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x41182010);
+uint8_t arg_0x41182b30);
 # 143 "/home/zly/tinyos-main/tos/chips/msp430/usart/HplMsp430Usart.nc"
 static void HplMsp430Usart1P__Usart__enableUartRx(void );
 #line 123
@@ -4084,7 +4084,7 @@ uint8_t len);
 # 110 "/home/zly/tinyos-main/tos/interfaces/AMSend.nc"
 static void /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__AMSend__default__sendDone(
 # 47 "/home/zly/tinyos-main/tos/lib/serial/SerialActiveMessageP.nc"
-am_id_t arg_0x4126a420, 
+am_id_t arg_0x41269420, 
 # 103 "/home/zly/tinyos-main/tos/interfaces/AMSend.nc"
 message_t * msg, 
 
@@ -4103,7 +4103,7 @@ message_t *
 
 /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Receive__default__receive(
 # 48 "/home/zly/tinyos-main/tos/lib/serial/SerialActiveMessageP.nc"
-am_id_t arg_0x4126ade0, 
+am_id_t arg_0x41269de0, 
 # 71 "/home/zly/tinyos-main/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -4150,7 +4150,7 @@ static void /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__receive
 # 100 "/home/zly/tinyos-main/tos/interfaces/Send.nc"
 static void /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Send__default__sendDone(
 # 51 "/home/zly/tinyos-main/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0x4130cc60, 
+uart_id_t arg_0x4130ac60, 
 # 96 "/home/zly/tinyos-main/tos/interfaces/Send.nc"
 message_t * msg, 
 
@@ -4168,7 +4168,7 @@ message_t *
 
 /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Receive__default__receive(
 # 50 "/home/zly/tinyos-main/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0x4130c620, 
+uart_id_t arg_0x4130a620, 
 # 71 "/home/zly/tinyos-main/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -4181,13 +4181,13 @@ uint8_t len);
 # 31 "/home/zly/tinyos-main/tos/lib/serial/SerialPacketInfo.nc"
 static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__default__upperLength(
 # 54 "/home/zly/tinyos-main/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0x41308770, 
+uart_id_t arg_0x41307770, 
 # 31 "/home/zly/tinyos-main/tos/lib/serial/SerialPacketInfo.nc"
 message_t *msg, uint8_t dataLinkLen);
 #line 15
 static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__default__offset(
 # 54 "/home/zly/tinyos-main/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0x41308770);
+uart_id_t arg_0x41307770);
 # 81 "/home/zly/tinyos-main/tos/lib/serial/SendBytePacket.nc"
 static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__SendBytePacket__nextByte(void );
 
@@ -8529,8 +8529,11 @@ static inline void SimpleRoutingC__Boot__booted(void );
 
 
 
+
+
+
 static inline void SimpleRoutingC__AMControl__startDone(error_t err);
-#line 64
+#line 67
 static inline void SimpleRoutingC__AMControl__stopDone(error_t err);
 
 static void SimpleRoutingC__AMControlSend__sendDone(message_t *m, error_t err);
@@ -8560,13 +8563,13 @@ static inline void SimpleRoutingC__AMRouteSend__sendDone(message_t *m, error_t e
 
 
 static inline bool SimpleRoutingC__isSP(void );
-#line 109
+#line 112
 static inline message_t *SimpleRoutingC__AMDataReceive__receive(message_t *msg, 
 void *payload, uint8_t len);
-#line 145
+#line 149
 static inline message_t *SimpleRoutingC__AMControlReceive__receive(message_t *msg, 
 void *payload, uint8_t len);
-#line 166
+#line 170
 static inline message_t *SimpleRoutingC__AMRouteReceive__receive(message_t *msg, 
 void *payload, uint8_t len);
 # 46 "/home/zly/tinyos-main/tos/interfaces/UartByte.nc"
@@ -8597,7 +8600,7 @@ static inline int SerialPrintfP__Putchar__putchar(int c);
 # 39 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartConfigure.nc"
 static msp430_uart_union_config_t */*Msp430Uart1P.UartP*/Msp430UartP__0__Msp430UartConfigure__getConfig(
 # 49 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x41186eb8);
+uint8_t arg_0x41185a68);
 # 97 "/home/zly/tinyos-main/tos/chips/msp430/usart/HplMsp430Usart.nc"
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__Usart__resetUsart(bool reset);
 #line 179
@@ -8626,13 +8629,13 @@ static void /*Msp430Uart1P.UartP*/Msp430UartP__0__Usart__clrTxIntr(void );
 # 79 "/home/zly/tinyos-main/tos/interfaces/UartStream.nc"
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__receivedByte(
 # 45 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x41188010, 
+uint8_t arg_0x41188b70, 
 # 79 "/home/zly/tinyos-main/tos/interfaces/UartStream.nc"
 uint8_t byte);
 #line 99
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__receiveDone(
 # 45 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x41188010, 
+uint8_t arg_0x41188b70, 
 # 95 "/home/zly/tinyos-main/tos/interfaces/UartStream.nc"
 uint8_t * buf, 
 
@@ -8642,7 +8645,7 @@ uint16_t len, error_t error);
 #line 57
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__sendDone(
 # 45 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x41188010, 
+uint8_t arg_0x41188b70, 
 # 53 "/home/zly/tinyos-main/tos/interfaces/UartStream.nc"
 uint8_t * buf, 
 
@@ -8652,19 +8655,19 @@ uint16_t len, error_t error);
 # 120 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__release(
 # 48 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x41186460);
+uint8_t arg_0x41185010);
 # 97 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__immediateRequest(
 # 48 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x41186460);
+uint8_t arg_0x41185010);
 # 128 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static bool /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__isOwner(
 # 48 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x41186460);
+uint8_t arg_0x41185010);
 # 102 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__granted(
 # 43 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x4114ed48);
+uint8_t arg_0x4118b910);
 #line 59
 uint16_t /*Msp430Uart1P.UartP*/Msp430UartP__0__m_tx_len;
 #line 59
@@ -9131,7 +9134,7 @@ static inline void SerialStartP__SerialControl__stopDone(error_t error);
 # 110 "/home/zly/tinyos-main/tos/interfaces/AMSend.nc"
 static void /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__AMSend__sendDone(
 # 47 "/home/zly/tinyos-main/tos/lib/serial/SerialActiveMessageP.nc"
-am_id_t arg_0x4126a420, 
+am_id_t arg_0x41269420, 
 # 103 "/home/zly/tinyos-main/tos/interfaces/AMSend.nc"
 message_t * msg, 
 
@@ -9150,7 +9153,7 @@ message_t *
 
 /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Receive__receive(
 # 48 "/home/zly/tinyos-main/tos/lib/serial/SerialActiveMessageP.nc"
-am_id_t arg_0x4126ade0, 
+am_id_t arg_0x41269de0, 
 # 71 "/home/zly/tinyos-main/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -9577,7 +9580,7 @@ static error_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__rece
 # 100 "/home/zly/tinyos-main/tos/interfaces/Send.nc"
 static void /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Send__sendDone(
 # 51 "/home/zly/tinyos-main/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0x4130cc60, 
+uart_id_t arg_0x4130ac60, 
 # 96 "/home/zly/tinyos-main/tos/interfaces/Send.nc"
 message_t * msg, 
 
@@ -9595,7 +9598,7 @@ message_t *
 
 /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Receive__receive(
 # 50 "/home/zly/tinyos-main/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0x4130c620, 
+uart_id_t arg_0x4130a620, 
 # 71 "/home/zly/tinyos-main/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -9608,13 +9611,13 @@ uint8_t len);
 # 31 "/home/zly/tinyos-main/tos/lib/serial/SerialPacketInfo.nc"
 static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__upperLength(
 # 54 "/home/zly/tinyos-main/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0x41308770, 
+uart_id_t arg_0x41307770, 
 # 31 "/home/zly/tinyos-main/tos/lib/serial/SerialPacketInfo.nc"
 message_t *msg, uint8_t dataLinkLen);
 #line 15
 static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__offset(
 # 54 "/home/zly/tinyos-main/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0x41308770);
+uart_id_t arg_0x41307770);
 # 71 "/home/zly/tinyos-main/tos/lib/serial/SendBytePacket.nc"
 static error_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__SendBytePacket__completeSend(void );
 # 158 "/home/zly/tinyos-main/tos/lib/serial/SerialDispatcherP.nc"
@@ -14179,9 +14182,9 @@ static inline void /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__AMSend__d
 }
 
 # 110 "/home/zly/tinyos-main/tos/interfaces/AMSend.nc"
-inline static void /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__AMSend__sendDone(am_id_t arg_0x4126a420, message_t * msg, error_t error){
+inline static void /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__AMSend__sendDone(am_id_t arg_0x41269420, message_t * msg, error_t error){
 #line 110
-    /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__AMSend__default__sendDone(arg_0x4126a420, msg, error);
+    /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__AMSend__default__sendDone(arg_0x41269420, msg, error);
 #line 110
 }
 #line 110
@@ -14200,9 +14203,9 @@ static inline void /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__
 }
 
 # 100 "/home/zly/tinyos-main/tos/interfaces/Send.nc"
-inline static void /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Send__sendDone(uart_id_t arg_0x4130cc60, message_t * msg, error_t error){
+inline static void /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Send__sendDone(uart_id_t arg_0x4130ac60, message_t * msg, error_t error){
 #line 100
-  switch (arg_0x4130cc60) {
+  switch (arg_0x4130ac60) {
 #line 100
     case TOS_SERIAL_ACTIVE_MESSAGE_ID:
 #line 100
@@ -14212,7 +14215,7 @@ inline static void /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__
 #line 100
     default:
 #line 100
-      /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Send__default__sendDone(arg_0x4130cc60, msg, error);
+      /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Send__default__sendDone(arg_0x4130ac60, msg, error);
 #line 100
       break;
 #line 100
@@ -14261,13 +14264,13 @@ static inline message_t */*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Rec
 }
 
 # 78 "/home/zly/tinyos-main/tos/interfaces/Receive.nc"
-inline static message_t * /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Receive__receive(am_id_t arg_0x4126ade0, message_t * msg, void * payload, uint8_t len){
+inline static message_t * /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Receive__receive(am_id_t arg_0x41269de0, message_t * msg, void * payload, uint8_t len){
 #line 78
   nx_struct message_t *__nesc_result;
 #line 78
 
 #line 78
-    __nesc_result = /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Receive__default__receive(arg_0x4126ade0, msg, payload, len);
+    __nesc_result = /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Receive__default__receive(arg_0x41269de0, msg, payload, len);
 #line 78
 
 #line 78
@@ -14292,13 +14295,13 @@ uint8_t len)
 }
 
 # 78 "/home/zly/tinyos-main/tos/interfaces/Receive.nc"
-inline static message_t * /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Receive__receive(uart_id_t arg_0x4130c620, message_t * msg, void * payload, uint8_t len){
+inline static message_t * /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Receive__receive(uart_id_t arg_0x4130a620, message_t * msg, void * payload, uint8_t len){
 #line 78
   nx_struct message_t *__nesc_result;
 #line 78
 
 #line 78
-  switch (arg_0x4130c620) {
+  switch (arg_0x4130a620) {
 #line 78
     case TOS_SERIAL_ACTIVE_MESSAGE_ID:
 #line 78
@@ -14308,7 +14311,7 @@ inline static message_t * /*SerialDispatcherC.SerialDispatcherP*/SerialDispatche
 #line 78
     default:
 #line 78
-      __nesc_result = /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Receive__default__receive(arg_0x4130c620, msg, payload, len);
+      __nesc_result = /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Receive__default__receive(arg_0x4130a620, msg, payload, len);
 #line 78
       break;
 #line 78
@@ -14336,13 +14339,13 @@ uint8_t dataLinkLen)
 }
 
 # 31 "/home/zly/tinyos-main/tos/lib/serial/SerialPacketInfo.nc"
-inline static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__upperLength(uart_id_t arg_0x41308770, message_t *msg, uint8_t dataLinkLen){
+inline static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__upperLength(uart_id_t arg_0x41307770, message_t *msg, uint8_t dataLinkLen){
 #line 31
   unsigned char __nesc_result;
 #line 31
 
 #line 31
-  switch (arg_0x41308770) {
+  switch (arg_0x41307770) {
 #line 31
     case TOS_SERIAL_ACTIVE_MESSAGE_ID:
 #line 31
@@ -14352,7 +14355,7 @@ inline static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__
 #line 31
     default:
 #line 31
-      __nesc_result = /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__default__upperLength(arg_0x41308770, msg, dataLinkLen);
+      __nesc_result = /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__default__upperLength(arg_0x41307770, msg, dataLinkLen);
 #line 31
       break;
 #line 31
@@ -14379,13 +14382,13 @@ static inline uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__
 }
 
 # 15 "/home/zly/tinyos-main/tos/lib/serial/SerialPacketInfo.nc"
-inline static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__offset(uart_id_t arg_0x41308770){
+inline static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__offset(uart_id_t arg_0x41307770){
 #line 15
   unsigned char __nesc_result;
 #line 15
 
 #line 15
-  switch (arg_0x41308770) {
+  switch (arg_0x41307770) {
 #line 15
     case TOS_SERIAL_ACTIVE_MESSAGE_ID:
 #line 15
@@ -14395,7 +14398,7 @@ inline static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__
 #line 15
     default:
 #line 15
-      __nesc_result = /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__default__offset(arg_0x41308770);
+      __nesc_result = /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__default__offset(arg_0x41307770);
 #line 15
       break;
 #line 15
@@ -14777,13 +14780,13 @@ static inline error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__defau
 }
 
 # 120 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
-inline static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__release(uint8_t arg_0x41186460){
+inline static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__release(uint8_t arg_0x41185010){
 #line 120
   unsigned char __nesc_result;
 #line 120
 
 #line 120
-  switch (arg_0x41186460) {
+  switch (arg_0x41185010) {
 #line 120
     case /*PlatformSerialC.UartC*/Msp430Uart1C__0__CLIENT_ID:
 #line 120
@@ -14793,7 +14796,7 @@ inline static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__relea
 #line 120
     default:
 #line 120
-      __nesc_result = /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__release(arg_0x41186460);
+      __nesc_result = /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__release(arg_0x41185010);
 #line 120
       break;
 #line 120
@@ -14814,13 +14817,13 @@ static inline bool /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default_
 }
 
 # 128 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
-inline static bool /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__isOwner(uint8_t arg_0x41186460){
+inline static bool /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__isOwner(uint8_t arg_0x41185010){
 #line 128
   unsigned char __nesc_result;
 #line 128
 
 #line 128
-  switch (arg_0x41186460) {
+  switch (arg_0x41185010) {
 #line 128
     case /*PlatformSerialC.UartC*/Msp430Uart1C__0__CLIENT_ID:
 #line 128
@@ -14830,7 +14833,7 @@ inline static bool /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__isOwner(
 #line 128
     default:
 #line 128
-      __nesc_result = /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__isOwner(arg_0x41186460);
+      __nesc_result = /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__isOwner(arg_0x41185010);
 #line 128
       break;
 #line 128
@@ -15015,13 +15018,13 @@ static inline error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__defau
 }
 
 # 97 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
-inline static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__immediateRequest(uint8_t arg_0x41186460){
+inline static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__immediateRequest(uint8_t arg_0x41185010){
 #line 97
   unsigned char __nesc_result;
 #line 97
 
 #line 97
-  switch (arg_0x41186460) {
+  switch (arg_0x41185010) {
 #line 97
     case /*PlatformSerialC.UartC*/Msp430Uart1C__0__CLIENT_ID:
 #line 97
@@ -15031,7 +15034,7 @@ inline static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__immed
 #line 97
     default:
 #line 97
-      __nesc_result = /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__immediateRequest(arg_0x41186460);
+      __nesc_result = /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__immediateRequest(arg_0x41185010);
 #line 97
       break;
 #line 97
@@ -15233,13 +15236,13 @@ static inline msp430_uart_union_config_t */*Msp430Uart1P.UartP*/Msp430UartP__0__
 }
 
 # 39 "/home/zly/tinyos-main/tos/chips/msp430/usart/Msp430UartConfigure.nc"
-inline static msp430_uart_union_config_t */*Msp430Uart1P.UartP*/Msp430UartP__0__Msp430UartConfigure__getConfig(uint8_t arg_0x41186eb8){
+inline static msp430_uart_union_config_t */*Msp430Uart1P.UartP*/Msp430UartP__0__Msp430UartConfigure__getConfig(uint8_t arg_0x41185a68){
 #line 39
   union __nesc_unnamed4286 *__nesc_result;
 #line 39
 
 #line 39
-  switch (arg_0x41186eb8) {
+  switch (arg_0x41185a68) {
 #line 39
     case /*PlatformSerialC.UartC*/Msp430Uart1C__0__CLIENT_ID:
 #line 39
@@ -15249,7 +15252,7 @@ inline static msp430_uart_union_config_t */*Msp430Uart1P.UartP*/Msp430UartP__0__
 #line 39
     default:
 #line 39
-      __nesc_result = /*Msp430Uart1P.UartP*/Msp430UartP__0__Msp430UartConfigure__default__getConfig(arg_0x41186eb8);
+      __nesc_result = /*Msp430Uart1P.UartP*/Msp430UartP__0__Msp430UartConfigure__default__getConfig(arg_0x41185a68);
 #line 39
       break;
 #line 39
@@ -15776,9 +15779,9 @@ static inline void /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__default__gran
 }
 
 # 102 "/home/zly/tinyos-main/tos/interfaces/Resource.nc"
-inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__granted(uint8_t arg_0x4114ed48){
+inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__granted(uint8_t arg_0x4118b910){
 #line 102
-  switch (arg_0x4114ed48) {
+  switch (arg_0x4118b910) {
 #line 102
     case /*PlatformSerialC.UartC*/Msp430Uart1C__0__CLIENT_ID:
 #line 102
@@ -15788,7 +15791,7 @@ inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__granted(uint8
 #line 102
     default:
 #line 102
-      /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__default__granted(arg_0x4114ed48);
+      /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__default__granted(arg_0x4118b910);
 #line 102
       break;
 #line 102
@@ -15873,9 +15876,9 @@ static inline void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__1__grantedTa
   /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__1__Resource__granted(/*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__1__resId);
 }
 
-# 74 "SimpleRoutingC.nc"
+# 77 "SimpleRoutingC.nc"
 static inline void SimpleRoutingC__AMDataSend__sendDone(message_t *m, error_t err)
-#line 74
+#line 77
 {
   SimpleRoutingC__busy = FALSE;
   if (err == SUCCESS) {
@@ -15912,15 +15915,15 @@ static inline void /*SimpleRoutingAppC.AMControlSenderC.SenderC.AMQueueEntryP*/A
   /*SimpleRoutingAppC.AMControlSenderC.SenderC.AMQueueEntryP*/AMQueueEntryP__1__AMSend__sendDone(m, err);
 }
 
-# 84 "SimpleRoutingC.nc"
+# 87 "SimpleRoutingC.nc"
 static inline void SimpleRoutingC__AMRouteSend__sendDone(message_t *m, error_t err)
-#line 84
+#line 87
 {
   SimpleRoutingC__busy = FALSE;
   if (err == SUCCESS) {
     }
   else 
-#line 87
+#line 90
     {
     }
 }
@@ -17658,13 +17661,13 @@ inline static error_t SimpleRoutingC__AMDataSend__send(am_addr_t addr, message_t
 #line 80
 }
 #line 80
-# 92 "SimpleRoutingC.nc"
+# 95 "SimpleRoutingC.nc"
 static inline bool SimpleRoutingC__isSP(void )
-#line 92
+#line 95
 {
   uint8_t i;
 
-#line 94
+#line 97
   printf("SimpleRoutingC PSP_TABLE: ");
   for (i = 0; i < 255; i++) {
       if (SimpleRoutingC__is_PSP[i] == TRUE) {
@@ -17710,17 +17713,16 @@ inline static am_addr_t SimpleRoutingC__AMDataPacket__destination(message_t * am
 #line 78
 }
 #line 78
-# 109 "SimpleRoutingC.nc"
+# 112 "SimpleRoutingC.nc"
 static inline message_t *SimpleRoutingC__AMDataReceive__receive(message_t *msg, 
 void *payload, uint8_t len)
-#line 110
+#line 113
 {
   BeaconMsg *bm = (BeaconMsg *)payload;
   BeaconMsg *bpkt;
   ControlMsg *cpkt;
   uint8_t i;
 
-#line 115
   if (len == sizeof(BeaconMsg )) {
       printf("SimpleRoutingC RECV_DATA %d %d\n", __nesc_ntoh_uint16(bm->nodeid.nxdata), __nesc_ntoh_uint16(bm->counter.nxdata));
       if (SimpleRoutingC__AMDataPacket__destination(msg) == AM_BROADCAST_ADDR) {
@@ -17746,19 +17748,19 @@ void *payload, uint8_t len)
           printf("SimpleRoutingC SEND_DATA %d %d %d\n", __nesc_ntoh_uint16(bpkt->nodeid.nxdata), __nesc_ntoh_uint16(bpkt->counter.nxdata), __nesc_ntoh_uint8(bpkt->data[0].nxdata));
         }
     }
-
+  printfflush();
   return msg;
 }
 
 
 static inline message_t *SimpleRoutingC__AMControlReceive__receive(message_t *msg, 
 void *payload, uint8_t len)
-#line 146
+#line 150
 {
   ControlMsg *cm = (ControlMsg *)payload;
   ControlMsg *cpkt;
 
-#line 149
+#line 153
   if (len == sizeof(ControlMsg )) {
       printf("SimpleRoutingC RECV_CONTROL %d %d\n", __nesc_ntoh_uint16(cm->nodeid.nxdata), __nesc_ntoh_uint16(cm->metric.nxdata));
       SimpleRoutingC__is_PSP[__nesc_ntoh_uint16(cm->nodeid.nxdata)] = TRUE;
@@ -17789,10 +17791,10 @@ inline static error_t SimpleRoutingC__AMRouteSend__send(am_addr_t addr, message_
 #line 80
 }
 #line 80
-# 166 "SimpleRoutingC.nc"
+# 170 "SimpleRoutingC.nc"
 static inline message_t *SimpleRoutingC__AMRouteReceive__receive(message_t *msg, 
 void *payload, uint8_t len)
-#line 167
+#line 171
 {
   RouteMsg *rm = (RouteMsg *)payload;
   RouteMsg *rpkt = (RouteMsg *)SimpleRoutingC__RoutePacket__getPayload(&SimpleRoutingC__packet, sizeof(RouteMsg ));
@@ -20455,9 +20457,9 @@ static inline void CC2420CsmaP__sendDone_task__runTask(void )
   CC2420CsmaP__Send__sendDone(CC2420CsmaP__m_msg, packetErr);
 }
 
-# 64 "SimpleRoutingC.nc"
+# 67 "SimpleRoutingC.nc"
 static inline void SimpleRoutingC__AMControl__stopDone(error_t err)
-#line 64
+#line 67
 {
 }
 
@@ -20491,13 +20493,13 @@ inline static error_t SimpleRoutingC__AMControl__start(void ){
 #line 104
 }
 #line 104
-# 47 "SimpleRoutingC.nc"
+# 50 "SimpleRoutingC.nc"
 static inline void SimpleRoutingC__AMControl__startDone(error_t err)
-#line 47
+#line 50
 {
   RouteMsg *rpkt = (RouteMsg *)SimpleRoutingC__RoutePacket__getPayload(&SimpleRoutingC__packet, sizeof(RouteMsg ));
 
-#line 49
+#line 52
   if (err == SUCCESS) {
       if (TOS_NODE_ID == 1) {
           __nesc_hton_uint16(rpkt->nodeid.nxdata, TOS_NODE_ID);
@@ -20509,7 +20511,7 @@ static inline void SimpleRoutingC__AMControl__startDone(error_t err)
         }
     }
   else 
-#line 58
+#line 61
     {
       SimpleRoutingC__AMControl__start();
     }
@@ -21933,6 +21935,9 @@ static inline void SimpleRoutingC__Boot__booted(void )
 {
   SimpleRoutingC__AMControl__start();
   printf("SimpleRoutingC BOOT\n");
+  if (TOS_NODE_ID == 1) {
+      SimpleRoutingC__type = DST;
+    }
 }
 
 # 67 "/home/zly/tinyos-main/tos/interfaces/TaskBasic.nc"
@@ -22924,9 +22929,9 @@ static inline void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__re
 }
 
 # 79 "/home/zly/tinyos-main/tos/interfaces/UartStream.nc"
-inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__receivedByte(uint8_t arg_0x41188010, uint8_t byte){
+inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__receivedByte(uint8_t arg_0x41188b70, uint8_t byte){
 #line 79
-  switch (arg_0x41188010) {
+  switch (arg_0x41188b70) {
 #line 79
     case /*PlatformSerialC.UartC*/Msp430Uart1C__0__CLIENT_ID:
 #line 79
@@ -22936,7 +22941,7 @@ inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__receivedByt
 #line 79
     default:
 #line 79
-      /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__receivedByte(arg_0x41188010, byte);
+      /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__receivedByte(arg_0x41188b70, byte);
 #line 79
       break;
 #line 79
@@ -22957,9 +22962,9 @@ static inline void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__re
 }
 
 # 99 "/home/zly/tinyos-main/tos/interfaces/UartStream.nc"
-inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__receiveDone(uint8_t arg_0x41188010, uint8_t * buf, uint16_t len, error_t error){
+inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__receiveDone(uint8_t arg_0x41188b70, uint8_t * buf, uint16_t len, error_t error){
 #line 99
-  switch (arg_0x41188010) {
+  switch (arg_0x41188b70) {
 #line 99
     case /*PlatformSerialC.UartC*/Msp430Uart1C__0__CLIENT_ID:
 #line 99
@@ -22969,7 +22974,7 @@ inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__receiveDone
 #line 99
     default:
 #line 99
-      /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__receiveDone(arg_0x41188010, buf, len, error);
+      /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__receiveDone(arg_0x41188b70, buf, len, error);
 #line 99
       break;
 #line 99
@@ -23319,9 +23324,9 @@ static inline void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__se
 }
 
 # 57 "/home/zly/tinyos-main/tos/interfaces/UartStream.nc"
-inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__sendDone(uint8_t arg_0x41188010, uint8_t * buf, uint16_t len, error_t error){
+inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__sendDone(uint8_t arg_0x41188b70, uint8_t * buf, uint16_t len, error_t error){
 #line 57
-  switch (arg_0x41188010) {
+  switch (arg_0x41188b70) {
 #line 57
     case /*PlatformSerialC.UartC*/Msp430Uart1C__0__CLIENT_ID:
 #line 57
@@ -23331,7 +23336,7 @@ inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__sendDone(ui
 #line 57
     default:
 #line 57
-      /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__sendDone(arg_0x41188010, buf, len, error);
+      /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__sendDone(arg_0x41188b70, buf, len, error);
 #line 57
       break;
 #line 57
@@ -25141,13 +25146,13 @@ static void SerialP__MaybeScheduleTx(void )
     __nesc_atomic_end(__nesc_atomic); }
 }
 
-# 66 "SimpleRoutingC.nc"
+# 69 "SimpleRoutingC.nc"
 static void SimpleRoutingC__AMControlSend__sendDone(message_t *m, error_t err)
-#line 66
+#line 69
 {
   ControlMsg *cm = (ControlMsg *)SimpleRoutingC__AMControlSend__getPayload(m, sizeof(ControlMsg ));
 
-#line 68
+#line 71
   SimpleRoutingC__busy = FALSE;
   if (err == SUCCESS) {
     }
@@ -25625,6 +25630,13 @@ static void * SimpleRoutingC__DataPacket__getPayload(message_t * msg, uint8_t le
 #line 126
 }
 #line 126
+# 64 "/home/zly/tinyos-main/tos/lib/printf/SerialPrintfP.nc"
+  int printfflush(void )
+#line 64
+{
+  return SUCCESS;
+}
+
 # 769 "/home/zly/tinyos-main/tos/chips/cc2420/receive/CC2420ReceiveP.nc"
 static void CC2420ReceiveP__waitForNextPacket(void )
 #line 769
@@ -26127,13 +26139,6 @@ __attribute((wakeup)) __attribute((interrupt(0x0010)))  void sig_UART0TX_VECTOR(
 #line 105
     HplMsp430Usart0P__Interrupts__txDone();
     }
-}
-
-# 64 "/home/zly/tinyos-main/tos/lib/printf/SerialPrintfP.nc"
-  int printfflush(void )
-#line 64
-{
-  return SUCCESS;
 }
 
 # 96 "/home/zly/tinyos-main/tos/chips/msp430/usart/HplMsp430Usart1P.nc"

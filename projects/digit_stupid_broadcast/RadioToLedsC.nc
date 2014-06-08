@@ -68,18 +68,53 @@ implementation {
 			//printf("PATTERN[0].frag[3-(11/16)%%4] %0x\n",PATTERN[0].frag[3-(11/16)%4]);
 			switch((rm->color)%4) {
 				case 0:
-					if(on!=0) call Leds.led0On();
-					else call Leds.led0Off();
+					if(on!=0) {
+						call Leds.led0On();
+						call Leds.led1Off();
+						call Leds.led2Off();
+					}
+					else {
+						call Leds.led0Off();
+						call Leds.led1Off();
+						call Leds.led2Off();
+					}
 					break;
 				case 1:
-					if(on!=0) call Leds.led1On();
-					else call Leds.led1Off();
+					if(on!=0) {
+						call Leds.led0Off();
+						call Leds.led1On();
+						call Leds.led2Off();
+					}
+					else  {
+						call Leds.led0Off();
+						call Leds.led1Off();
+						call Leds.led2Off();
+					}
 					break;
 				case 2:
-					if(on!=0) call Leds.led2On();
-					else call Leds.led1Off();
+					if(on!=0) {
+						call Leds.led0Off();
+						call Leds.led1Off();
+						call Leds.led2On();
+					}
+					else {
+						call Leds.led0Off();
+						call Leds.led1Off();
+						call Leds.led2Off();
+					}
 					break;
-				default:	
+				case 3:
+					if(on!=0) {
+						call Leds.led0On();
+						call Leds.led1On();
+						call Leds.led2On();
+					} else {
+						call Leds.led0Off();
+						call Leds.led1Off();
+						call Leds.led2Off();
+					}
+
+				default:
 					break;
 			}
 			//printf("RadioToLedsC received_counts[rm->count] %d\n", received_counts[rm->count]);

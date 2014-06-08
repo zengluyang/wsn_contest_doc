@@ -1,5 +1,5 @@
 #include "SimpleRouting.h"
-#define USE_PRINT
+//#define USE_PRINT
 
 configuration SimpleRoutingAppC {
 }
