@@ -17311,11 +17311,6 @@ void *payload, uint8_t len)
 
   if (len == sizeof(test_send_msg_t )) {
       rm = (test_send_msg_t *)payload;
-      printf("RadioToLedsC RECV %d %d %d\n", 
-      TOS_NODE_ID, __nesc_ntoh_uint16(
-      rm->max.nxdata), __nesc_ntoh_uint16(
-      rm->min.nxdata));
-
       if (__nesc_ntoh_uint16(RadioToLedsC__status.max.nxdata) > __nesc_ntoh_uint16(rm->max.nxdata) && __nesc_ntoh_uint16(RadioToLedsC__status.min.nxdata) < __nesc_ntoh_uint16(rm->min.nxdata)) {
           if (RadioToLedsC__stale_count++ < 2) {
               not_stale = TRUE;
@@ -17331,6 +17326,11 @@ void *payload, uint8_t len)
           not_stale = TRUE;
           RadioToLedsC__stale_count = 0;
         }
+      printf("RadioToLedsC RECV %d %d %d\n", 
+      TOS_NODE_ID, __nesc_ntoh_uint16(
+      rm->max.nxdata), __nesc_ntoh_uint16(
+      rm->min.nxdata));
+
 
 
       if (not_stale) {

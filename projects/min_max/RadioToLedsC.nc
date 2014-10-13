@@ -137,11 +137,6 @@ implementation {
 		
 		if(len == sizeof(test_send_msg_t)) {
 			rm = (test_send_msg_t *) payload;
-			printf("RadioToLedsC RECV %d %d %d\n",
-				TOS_NODE_ID, 
-				rm->max, 
-				rm->min
-			);
 			if(status.max >rm->max && status.min < rm->min) {
 				if(stale_count++ < STALE_COUNT_THD) {
 					not_stale = TRUE;
@@ -157,6 +152,11 @@ implementation {
 				not_stale = TRUE;
 				stale_count = 0;
 			}
+			printf("RadioToLedsC RECV %d %d %d\n",
+				TOS_NODE_ID, 
+				rm->max, 
+				rm->min
+			);
 
 			//printf("RadioToLedsC received_counts[rm->count] %d\n", received_counts[rm->count]);
 			if(not_stale) {
