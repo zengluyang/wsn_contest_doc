@@ -6,6 +6,12 @@
 #define STAUTS_STABLE_TIME_THD_SEC 10
 #define STALE_COUNT_THD 2
 
+#ifdef SIM
+#define ROOT_NODE_ID 1
+#elif
+#define ROOT_NODE_ID 0
+#endif
+
 module RadioToLedsC {
 	uses {
 		interface Boot;
@@ -17,6 +23,7 @@ module RadioToLedsC {
 		interface Receive as SerialReceive;
 		interface AMSend as SerialSend;
 		interface Timer<TMilli> as MilliTimer;
+		interface Timer<TMilli> as ResendTimer;
 	}
 }
 
@@ -39,6 +46,8 @@ implementation {
 	test_send_msg_t status = {0,0};
 	test_send_msg_t last_status = {0+1,0+1};
 
+	void sendStatus();
+
 	event void Boot.booted() {
 		uint16_t i=0;
 		printf("RadioToLedsC BOOT\n");
@@ -46,10 +55,11 @@ implementation {
 	}
 
 	event void MilliTimer.fired() {
+		printf("RadioToLedsC BOOT MilliTimer.fired() %d %d %d %d\n",last_status.max,status.max,last_status.min,status.min);
 		if
 		(
-			(status_stable_count>=STAUTS_STABLE_TIME_THD_SEC && TOS_NODE_ID==0) || //stablized
-			(++time_count>=END_TIME_SEC && TOS_NODE_ID==0) // out of time
+			(status_stable_count>=STAUTS_STABLE_TIME_THD_SEC && TOS_NODE_ID==ROOT_NODE_ID) || //stablized
+			(++time_count>=END_TIME_SEC && TOS_NODE_ID==ROOT_NODE_ID) // out of time
 		) {
 			printf("GreenOrbs %x %x\n",status.min,status.max);
 			printfflush();
@@ -60,7 +70,40 @@ implementation {
 			status_stable_count=0;
 		}
 		last_status.max = status.max;
-		last_status.max = status.min; 
+		last_status.min = status.min;
+
+	}
+
+	event void ResendTimer.fired() {
+		printf("RadioToLedsC BOOT ResendTimer.fired()\n");
+		sendStatus();
+	}
+
+	void sendStatus() {
+		if(serial_received && TOS_NODE_ID!=ROOT_NODE_ID) {
+			if(!busy_radio) {
+				test_send_msg_t* tsm = (test_send_msg_t* )(call Packet.getPayload(&packet,sizeof(test_send_msg_t)));
+				if(tsm==NULL) {
+					return ;
+				}
+				tsm->max=status.max;
+				tsm->min=status.min;
+				if(call AMSend.send(AM_BROADCAST_ADDR, 
+					&packet, sizeof(test_send_msg_t))) {
+					send_count++;
+					busy_radio = TRUE;
+					printf("RadioToLedsC SEND %d %d %d %d\n",
+						TOS_NODE_ID,
+						tsm->max,
+						tsm->min,
+						send_count
+					);
+				}
+			} else {
+				call ResendTimer.startOneShot(200);
+			}
+		}
+		return;
 	}
 
 	event void AMControl.startDone(error_t err) {
@@ -73,6 +116,10 @@ implementation {
 			status.max=self_number;
 			last_status.min=self_number+1;
 			last_status.max=self_number+1;
+			#ifdef SIM
+			serial_received = TRUE;
+			sendStatus();
+			#endif
 		} else {
 			call AMControl.start();
 		}
@@ -112,18 +159,8 @@ implementation {
 			}
 
 			//printf("RadioToLedsC received_counts[rm->count] %d\n", received_counts[rm->count]);
-			if(!busy_radio && not_stale && serial_received && TOS_NODE_ID!=0) {
-				if(call AMSend.send(AM_BROADCAST_ADDR, 
-					&packet, sizeof(test_send_msg_t))) {
-					send_count++;
-					busy_radio = TRUE;
-					printf("RadioToLedsC SEND %d %d %d %d\n",
-						TOS_NODE_ID,
-						status.max,
-						status.min,
-						send_count
-					);
-				}
+			if(not_stale) {
+				sendStatus();
 			}
 		}
 		printfflush();
@@ -149,6 +186,7 @@ implementation {
 		  	status.min = rcm->number;
 		  	status.max = rcm->number;
 		  	serial_received = TRUE;
+		  	sendStatus();
 		  	return bufPtr;
 		}
 	}

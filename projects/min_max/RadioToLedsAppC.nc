@@ -1,6 +1,6 @@
 #include "RadioMsg.h"
 #define USE_PRINT
-
+#define SIM
 configuration RadioToLedsAppC {}
 implementation {
 	components MainC;
@@ -10,7 +10,8 @@ implementation {
 	components new AMReceiverC(MY_AM_ID);
 	components ActiveMessageC;
 	components SerialActiveMessageC as SerialAM;
-	components new TimerMilliC();
+	components new TimerMilliC() as Timer0;
+	components new TimerMilliC() as Timer1;
 
 	#ifdef USE_PRINT
 	components SerialPrintfC;
@@ -25,5 +26,6 @@ implementation {
 	App.Packet -> AMReceiverC;
 	App.SerialReceive -> SerialAM.Receive[AM_TEST_SERIAL_MSG];
 	//App.SerialSend -> SerialAM.Send[AM_TEST_SERIAL_MSG];
-	App.MilliTimer -> TimerMilliC;
+	App.MilliTimer -> Timer0;
+	App.ResendTimer -> Timer1;
 }
