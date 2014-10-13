@@ -14,8 +14,8 @@ module RadioToLedsC {
 		interface AMSend;
 		interface Receive;
 		interface Leds;
-		interface SerialReceive;
-		interface SerialSend;
+		interface Receive as SerialReceive;
+		interface AMSend as SerialSend;
 		interface Timer<TMilli> as MilliTimer;
 	}
 }
@@ -27,17 +27,17 @@ implementation {
 	message_t packet;
 
 	uint16_t send_count = 0;
-	uint16_t self_number = TOS_NODE_ID;
-	uint16_t self_id = TOS_NODE_ID;
+	uint16_t self_number = 0;
+	uint16_t self_id = 0;
 	
 	uint16_t stale_count = 0;
 	uint16_t serial_received = FALSE;
 
-	uint16_t time_count = 0 //in seconds
+	uint16_t time_count = 0; //in seconds
 	uint16_t status_stable_count = 0;
 
-	test_send_msg_t status = {self_number,self_number};
-	test_send_msg_t last_status = {self_number+1,self_number+1};
+	test_send_msg_t status = {0,0};
+	test_send_msg_t last_status = {0+1,0+1};
 
 	event void Boot.booted() {
 		uint16_t i=0;
@@ -51,7 +51,7 @@ implementation {
 			(status_stable_count>=STAUTS_STABLE_TIME_THD_SEC && TOS_NODE_ID==0) || //stablized
 			(++time_count>=END_TIME_SEC && TOS_NODE_ID==0) // out of time
 		) {
-			printf("GreenOrbs %x %x\n",status->min,status->max);
+			printf("GreenOrbs %x %x\n",status.min,status.max);
 			printfflush();
 		}
 		if(last_status.max==status.max && last_status.min==status.min) {
@@ -66,7 +66,13 @@ implementation {
 	event void AMControl.startDone(error_t err) {
 		if(err==SUCCESS) {
 			//good!
-			call MilliTimer.startPeriodic(1000);
+			call MilliTimer.startPeriodic(1000);			
+			self_number = TOS_NODE_ID;
+			self_id = TOS_NODE_ID;
+			status.min=self_number;
+			status.max=self_number;
+			last_status.min=self_number+1;
+			last_status.max=self_number+1;
 		} else {
 			call AMControl.start();
 		}
@@ -79,8 +85,8 @@ implementation {
 		test_send_msg_t *rm;
 		uint16_t on = 0; //important! cannot be bool
 		//uint8_t count = (rm->count)%256;
-		packet = *msg;
 		uint8_t not_stale = FALSE;
+		packet = *msg;
 		
 		if(len == sizeof(test_send_msg_t)) {
 			rm = (test_send_msg_t *) payload;
@@ -89,18 +95,18 @@ implementation {
 				rm->max, 
 				rm->min
 			);
-			if(status->max >rm->max && status->min < rm->min) {
+			if(status.max >rm->max && status.min < rm->min) {
 				if(stale_count++ < STALE_COUNT_THD) {
 					not_stale = TRUE;
 				}
 			}
-			if(rm->max > status->max) {
-				status->max = rm->max;
+			if(rm->max > status.max) {
+				status.max = rm->max;
 				not_stale = TRUE;
 				stale_count = 0;
 			}
-			if(rm->min < status->min) {
-				status->min = rm->min;
+			if(rm->min < status.min) {
+				status.min = rm->min;
 				not_stale = TRUE;
 				stale_count = 0;
 			}
@@ -113,8 +119,8 @@ implementation {
 					busy_radio = TRUE;
 					printf("RadioToLedsC SEND %d %d %d %d\n",
 						TOS_NODE_ID,
-						rm->max,
-						rm->min,
+						status.max,
+						status.min,
 						send_count
 					);
 				}

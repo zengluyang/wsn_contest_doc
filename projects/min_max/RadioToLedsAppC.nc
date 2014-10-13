@@ -24,6 +24,6 @@ implementation {
 	App.Leds -> LedsC;
 	App.Packet -> AMReceiverC;
 	App.SerialReceive -> SerialAM.Receive[AM_TEST_SERIAL_MSG];
-	App.SerialSend -> SerialAM.Send[AM_TEST_SERIAL_MSG];
-	App.TimerMilliC -> TimerMilliC;
+	//App.SerialSend -> SerialAM.Send[AM_TEST_SERIAL_MSG];
+	App.MilliTimer -> TimerMilliC;
 }
