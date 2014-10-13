@@ -46,11 +46,11 @@ implementation {
 	}
 
 	event void MilliTimer.fired() {
-		if(++time_count>=END_TIME_SEC && TOS_NODE_ID==0) {
-			printf("GreenOrbs %x %x\n",status->min,status->max);
-			printfflush();
-		}
-		if(status_stable_count>=STAUTS_STABLE_TIME_THD_SEC && TOS_NODE_ID==0) {
+		if
+		(
+			(status_stable_count>=STAUTS_STABLE_TIME_THD_SEC && TOS_NODE_ID==0) || //stablized
+			(++time_count>=END_TIME_SEC && TOS_NODE_ID==0) // out of time
+		) {
 			printf("GreenOrbs %x %x\n",status->min,status->max);
 			printfflush();
 		}
@@ -146,6 +146,5 @@ implementation {
 		  	return bufPtr;
 		}
 	}
-
 
 }
