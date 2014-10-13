@@ -136,10 +136,12 @@ implementation {
 
 	event message_t* SerialReceive.receive(message_t* bufPtr, void* payload, uint8_t len) {
 		if (len != sizeof(test_serial_msg_t)) {return bufPtr;}
-		else {
+		else if(!serial_received){
 			test_serial_msg_t* rcm = (test_serial_msg_t*)payload;
 		  	self_id = rcm->ID;
 		  	self_number = rcm->number;
+		  	status.min = rcm->number;
+		  	status.max = rcm->number;
 		  	serial_received = TRUE;
 		  	return bufPtr;
 		}
