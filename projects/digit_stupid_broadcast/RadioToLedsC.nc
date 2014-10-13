@@ -2,9 +2,7 @@
 #include "RadioMsg.h"
 #include "printf.h"
 
-#define END_TIME_SEC 60*25
-#define STAUTS_STABLE_TIME_THD_SEC 10
-#define STALE_COUNT_THD 2
+
 
 module RadioToLedsC {
 	uses {
@@ -14,59 +12,33 @@ module RadioToLedsC {
 		interface AMSend;
 		interface Receive;
 		interface Leds;
-		interface SerialReceive;
-		interface SerialSend;
-		interface Timer<TMilli> as MilliTimer;
 	}
 }
 
 implementation {
-	bool busy_radio = FALSE;
-	bool busy_serial = FALSE;
-
+	bool busy = FALSE;
 	message_t packet;
+	uint8_t received_counts[256];
 
 	uint16_t send_count = 0;
-	uint16_t self_number = TOS_NODE_ID;
-	uint16_t self_id = TOS_NODE_ID;
-	
-	uint16_t stale_count = 0;
-	uint16_t serial_received = FALSE;
-
-	uint16_t time_count = 0 //in seconds
-	uint16_t status_stable_count = 0;
-
-	test_send_msg_t status = {self_number,self_number};
-	test_send_msg_t last_status = {self_number+1,self_number+1};
 
 	event void Boot.booted() {
 		uint16_t i=0;
 		printf("RadioToLedsC BOOT\n");
+		//call Leds.led0On();
+		//call Leds.led1On();
+		//call Leds.led2On();
+		for(i=0;i<256;i++) {
+			received_counts[i]=0;
+		}
 		call AMControl.start();
 	}
 
-	event void MilliTimer.fired() {
-		if(++time_count>=END_TIME_SEC && TOS_NODE_ID==0) {
-			printf("GreenOrbs %x %x\n",status->min,status->max);
-			printfflush();
-		}
-		if(status_stable_count>=STAUTS_STABLE_TIME_THD_SEC && TOS_NODE_ID==0) {
-			printf("GreenOrbs %x %x\n",status->min,status->max);
-			printfflush();
-		}
-		if(last_status.max==status.max && last_status.min==status.min) {
-			status_stable_count++;
-		} else {
-			status_stable_count=0;
-		}
-		last_status.max = status.max;
-		last_status.max = status.min; 
-	}
+
 
 	event void AMControl.startDone(error_t err) {
 		if(err==SUCCESS) {
 			//good!
-			call MilliTimer.startPeriodic(1000);
 		} else {
 			call AMControl.start();
 		}
@@ -80,41 +52,84 @@ implementation {
 		uint16_t on = 0; //important! cannot be bool
 		//uint8_t count = (rm->count)%256;
 		packet = *msg;
-		uint8_t not_stale = FALSE;
 		
 		if(len == sizeof(test_send_msg_t)) {
 			rm = (test_send_msg_t *) payload;
-			printf("RadioToLedsC RECV %d %d %d\n",
+			on = (PATTERN[rm->number].frag[3-(TOS_NODE_ID/16)%4]) & (0x1<<(TOS_NODE_ID%16));
+			printf("RadioToLedsC RECV %d %d %d %d %d %d\n",
 				TOS_NODE_ID, 
-				rm->max, 
-				rm->min
+				rm->number, 
+				rm->color, 
+				rm->count,
+				(on==0 ? 1 : 0),
+				send_count
 			);
-			if(status->max >rm->max && status->min < rm->min) {
-				if(stale_count++ < STALE_COUNT_THD) {
-					not_stale = TRUE;
-				}
-			}
-			if(rm->max > status->max) {
-				status->max = rm->max;
-				not_stale = TRUE;
-				stale_count = 0;
-			}
-			if(rm->min < status->min) {
-				status->min = rm->min;
-				not_stale = TRUE;
-				stale_count = 0;
-			}
+			//printf("sizeof(PATTERN): %d\n",sizeof(PATTERN));
+			//printf("PATTERN[0].frag[3-(11/16)%%4] %0x\n",PATTERN[0].frag[3-(11/16)%4]);
+			switch((rm->color)%4) {
+				case 0:
+					if(on!=0) {
+						call Leds.led0On();
+						call Leds.led1Off();
+						call Leds.led2Off();
+					}
+					else {
+						call Leds.led0Off();
+						call Leds.led1Off();
+						call Leds.led2Off();
+					}
+					break;
+				case 1:
+					if(on!=0) {
+						call Leds.led0Off();
+						call Leds.led1On();
+						call Leds.led2Off();
+					}
+					else  {
+						call Leds.led0Off();
+						call Leds.led1Off();
+						call Leds.led2Off();
+					}
+					break;
+				case 2:
+					if(on!=0) {
+						call Leds.led0Off();
+						call Leds.led1Off();
+						call Leds.led2On();
+					}
+					else {
+						call Leds.led0Off();
+						call Leds.led1Off();
+						call Leds.led2Off();
+					}
+					break;
+				case 3:
+					if(on!=0) {
+						call Leds.led0On();
+						call Leds.led1On();
+						call Leds.led2On();
+					} else {
+						call Leds.led0Off();
+						call Leds.led1Off();
+						call Leds.led2Off();
+					}
 
+				default:
+					break;
+			}
 			//printf("RadioToLedsC received_counts[rm->count] %d\n", received_counts[rm->count]);
-			if(!busy_radio && not_stale && serial_received && TOS_NODE_ID!=0) {
+			if(!busy && received_counts[rm->count]==0) {
 				if(call AMSend.send(AM_BROADCAST_ADDR, 
 					&packet, sizeof(test_send_msg_t))) {
+					received_counts[rm->count] = 1;
 					send_count++;
-					busy_radio = TRUE;
-					printf("RadioToLedsC SEND %d %d %d %d\n",
+					busy = TRUE;
+					printf("RadioToLedsC SEND %d %d %d %d %d %d\n",
 						TOS_NODE_ID,
-						rm->max,
-						rm->min,
+						rm->number,
+						rm->color,
+						rm->count,
+						(on== 0 ? 1 : 0),
 						send_count
 					);
 				}
@@ -126,23 +141,7 @@ implementation {
 
 	event void AMSend.sendDone(message_t *msg, error_t error) 
 	{
-		busy_radio=FALSE;
-	}
-
-	event void SerialSend.sendDone(message_t *msg, error_t error) 
-	{
-		busy_radio=FALSE;
-	}
-
-	event message_t* SerialReceive.receive(message_t* bufPtr, void* payload, uint8_t len) {
-		if (len != sizeof(test_serial_msg_t)) {return bufPtr;}
-		else {
-			test_serial_msg_t* rcm = (test_serial_msg_t*)payload;
-		  	self_id = rcm->ID;
-		  	self_number = rcm->number;
-		  	serial_received = TRUE;
-		  	return bufPtr;
-		}
+		busy=FALSE;
 	}
 
 

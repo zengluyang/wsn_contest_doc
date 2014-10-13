@@ -7,18 +7,51 @@ enum
 };
 
 typedef nx_struct test_send_msg {
-  nx_uint16_t  max;
-  nx_uint16_t  min;
+  nx_uint8_t  number;
+  nx_uint8_t  color;
+  nx_uint8_t  count;
 }test_send_msg_t;
 
-typedef nx_struct test_serial_msg {
-  nx_uint16_t     ID;
-  nx_uint16_t      number;
-} test_serial_msg_t;
 
-enum {
-  AM_TEST_SERIAL_MSG = 200,
+typedef struct digit_pattern {
+	uint16_t frag[4];
+	/*
+	pattern[0]---------|pattern[1]---------|pattern[2]---------|pattern[3]---------|
+	0000 0000 0000 0000|0000 0000 0000 0000|0000 0000 0000 0000|0000 0000 0000 0000|
+
+	so if we only want nodes whose TOS_NODE_ID = 11 and 12 on:
+		pattern[0]---------|pattern[1]---------|pattern[2]---------|pattern[3]---------|
+		0000 0000 0000 0000|0000 0000 0000 0000|0000 0000 0000 0000|0000 1100 0000 0000|
+		that woold be:
+		digit_pattern_t PATTERN_11_12 = {0x0000,0x0000,0x0000,0x0c00};
+	*/
+}digit_pattern_t;
+
+/*
+0:11, 12, 13, 14, 15, 16, 17, 18, 21, 28, 31, 32, 33, 34, 35, 36, 37, 38
+1:21, 22, 23, 24, 25, 26, 27, 28
+2:11, 12, 13, 14, 15, 18, 21, 25, 28, 31, 35, 36, 37, 38
+3:11, 15, 18, 21, 25, 28, 31, 32, 33, 34, 35, 36, 37, 38
+4:15, 16, 17, 18, 25, 31, 32, 33, 34, 35, 36, 37, 38
+5:11, 15, 16, 17, 18, 21, 25, 28, 31, 32, 33, 34, 35, 38
+6:11, 12, 13, 14, 15, 16, 17, 18, 21, 25, 28, 31, 32, 33, 34, 35, 38
+7:18, 28, 31, 32, 33, 34, 35, 36, 37, 38
+8:11, 12, 13, 14, 15, 16, 17, 18, 21, 25, 28, 31, 32, 33, 34, 35, 36, 37, 38
+9:11,15,16,17,18,21,25,28,31,32,33,34,35,36,37,38
+*/
+//uint16_t test = 0xffff;
+//const digit_pattern_t test_pattren = {0x0u, 0x7fu, 0x9027u, 0xf800u};
+const digit_pattern_t PATTERN[10] = {
+    {0x0, 0x7f, 0x9027, 0xf800},
+    {0x0, 0x0, 0x1fe0, 0x0},
+    {0x0, 0x78, 0x9224, 0xf800},
+    {0x0, 0x7f, 0x9224, 0x8800},
+    {0x0, 0x7f, 0x8207, 0x8000},
+    {0x0, 0x4f, 0x9227, 0x8800},
+    {0x0, 0x4f, 0x9227, 0xf800},
+    {0x0, 0x7f, 0x9004, 0x0},
+    {0x0, 0x7f, 0x9227, 0xf800},
+    {0x0, 0x7f, 0x9227, 0x8800},
 };
-
 
 #endif
