@@ -22,10 +22,15 @@ implementation {
 	App.Receive -> AMReceiverC;
 	App.AMSend -> AMSenderC;
 	App.AMControl -> ActiveMessageC;
+
 	App.Leds -> LedsC;
+
 	App.Packet -> AMReceiverC;
 	App.SerialReceive -> SerialAM.Receive[AM_TEST_SERIAL_MSG];
+	App.SerialPacket -> SerialAM;
+	App.SerialControl -> SerialAM;
 	//App.SerialSend -> SerialAM.Send[AM_TEST_SERIAL_MSG];
+	
 	App.MilliTimer -> Timer0;
 	App.ResendTimer -> Timer1;
 }

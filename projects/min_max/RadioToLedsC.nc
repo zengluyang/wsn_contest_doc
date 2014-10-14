@@ -21,8 +21,11 @@ module RadioToLedsC {
 		interface AMSend;
 		interface Receive;
 		interface Leds;
+
 		interface Receive as SerialReceive;
 		interface AMSend as SerialSend;
+		interface Packet as SerialPacket;
+		interface SplitControl as SerialControl;
 		interface Timer<TMilli> as MilliTimer;
 		interface Timer<TMilli> as ResendTimer;
 	}
