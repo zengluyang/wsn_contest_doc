@@ -29,7 +29,6 @@
   <target name="jar" depends="init, compile">
     <mkdir dir="${lib}"/>
     <jar destfile="${lib}/mrm.jar" basedir="${build}">
-      <fileset dir="images"/>
       <manifest>
         <attribute name="Class-Path" value="."/>
       </manifest>
