@@ -137,7 +137,7 @@ implementation {
 		if(err==SUCCESS) {
 
 			} else {
-				call AMControl.start()
+				call SerialControl.start();
 			}
 	}
 
