@@ -25,7 +25,7 @@
       se.sics.cooja.mspmote.SkyMoteType
       <identifier>sky1</identifier>
       <description>ctp</description>
-      <firmware EXPORT="copy">[CONFIG_DIR]/more_manual/build/telosb/main.exe</firmware>
+      <firmware EXPORT="copy">[CONFIG_DIR]/min_max/build/telosb/main.exe</firmware>
       <moteinterface>se.sics.cooja.interfaces.Position</moteinterface>
       <moteinterface>se.sics.cooja.interfaces.RimeAddress</moteinterface>
       <moteinterface>se.sics.cooja.interfaces.IPAddress</moteinterface>
@@ -46,7 +46,7 @@
       se.sics.cooja.mspmote.SkyMoteType
       <identifier>sky2</identifier>
       <description>off</description>
-      <firmware EXPORT="copy">[CONFIG_DIR]/more_official/build/telosb/main.exe</firmware>
+      <firmware EXPORT="copy">[CONFIG_DIR]/min_max/build/telosb/main.exe</firmware>
       <moteinterface>se.sics.cooja.interfaces.Position</moteinterface>
       <moteinterface>se.sics.cooja.interfaces.RimeAddress</moteinterface>
       <moteinterface>se.sics.cooja.interfaces.IPAddress</moteinterface>
@@ -739,8 +739,8 @@
       <breakpoints />
       <interface_config>
         se.sics.cooja.interfaces.Position
-        <x>-0.3052493623126791</x>
-        <y>-0.3395336188139485</y>
+        <x>-0.2440044305983631</x>
+        <y>-0.21915564958236167</y>
         <z>0.0</z>
       </interface_config>
       <interface_config>
@@ -753,8 +753,8 @@
       <breakpoints />
       <interface_config>
         se.sics.cooja.interfaces.Position
-        <x>3.760146966999681</x>
-        <y>-0.2867362638878139</y>
+        <x>3.658776045541503</x>
+        <y>-0.23393890896167932</y>
         <z>0.0</z>
       </interface_config>
       <interface_config>
@@ -767,7 +767,7 @@
   <plugin>
     se.sics.cooja.plugins.SimControl
     <width>280</width>
-    <z>1</z>
+    <z>0</z>
     <height>160</height>
     <location_x>400</location_x>
     <location_y>0</location_y>
@@ -783,7 +783,7 @@
       <viewport>67.64408134508125 0.0 0.0 67.64408134508125 73.5054555519559 155.8245825875834</viewport>
     </plugin_config>
     <width>400</width>
-    <z>3</z>
+    <z>8</z>
     <height>400</height>
     <location_x>1</location_x>
     <location_y>1</location_y>
@@ -791,12 +791,13 @@
   <plugin>
     se.sics.cooja.plugins.LogListener
     <plugin_config>
-      <filter>SEND_ROUT</filter>
+      <filter>GreenOrbs</filter>
       <formatted_time />
       <coloring />
+      <hidedebug />
     </plugin_config>
     <width>1015</width>
-    <z>0</z>
+    <z>1</z>
     <height>240</height>
     <location_x>400</location_x>
     <location_y>160</location_y>
@@ -860,7 +861,7 @@
       <zoomfactor>500.0</zoomfactor>
     </plugin_config>
     <width>1415</width>
-    <z>5</z>
+    <z>10</z>
     <height>166</height>
     <location_x>0</location_x>
     <location_y>837</location_y>
@@ -872,7 +873,7 @@
       <decorations>true</decorations>
     </plugin_config>
     <width>735</width>
-    <z>4</z>
+    <z>9</z>
     <height>160</height>
     <location_x>680</location_x>
     <location_y>0</location_y>
@@ -886,10 +887,75 @@
       <hidenodests>false</hidenodests>
     </plugin_config>
     <width>500</width>
+    <z>7</z>
+    <height>300</height>
+    <location_x>9</location_x>
+    <location_y>558</location_y>
+  </plugin>
+  <plugin>
+    se.sics.cooja.plugins.MoteInterfaceViewer
+    <mote_arg>0</mote_arg>
+    <plugin_config>
+      <interface>Serial port</interface>
+      <scrollpos>0,0</scrollpos>
+    </plugin_config>
+    <width>350</width>
     <z>2</z>
     <height>300</height>
-    <location_x>30</location_x>
-    <location_y>463</location_y>
+    <location_x>765</location_x>
+    <location_y>108</location_y>
+  </plugin>
+  <plugin>
+    se.sics.cooja.plugins.MoteInterfaceViewer
+    <mote_arg>43</mote_arg>
+    <plugin_config>
+      <interface>Serial port</interface>
+      <scrollpos>0,0</scrollpos>
+    </plugin_config>
+    <width>350</width>
+    <z>6</z>
+    <height>300</height>
+    <location_x>1200</location_x>
+    <location_y>376</location_y>
+  </plugin>
+  <plugin>
+    se.sics.cooja.plugins.MoteInterfaceViewer
+    <mote_arg>48</mote_arg>
+    <plugin_config>
+      <interface>Serial port</interface>
+      <scrollpos>0,0</scrollpos>
+    </plugin_config>
+    <width>350</width>
+    <z>4</z>
+    <height>257</height>
+    <location_x>851</location_x>
+    <location_y>503</location_y>
+  </plugin>
+  <plugin>
+    se.sics.cooja.plugins.MoteInterfaceViewer
+    <mote_arg>1</mote_arg>
+    <plugin_config>
+      <interface>Serial port</interface>
+      <scrollpos>0,0</scrollpos>
+    </plugin_config>
+    <width>350</width>
+    <z>3</z>
+    <height>300</height>
+    <location_x>550</location_x>
+    <location_y>446</location_y>
+  </plugin>
+  <plugin>
+    se.sics.cooja.plugins.MoteInterfaceViewer
+    <mote_arg>7</mote_arg>
+    <plugin_config>
+      <interface>Serial port</interface>
+      <scrollpos>0,0</scrollpos>
+    </plugin_config>
+    <width>350</width>
+    <z>5</z>
+    <height>300</height>
+    <location_x>297</location_x>
+    <location_y>579</location_y>
   </plugin>
 </simconf>
 
