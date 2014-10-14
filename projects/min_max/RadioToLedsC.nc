@@ -5,6 +5,7 @@
 #define END_TIME_SEC 60*25
 #define STAUTS_STABLE_TIME_THD_SEC 10
 #define STALE_COUNT_THD 2
+#define RESEND_INTERVAL_MS 200
 
 #ifdef SIM
 #define ROOT_NODE_ID 1
@@ -84,6 +85,7 @@ implementation {
 			if(!busy_radio) {
 				test_send_msg_t* tsm = (test_send_msg_t* )(call Packet.getPayload(&packet,sizeof(test_send_msg_t)));
 				if(tsm==NULL) {
+					call ResendTimer.startOneShot(RESEND_INTERVAL_MS);
 					return ;
 				}
 				tsm->max=status.max;
@@ -100,7 +102,7 @@ implementation {
 					);
 				}
 			} else {
-				call ResendTimer.startOneShot(200);
+				call ResendTimer.startOneShot(RESEND_INTERVAL_MS);
 			}
 		}
 		return;
@@ -181,6 +183,11 @@ implementation {
 		if (len != sizeof(test_serial_msg_t)) {return bufPtr;}
 		else if(!serial_received){
 			test_serial_msg_t* rcm = (test_serial_msg_t*)payload;
+			printf("RadioToLedsC SREC %d %d %d\n",
+				TOS_NODE_ID, 
+				rcm->number, 
+				rcm->ID
+			);
 		  	self_id = rcm->ID;
 		  	self_number = rcm->number;
 		  	status.min = rcm->number;
