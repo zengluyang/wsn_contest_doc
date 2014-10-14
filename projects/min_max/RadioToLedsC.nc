@@ -53,7 +53,6 @@ implementation {
 	void sendStatus();
 
 	event void Boot.booted() {
-		uint16_t i=0;
 		printf("RadioToLedsC BOOT\n");
 		call AMControl.start();
 	}
@@ -146,8 +145,6 @@ implementation {
 	event message_t* Receive.receive(message_t *msg, 
 		void *payload, uint8_t len) {
 		test_send_msg_t *rm;
-		uint16_t on = 0; //important! cannot be bool
-		//uint8_t count = (rm->count)%256;
 		uint8_t not_stale = FALSE;
 		packet = *msg;
 		
@@ -173,8 +170,6 @@ implementation {
 				rm->max, 
 				rm->min
 			);
-
-			//printf("RadioToLedsC received_counts[rm->count] %d\n", received_counts[rm->count]);
 			if(not_stale) {
 				sendStatus();
 			}
