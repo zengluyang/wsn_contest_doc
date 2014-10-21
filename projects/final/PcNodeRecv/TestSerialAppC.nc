@@ -7,7 +7,6 @@ implementation {
   components ActiveMessageC;
 
   components new AMReceiverC(AM_TEST_DATA_MSG);
-  components LedsC;
   App.Boot -> MainC.Boot;
 
   App.Control -> ActiveMessageC;

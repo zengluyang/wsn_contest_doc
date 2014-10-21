@@ -6,7 +6,8 @@
 #define MID_ANGLE (LEFT_SERVO+RIGHT_SERVO)/2
 #define ANGLE_STEP 100
 #define MAX_SPEED 200
-
+#define RESEND_INTERVAL_MS 2000
+#define RESEND_CNT 5
 
 module RadioToLedsC {
 	uses {
@@ -21,6 +22,9 @@ module RadioToLedsC {
 		
 		interface Car;
 		interface SplitControl as CarControl;
+		interface Timer<TMilli> as ResendTimer;
+
+		interface Leds;
 	}
 }
 
@@ -34,13 +38,24 @@ implementation {
 	
 	uint16_t id;
 	
-	
+	uint16_t current_data = 0;
+	uint16_t resend_count = 0xfff;
+
+	void sendData();
 
 	event void Boot.booted() {
 		call AMControl.start();
+		call ResendTimer.startPeriodic(RESEND_INTERVAL_MS);
+		call Leds.led0On();
+		call Leds.led1On();
+		call Leds.led2On();
 	}
 
-
+	event void ResendTimer.fired() {
+		if(resend_count++ < RESEND_CNT) {
+			sendData();
+		}
+	}
 	event void AMControl.startDone(error_t err) {
 		if(err==SUCCESS) {
 			//good!
@@ -184,6 +199,7 @@ implementation {
 				}
 			}
 		}
+		call Leds.led0Toggle();
 		return msg;
 	}
 
@@ -191,11 +207,17 @@ implementation {
 	{
 		if(state == SUCCESS)
 		{
-			
-			test_data_msg_t* tdm_pkt = (test_data_msg_t *) (call DataPacket.getPayload(&packet, sizeof(test_data_msg_t)));
+			current_data = data;
+			resend_count = 0;
+			sendData();			
+		}
+		call Leds.led2Toggle();
+	}
+
+	void sendData() {
+		test_data_msg_t* tdm_pkt = (test_data_msg_t *) (call DataPacket.getPayload(&packet, sizeof(test_data_msg_t)));
 			tdm_pkt->id = id;
-			tdm_pkt->data = data;
-			
+			tdm_pkt->data = current_data;
 			if(!busy_radio)
 			{
 				if(call DataSend.send(AM_BROADCAST_ADDR, &packet, sizeof(test_data_msg_t)))
@@ -209,7 +231,7 @@ implementation {
 					//printfflush();
 				}
 			}
-		}
+			call Leds.led1Toggle();
 	}
 	
 	event void DataSend.sendDone(message_t *msg,error_t error)

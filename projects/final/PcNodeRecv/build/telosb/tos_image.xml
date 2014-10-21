@@ -1,11 +1,11 @@
 <tos_image>
   <ident>
-    <uidhash>83E26749L</uidhash>
+    <uidhash>97B4D71BL</uidhash>
     <hostname>iot</hostname>
     <username>iot</username>
     <appname>TestSerialAppC</appname>
     <userhash>0B42EF1DL</userhash>
-    <timestamp>5445ACDDL</timestamp>
+    <timestamp>5445FE40L</timestamp>
     <deluge_support>no</deluge_support>
     <platform>telosb</platform>
   </ident>

@@ -9,7 +9,7 @@ configuration RadioToLedsAppC {}
 implementation {
 	components MainC;
 	components RadioToLedsC as App;
-	
+	components LedsC;
 	components new AMReceiverC(AM_TEST_CAR_MSG) as CarReceiver;
 	components ActiveMessageC as CarActiveMessage;
 	
@@ -18,6 +18,7 @@ implementation {
 	components new AMReceiverC(AM_TEST_CAR_MSG) as DataReceiver;
 	components ActiveMessageC as DataActiveMessage;
 	components CarC;
+	components new TimerMilliC() as Timer0;
 	
 	App.Boot -> MainC.Boot;
 	
@@ -31,5 +32,8 @@ implementation {
 	
 	App.Car -> CarC.Car;
 	App.CarControl -> CarC.CarControl;
+
+	App.ResendTimer -> Timer0;
+	App.Leds -> LedsC;
 	
 }

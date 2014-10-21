@@ -68,12 +68,16 @@ public class TestSerial implements MessageListener {
   
   public static void main(String[] args) throws Exception {
     String source = null;
-    if (args.length == 2) {
-      if (!args[0].equals("-comm")) {
-        usage();
-        System.exit(1);
-      }
+    int counter=0;
+    System.out.println("argc: "+ args.length);
+    if (args.length == 3) {
+      //if (!args[0].equals("-comm")) {
+      //  usage();
+      //  System.exit(1);
+      //}
       source = args[1];
+      counter = Integer.parseInt(args[2]);
+
     }
     else if (args.length != 0) {
       usage();
@@ -92,10 +96,10 @@ public class TestSerial implements MessageListener {
     MoteIF mif = new MoteIF(phoenix);
     TestSerial serial = new TestSerial(mif);
     int c;
-    int counter=0;
     TestCarMsg payload = new TestCarMsg();
     while((c=System.in.read()) != -1) {
       //System.out.print((char) c);
+      System.out.println("\n"+counter);
       payload.set_seq(counter++);
       switch (c) {
         case 'w':
@@ -159,7 +163,7 @@ public class TestSerial implements MessageListener {
           payload.set_cmd(_F);
           break;
       }
-      serial.moteIF.send(0, payload);
+        serial.moteIF.send(0, payload);
     }
   }
 
