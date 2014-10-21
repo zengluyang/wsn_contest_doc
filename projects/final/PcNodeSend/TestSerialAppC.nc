@@ -1,4 +1,4 @@
-#include "test_car_msg.h"
+#include "../include/test_car_msg.h"
 
 configuration TestSerialAppC {}
 implementation {

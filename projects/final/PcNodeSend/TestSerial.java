@@ -26,6 +26,7 @@ public class TestSerial implements MessageListener {
   public static final int _D = 17;
   public static final int _E = 18;
   public static final int _F = 19;
+  public static final int r_ = 20;
 
   private MoteIF moteIF;
   
@@ -162,6 +163,8 @@ public class TestSerial implements MessageListener {
         case 'E':
           payload.set_cmd(_F);
           break;
+        case 'r':
+          payload.set_cmd(r_);
       }
         serial.moteIF.send(0, payload);
     }

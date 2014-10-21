@@ -1,4 +1,4 @@
-#include "test_car_msg.h"
+#include "../include/test_car_msg.h"
 
 module RelayC {
 	uses {
@@ -21,7 +21,7 @@ implementation{
 	uint32_t pktID = 0;
 
 	event void Boot.booted() {
-		printf("RelayC BOOT\n");
+		//printf("RelayC BOOT\n");
 		call AMControl.start();
 		call DataControl.start();
 	}
@@ -46,7 +46,7 @@ implementation{
 	event message_t* Receive.receive(message_t *msg, void *payload, uint8_t len) {
 
 		test_car_msg_t *rm;	
-		test_car_msg_t* tcm;
+		test_car_msg_t *tcm;
 		if(len == sizeof(test_car_msg_t)) 
 		{
 			rm = (test_car_msg_t *) payload;
@@ -56,6 +56,9 @@ implementation{
 			//	rm->seq,
 			//	rm->cmd);
 			//printfflush();
+			if(rm->cmd == r_) {
+				pktID = 0;
+			}
 
 			if(rm->seq > pktID)
 			{
@@ -103,7 +106,7 @@ implementation{
 			if(!busy_radio)
 			{
 
-				if(call AMSend.send(AM_BROADCAST_ADDR, &packet, sizeof(test_car_msg_t)))
+				if(call DataSend.send(AM_BROADCAST_ADDR, &packet, sizeof(test_data_msg_t)))
 				{	
 					busy_radio = TRUE;
 					//printf("RelayC SEND %d %d %d\n",

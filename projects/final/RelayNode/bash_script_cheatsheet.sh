@@ -10,3 +10,4 @@ stty -icanon min 1
 #PcSend Java client
 java TestSerial --comm serial@/dev/ttyUSBXXX:telosb 100
 #ps
+g

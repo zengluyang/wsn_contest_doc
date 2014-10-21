@@ -16,7 +16,7 @@ TestSerial.class: TestCarMsg.java
 	javac -target 1.4 -source 1.4 TestSerial.java
 
 TestCarMsg.java:
-	mig java -target=null $(CFLAGS) -java-classname=TestCarMsg test_car_msg.h test_car_msg -o $@
+	mig java -target=null $(CFLAGS) -java-classname=TestCarMsg ../include/test_car_msg.h test_car_msg -o $@
 
 include $(MAKERULES)
 

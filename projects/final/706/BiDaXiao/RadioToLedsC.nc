@@ -4,12 +4,14 @@
 #include "printf.h"
 
 #define END_TIME_SEC 60*4
-#define STAUTS_STABLE_TIME_THD_SEC 10
+#define STAUTS_STABLE_TIME_THD_SEC 14
 #define STALE_COUNT_THD 1
 #define RESEND_INTERVAL_MS 200
 
 #define SMALL_MID_VALUE 0x6000
 #define BIG_MID_VALUE 0x8FFF
+
+#define SEND_GRAD_INERVAL_MS 2000
 
 #define ROOT_NODE_ID 0
 
@@ -33,6 +35,7 @@ module RadioToLedsC {
 		interface SplitControl as SerialControl;
 		interface Timer<TMilli> as MilliTimer;
 		interface Timer<TMilli> as ResendTimer;
+		interface Timer<TMilli> as SendTimer;
 	}
 }
 
@@ -64,6 +67,10 @@ implementation {
 		#endif
 		call SerialControl.start();
 		call AMControl.start();
+	}
+
+	event void SendTimer.fired() {
+		sendStatus();
 	}
 
 	event void MilliTimer.fired() {
@@ -124,12 +131,12 @@ implementation {
 		if(err==SUCCESS) {
 			//good!
 			call MilliTimer.startPeriodic(1000);			
-			self_number = TOS_NODE_ID;
-			self_id = TOS_NODE_ID;
-			status.min=self_number;
-			status.max=self_number;
-			last_status.min=self_number+1;
-			last_status.max=self_number+1;
+			//self_number = TOS_NODE_ID;
+			//self_id = TOS_NODE_ID;
+			//status.min=self_number;
+			//status.max=self_number;
+			//last_status.min=self_number+1;
+			//last_status.max=self_number+1;
 			#ifdef SIM
 			#warning "SIM defined using TOS_NODE_ID as number! don't define SIM for real contest!\n"
 			#endif
@@ -205,14 +212,24 @@ implementation {
 			test_serial_msg_t* rcm = (test_serial_msg_t*)payload;
 			#ifdef DEBUG
 			#endif;
-		  	self_id = rcm->ID;
+		  	self_id = TOS_NODE_ID;
 		  	self_number = rcm->number;
 		  	status.min = rcm->number;
 		  	status.max = rcm->number;
+		  	last_status.min=self_number+1;
+			last_status.max=self_number+1;
 		  	serial_received = TRUE;
 		  	if(self_number < SMALL_MID_VALUE || self_number > BIG_MID_VALUE)
 		  	{
-		  		sendStatus();
+		  		if(self_number <= 0x1000 || self_number>= 0xe000) {
+		  			call SendTimer.startOneShot(SEND_GRAD_INERVAL_MS*0);
+		  		}
+		  		else if(self_number <= 0x3000 || self_number >= 0xc000) {
+		  			call SendTimer.startOneShot(SEND_GRAD_INERVAL_MS*1);
+		  		}
+		  		else {
+		  			call SendTimer.startOneShot(SEND_GRAD_INERVAL_MS*2);
+		  		}
 		  	}
 		  	return bufPtr;
 		}

@@ -67,6 +67,7 @@ public class TestSerial implements MessageListener {
   public static final int _D = 17;
   public static final int _E = 18;
   public static final int _F = 19;
+  public static final int r_ = 20;
 
   private MoteIF moteIF;
   

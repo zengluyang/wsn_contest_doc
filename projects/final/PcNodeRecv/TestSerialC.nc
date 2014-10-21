@@ -1,6 +1,6 @@
 
 
-#include "test_data_msg.h"
+#include "../include/test_data_msg.h"
 #include "printf.h"
 
 module TestSerialC {

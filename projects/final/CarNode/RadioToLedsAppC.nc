@@ -1,9 +1,8 @@
-#include "RadioMsg.h"
-#include "test_car_msg.h"
-#include "test_data_msg.h"
+#include "../include/test_car_msg.h"
+#include "../include/test_data_msg.h"
 //#define USE_PRINT
-#define SIM
-#define DEBUG
+//#define SIM
+//#define DEBUG
 
 configuration RadioToLedsAppC {}
 implementation {
@@ -19,7 +18,6 @@ implementation {
 	components ActiveMessageC as DataActiveMessage;
 	components CarC;
 	components new TimerMilliC() as Timer0;
-	
 	App.Boot -> MainC.Boot;
 	
 	App.Receive -> CarReceiver;

@@ -1,12 +1,12 @@
-#include "test_car_msg.h"
+#include "../include/test_car_msg.h"
 #include "printf.h"
 
 #define LEFT_SERVO 3800
 #define RIGHT_SERVO 1800
 #define MID_ANGLE (LEFT_SERVO+RIGHT_SERVO)/2
 #define ANGLE_STEP 100
-#define MAX_SPEED 200
-#define RESEND_INTERVAL_MS 2000
+#define MAX_SPEED 320
+#define RESEND_INTERVAL_MS 1000
 #define RESEND_CNT 5
 
 module RadioToLedsC {
@@ -194,6 +194,8 @@ implementation {
 						call Car.QuiryReader(114);
 						id = 114;
 						break;
+					case r_:
+						seq = 0;
 					default:
 						break;		
 				}

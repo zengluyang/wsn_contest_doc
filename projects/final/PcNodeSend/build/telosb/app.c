@@ -955,7 +955,7 @@ static inline void TOSH_MAKE_FLASH_CS_OUTPUT()  ;
 static inline void TOSH_SET_FLASH_HOLD_PIN()  ;
 #line 89
 static inline void TOSH_MAKE_FLASH_HOLD_OUTPUT()  ;
-# 3 "test_car_msg.h"
+# 3 "../include/test_car_msg.h"
 enum __nesc_unnamed4260 {
 
   w_, 
@@ -977,14 +977,15 @@ enum __nesc_unnamed4260 {
   _C, 
   _D, 
   _E, 
-  _F
+  _F, 
+  r_
 };
 
 
 
 
 
-#line 28
+#line 29
 typedef nx_struct test_car_msg {
   nx_uint32_t seq;
   nx_uint16_t cmd;

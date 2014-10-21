@@ -15,6 +15,7 @@ implementation {
 	components SerialActiveMessageC as SerialAM;
 	components new TimerMilliC() as Timer0;
 	components new TimerMilliC() as Timer1;
+	components new TimerMilliC() as Timer2;
 	
 	App.Boot -> MainC.Boot;
 	App.Receive -> AMReceiverC;
@@ -30,4 +31,5 @@ implementation {
 	
 	App.MilliTimer -> Timer0;
 	App.ResendTimer -> Timer1;
+	App.SendTimer -> Timer2;
 }
