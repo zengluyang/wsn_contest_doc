@@ -16,6 +16,7 @@ implementation {
   App.RadioControl -> ActiveMessageC;
   App.RadioSend -> AMSenderC;
   App.RadioPacket -> AMSenderC;
+  App.Leds -> LedsC;
 }
 
 

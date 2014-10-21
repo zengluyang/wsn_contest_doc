@@ -201,9 +201,9 @@ typedef int32_t ufs_daddr_t;
 typedef int32_t ufs_time_t;
 typedef u_int32_t uid_t;
 # 42 "/usr/msp430/include/string.h" 3
-extern void *memset(void *arg_0x402f5e90, int arg_0x402f4010, size_t arg_0x402f41a8);
+extern void *memset(void *arg_0x402f4e90, int arg_0x402f7010, size_t arg_0x402f71a8);
 #line 63
-extern void *memset(void *arg_0x40303d30, int arg_0x40303e88, size_t arg_0x40302030);
+extern void *memset(void *arg_0x40302d30, int arg_0x40302e88, size_t arg_0x40301030);
 # 59 "/usr/msp430/include/stdlib.h" 3
 #line 56
 typedef struct __nesc_unnamed4242 {
@@ -20011,7 +20011,7 @@ static inline error_t CC2420ControlP__Init__init(void )
   CC2420ControlP__m_short_addr = CC2420ControlP__ActiveMessageAddress__amAddress();
   CC2420ControlP__m_pan = CC2420ControlP__ActiveMessageAddress__amGroup();
   CC2420ControlP__m_tx_power = 31;
-  CC2420ControlP__m_channel = 26;
+  CC2420ControlP__m_channel = 20;
 
 
 

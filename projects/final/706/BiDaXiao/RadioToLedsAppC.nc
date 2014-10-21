@@ -15,11 +15,6 @@ implementation {
 	components SerialActiveMessageC as SerialAM;
 	components new TimerMilliC() as Timer0;
 	components new TimerMilliC() as Timer1;
-
-	#ifdef USE_PRINT
-	components SerialPrintfC;
-	components SerialStartC;
-	#endif
 	
 	App.Boot -> MainC.Boot;
 	App.Receive -> AMReceiverC;
@@ -32,7 +27,6 @@ implementation {
 	App.SerialReceive -> SerialAM.Receive[AM_TEST_SERIAL_MSG];
 	App.SerialPacket -> SerialAM;
 	App.SerialControl -> SerialAM;
-	//App.SerialSend -> SerialAM.Send[AM_TEST_SERIAL_MSG];
 	
 	App.MilliTimer -> Timer0;
 	App.ResendTimer -> Timer1;

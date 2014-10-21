@@ -12,6 +12,7 @@ module RelayC {
 		interface AMSend as DataSend;
 		interface Receive as DataReceive;
 		interface Packet as DataPacket;
+		interface Leds;
 	}
 }
 implementation{
@@ -77,6 +78,7 @@ implementation{
 				}
 			}
 		}
+		call Leds.led0Toggle();
 		return msg;
 	}
 
@@ -118,6 +120,7 @@ implementation{
 	event void AMSend.sendDone(message_t *msg, error_t error) 
 	{
 		busy_radio=FALSE;
+		call Leds.led1Toggle();
 	}
 
 	event void DataSend.sendDone(message_t *msg, error_t error) 

@@ -9,6 +9,7 @@ module TestSerialC {
     interface Boot;
     interface Receive;
     interface Packet;
+    interface Leds;
   }
 }
 implementation {

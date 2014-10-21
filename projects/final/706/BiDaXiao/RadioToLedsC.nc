@@ -5,14 +5,10 @@
 
 #define END_TIME_SEC 60*4
 #define STAUTS_STABLE_TIME_THD_SEC 10
-#define STALE_COUNT_THD 2
+#define STALE_COUNT_THD 1
 #define RESEND_INTERVAL_MS 200
 
-#ifdef SIM
-#define ROOT_NODE_ID 1
-#else
 #define ROOT_NODE_ID 0
-#endif
 
 #ifdef DEBUG
 #warning "DEBUG defined. printing debug msg. don't define DEBUG for real contest!"
@@ -53,6 +49,8 @@ implementation {
 	uint16_t time_count = 0; //in seconds
 	uint16_t status_stable_count = 0;
 
+	uint16_t result_sent = FALSE;
+
 	test_send_msg_t status = {0,0};
 	test_send_msg_t last_status = {0+1,0+1};
 
@@ -60,45 +58,24 @@ implementation {
 
 	event void Boot.booted() {
 		#ifdef DEBUG
-		printf("RadioToLedsC BOOT\n");
-		printf("ROOT_NODE_ID %d\n",ROOT_NODE_ID);
-		printf("w_ %d\n",w_);
-		printf("a_ %d\n",a_);
-		printf("s_ %d\n",s_);
-		printf("d_ %d\n",d_);
-		printf("__ %d\n",__);
-		printf("_1 %d\n",_1);
-		printf("_2 %d\n",_2);
-		printf("_3 %d\n",_3);
-		printf("_4 %d\n",_4);
-		printf("_5 %d\n",_5);
-		printf("_6 %d\n",_6);
-		printf("_7 %d\n",_7);
-		printf("_8 %d\n",_8);
-		printf("_9 %d\n",_9);
-		printf("_A %d\n",_A);
-		printf("_B %d\n",_B);
-		printf("_C %d\n",_C);
-		printf("_D %d\n",_D);
-		printf("_E %d\n",_E);
-		printf("_F %d\n",_F);
-
-		printfflush();
 		#endif
+		call SerialControl.start();
 		call AMControl.start();
 	}
 
 	event void MilliTimer.fired() {
 		#ifdef DEBUG
-		printf("RadioToLedsC BOOT MilliTimer.fired() %d %d %d %d\n",last_status.max,status.max,last_status.min,status.min);
 		#endif
 		if
 		(
 			(status_stable_count>=STAUTS_STABLE_TIME_THD_SEC && TOS_NODE_ID==ROOT_NODE_ID) || //stablized
 			(++time_count>=END_TIME_SEC && TOS_NODE_ID==ROOT_NODE_ID) // out of time
 		) {
-			printf("GreenOrbs %x %x\n",status.min,status.max);
-			printfflush();
+			if(!result_sent) {
+				printf("GreenOrbs %x %x\n",status.min,status.max);
+				printfflush();
+				result_sent = TRUE;
+			}
 		}
 		if(last_status.max==status.max && last_status.min==status.min) {
 			status_stable_count++;
@@ -112,8 +89,6 @@ implementation {
 
 	event void ResendTimer.fired() {
 		#ifdef DEBUG
-		printf("RadioToLedsC BOOT ResendTimer.fired()\n");
-		printfflush();
 		#endif
 		sendStatus();
 	}
@@ -133,13 +108,6 @@ implementation {
 					send_count++;
 					busy_radio = TRUE;
 					#ifdef DEBUG
-					printf("RadioToLedsC SEND %d %d %d %d\n",
-						TOS_NODE_ID,
-						tsm->max,
-						tsm->min,
-						send_count
-					);
-					printfflush();
 					#endif
 				}
 			} else {
@@ -161,8 +129,6 @@ implementation {
 			last_status.max=self_number+1;
 			#ifdef SIM
 			#warning "SIM defined using TOS_NODE_ID as number! don't define SIM for real contest!\n"
-			serial_received = TRUE;
-			sendStatus();
 			#endif
 		} else {
 			call AMControl.start();
@@ -206,12 +172,6 @@ implementation {
 				stale_count = 0;
 			}
 			#ifdef DEBUG
-			printf("RadioToLedsC RECV %d %d %d\n",
-				TOS_NODE_ID, 
-				rm->max, 
-				rm->min
-			);
-			printfflush();
 			#endif
 			if(not_stale) {
 				sendStatus();
@@ -224,11 +184,16 @@ implementation {
 	event void AMSend.sendDone(message_t *msg, error_t error) 
 	{
 		busy_radio=FALSE;
+		if(error == SUCCESS) {
+			//good! 
+		} else {
+				call ResendTimer.startOneShot(RESEND_INTERVAL_MS);
+		}
 	}
 
 	event void SerialSend.sendDone(message_t *msg, error_t error) 
 	{
-		busy_radio=FALSE;
+		busy_serial=FALSE;
 	}
 
 	event message_t* SerialReceive.receive(message_t* bufPtr, void* payload, uint8_t len) {
@@ -236,12 +201,6 @@ implementation {
 		else if(!serial_received){
 			test_serial_msg_t* rcm = (test_serial_msg_t*)payload;
 			#ifdef DEBUG
-			printf("RadioToLedsC SREC %d %d %d\n",
-				TOS_NODE_ID, 
-				rcm->number, 
-				rcm->ID
-			);
-			printfflush();
 			#endif;
 		  	self_id = rcm->ID;
 		  	self_number = rcm->number;

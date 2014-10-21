@@ -13,6 +13,7 @@ module TestSerialC {
     interface AMSend as RadioSend;
     interface Packet as RadioPacket;
     interface SplitControl as RadioControl;
+    interface Leds;
   }
 }
 implementation {
@@ -26,6 +27,9 @@ implementation {
   event void Boot.booted() {
     call Control.start();
     call RadioControl.start();
+    call Leds.led0On();
+    call Leds.led1On();
+    call Leds.led2On();
   }
   
   event message_t* Receive.receive(message_t* bufPtr, 
@@ -40,7 +44,7 @@ implementation {
       if(call RadioSend.send(AM_BROADCAST_ADDR, &packet, sizeof(test_car_msg_t))) {
         radio_locked =TRUE;
       }
-
+      call Leds.led0Toggle();
       return bufPtr;
     }
   }
@@ -48,6 +52,7 @@ implementation {
 
   event void RadioSend.sendDone(message_t* bufPtr, error_t error) {
     radio_locked = FALSE;
+    call Leds.led1Toggle();
   }
 
   event void Control.startDone(error_t err) {

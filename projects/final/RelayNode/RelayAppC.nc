@@ -13,6 +13,7 @@ implementation {
 	components ActiveMessageC as DataActiveMessage;
 
 	components ActiveMessageC;
+	components LedsC;
 
 	App.Boot -> MainC.Boot;
 	App.Receive -> AMReceiverC;
@@ -24,5 +25,6 @@ implementation {
 	App.DataSend -> DataSender;
 	App.DataControl -> DataActiveMessage;
 	App.DataPacket -> DataReceiver;
+	App.Leds -> LedsC;
 
 }

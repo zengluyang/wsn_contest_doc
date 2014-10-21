@@ -1,6 +1,12 @@
 #include "test_car_msg.h"
 #include "printf.h"
 
+#define LEFT_SERVO 3800
+#define RIGHT_SERVO 1800
+#define MID_ANGLE (LEFT_SERVO+RIGHT_SERVO)/2
+#define ANGLE_STEP 100
+#define MAX_SPEED 200
+
 
 module RadioToLedsC {
 	uses {
@@ -15,8 +21,6 @@ module RadioToLedsC {
 		
 		interface Car;
 		interface SplitControl as CarControl;
-		
-
 	}
 }
 
@@ -26,7 +30,7 @@ implementation {
 	message_t packet;
 
 	uint32_t seq = 0;
-	uint16_t init_angle = (1800+3800)/2;
+	uint16_t init_angle = MID_ANGLE;
 	
 	uint16_t id;
 	
@@ -69,6 +73,9 @@ implementation {
 		if(error == SUCCESS)
 		{
 			//good!
+			call Car.InitLeftServo(LEFT_SERVO);
+			call Car.InitRightServo(RIGHT_SERVO);
+			call Car.InitMidServo(MID_ANGLE);
 			call DataControl.start();
 		}
 		else
@@ -91,25 +98,26 @@ implementation {
 				switch(rm->cmd)
 				{
 					case w_:
-						call Car.Forward(600);
+						call Car.Back(MAX_SPEED);
 						break;
 					case s_:
-						call Car.Back(600);
+						call Car.Forward(MAX_SPEED);
 						break;
 					case a_:
-						if(init_angle - 200<1800) {
-							break;
-						}
-						call Car.Angle(init_angle - 200);
-						break;
-					case d_:
-						if(init_angle + 200<3800) {
+						if(init_angle + 200>LEFT_SERVO) {
 							break;
 						}
 						call Car.Angle(init_angle + 200);
 						break;
+					case d_:
+						if(init_angle - 200<RIGHT_SERVO) {
+							break;
+						}
+						call Car.Angle(init_angle - 200);
+						break;
 					case __:
 						call Car.Pause();
+						call Car.Angle(MID_ANGLE);
 						break;
 					case _1:
 						call Car.QuiryReader(100);
