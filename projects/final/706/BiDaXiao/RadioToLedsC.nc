@@ -8,6 +8,9 @@
 #define STALE_COUNT_THD 1
 #define RESEND_INTERVAL_MS 200
 
+#define SMALL_MID_VALUE 0x6000
+#define BIG_MID_VALUE 0x8FFF
+
 #define ROOT_NODE_ID 0
 
 #ifdef DEBUG
@@ -207,7 +210,10 @@ implementation {
 		  	status.min = rcm->number;
 		  	status.max = rcm->number;
 		  	serial_received = TRUE;
-		  	sendStatus();
+		  	if(self_number < SMALL_MID_VALUE || self_number > BIG_MID_VALUE)
+		  	{
+		  		sendStatus();
+		  	}
 		  	return bufPtr;
 		}
 	}
