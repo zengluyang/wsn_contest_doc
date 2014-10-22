@@ -17,7 +17,9 @@ module RelayC {
 }
 implementation{
 	bool busy_radio = FALSE;
-	message_t packet;
+	message_t car_packet;
+	message_t data_packet;
+
 	uint32_t pktID = 0;
 
 	event void Boot.booted() {
@@ -62,13 +64,13 @@ implementation{
 
 			if(rm->seq > pktID)
 			{
-				tcm = (test_car_msg_t* )(call Packet.getPayload(&packet,sizeof(test_car_msg_t)));
+				tcm = (test_car_msg_t* )(call Packet.getPayload(&car_packet,sizeof(test_car_msg_t)));
 				tcm->seq = rm->seq;
 				tcm->cmd = rm->cmd;
 				if(!busy_radio)
 				{
 
-					if(call AMSend.send(AM_BROADCAST_ADDR, &packet, sizeof(test_car_msg_t)))
+					if(call AMSend.send(AM_BROADCAST_ADDR, &car_packet, sizeof(test_car_msg_t)))
 					{	
 						busy_radio = TRUE;
 						pktID = tcm->seq;
@@ -100,13 +102,13 @@ implementation{
 			//	rm->cmd);
 			//printfflush();
 
-			tcm = (test_data_msg_t *)(call DataPacket.getPayload(&packet,sizeof(test_data_msg_t)));
+			tcm = (test_data_msg_t *)(call DataPacket.getPayload(&data_packet,sizeof(test_data_msg_t)));
 			tcm->id = rm->id;
 			tcm->data = rm->data;
 			if(!busy_radio)
 			{
 
-				if(call DataSend.send(AM_BROADCAST_ADDR, &packet, sizeof(test_data_msg_t)))
+				if(call DataSend.send(AM_BROADCAST_ADDR, &data_packet, sizeof(test_data_msg_t)))
 				{	
 					busy_radio = TRUE;
 					//printf("RelayC SEND %d %d %d\n",
@@ -129,6 +131,7 @@ implementation{
 	event void DataSend.sendDone(message_t *msg, error_t error) 
 	{
 		busy_radio=FALSE;
+		call Leds.led2Toggle();
 	}
 
 	event void AMControl.stopDone(error_t error) {}

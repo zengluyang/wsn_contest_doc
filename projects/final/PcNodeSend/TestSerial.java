@@ -165,6 +165,9 @@ public class TestSerial implements MessageListener {
           break;
         case 'r':
           payload.set_cmd(r_);
+          break;
+        default:
+          continue;
       }
         serial.moteIF.send(0, payload);
     }

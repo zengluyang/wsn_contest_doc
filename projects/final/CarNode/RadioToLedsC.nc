@@ -34,7 +34,7 @@ implementation {
 	message_t packet;
 
 	uint32_t seq = 0;
-	uint16_t init_angle = MID_ANGLE;
+	uint16_t angle = MID_ANGLE;
 	
 	uint16_t id;
 	
@@ -80,7 +80,7 @@ implementation {
 		
 
 	event void AMControl.stopDone(error_t error) {}
-	
+
 	event void DataControl.stopDone(error_t error) {}
 	
 	event void CarControl.startDone(error_t error)
@@ -104,7 +104,6 @@ implementation {
 	event message_t* Receive.receive(message_t *msg, 
 		void *payload, uint8_t len) {
 		test_car_msg_t *rm;
-		packet = *msg;
 		
 		if(len == sizeof(test_car_msg_t)) {
 			rm = (test_car_msg_t *) payload;
@@ -119,20 +118,23 @@ implementation {
 						call Car.Forward(MAX_SPEED);
 						break;
 					case a_:
-						if(init_angle + 200>LEFT_SERVO) {
+						if(angle + ANGLE_STEP>LEFT_SERVO) {
 							break;
 						}
-						call Car.Angle(init_angle + 200);
+						angle += ANGLE_STEP;
+						call Car.Angle(angle);
 						break;
 					case d_:
-						if(init_angle - 200<RIGHT_SERVO) {
+						if(angle - ANGLE_STEP<RIGHT_SERVO) {
 							break;
 						}
-						call Car.Angle(init_angle - 200);
+						angle -= ANGLE_STEP;
+						call Car.Angle(angle);
 						break;
 					case __:
 						call Car.Pause();
-						call Car.Angle(MID_ANGLE);
+						angle = MID_ANGLE;
+						call Car.Angle(angle);
 						break;
 					case _1:
 						call Car.QuiryReader(100);
@@ -196,6 +198,7 @@ implementation {
 						break;
 					case r_:
 						seq = 0;
+						break;
 					default:
 						break;		
 				}

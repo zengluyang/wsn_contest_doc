@@ -428,10 +428,10 @@ implementation
 	// //pr("in task %d \n",stateCo2);
 	uint8_t i = 0;
 	call Timer1.stop();
-	for( i = 0;i<MAX_DATA;i++)
-	{
+	//for( i = 0;i<MAX_DATA;i++)
+	//{
 		//pr("%x\n",recdata[i]);
-	}
+	//}
 	isBufFull = FALSE;
 	isUartDataOk = FALSE;
 	rcvSyncDataSum = 0;

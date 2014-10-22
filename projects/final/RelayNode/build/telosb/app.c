@@ -1090,14 +1090,7 @@ typedef struct __nesc_unnamed4266 {
 typedef __builtin_va_list __gnuc_va_list;
 #line 110
 typedef __gnuc_va_list va_list;
-# 52 "/usr/msp430/include/stdio.h" 3
-int __attribute((format(printf, 1, 2))) printf(const char *string, ...);
-
-
-
-
-
-
+# 59 "/usr/msp430/include/stdio.h" 3
 int putchar(int c);
 # 39 "/opt/tinyos-2.1.1/tos/chips/cc2420/CC2420.h"
 typedef uint8_t cc2420_status_t;
@@ -2847,6 +2840,16 @@ static void /*HplMsp430GeneralIOC.P55*/HplMsp430GeneralIOP__37__IO__toggle(void 
 static void /*HplMsp430GeneralIOC.P55*/HplMsp430GeneralIOP__37__IO__makeOutput(void );
 #line 34
 static void /*HplMsp430GeneralIOC.P55*/HplMsp430GeneralIOP__37__IO__set(void );
+
+
+
+
+
+
+
+
+
+static void /*HplMsp430GeneralIOC.P56*/HplMsp430GeneralIOP__38__IO__toggle(void );
 #line 71
 static void /*HplMsp430GeneralIOC.P56*/HplMsp430GeneralIOP__38__IO__makeOutput(void );
 #line 34
@@ -2868,6 +2871,8 @@ static error_t LedsP__Init__init(void );
 static void LedsP__Leds__led0Toggle(void );
 #line 72
 static void LedsP__Leds__led1Toggle(void );
+#line 89
+static void LedsP__Leds__led2Toggle(void );
 # 31 "/opt/tinyos-2.1.1/tos/interfaces/GeneralIO.nc"
 static void /*PlatformLedsC.Led0Impl*/Msp430GpioC__0__GeneralIO__toggle(void );
 
@@ -2885,7 +2890,7 @@ static void /*PlatformLedsC.Led1Impl*/Msp430GpioC__1__GeneralIO__makeOutput(void
 #line 29
 static void /*PlatformLedsC.Led1Impl*/Msp430GpioC__1__GeneralIO__set(void );
 
-
+static void /*PlatformLedsC.Led2Impl*/Msp430GpioC__2__GeneralIO__toggle(void );
 
 
 
@@ -4359,6 +4364,19 @@ static bool CC2420ActiveMessageP__AMPacket__isForMe(
 message_t * amsg);
 # 92 "/opt/tinyos-2.1.1/tos/interfaces/Resource.nc"
 static void CC2420ActiveMessageP__RadioResource__granted(void );
+# 69 "/opt/tinyos-2.1.1/tos/interfaces/AMSend.nc"
+static error_t /*RelayAppC.DataSender.SenderC.AMQueueEntryP*/AMQueueEntryP__2__AMSend__send(am_addr_t addr, 
+#line 60
+message_t * msg, 
+
+
+
+
+
+
+
+
+uint8_t len);
 # 89 "/opt/tinyos-2.1.1/tos/interfaces/Send.nc"
 static void /*RelayAppC.DataSender.SenderC.AMQueueEntryP*/AMQueueEntryP__2__Send__sendDone(
 #line 85
@@ -6161,7 +6179,7 @@ static inline void /*HplMsp430GeneralIOC.P55*/HplMsp430GeneralIOP__37__IO__makeO
 #line 45
 static inline void /*HplMsp430GeneralIOC.P56*/HplMsp430GeneralIOP__38__IO__set(void );
 
-
+static void /*HplMsp430GeneralIOC.P56*/HplMsp430GeneralIOP__38__IO__toggle(void );
 
 
 
@@ -6206,7 +6224,7 @@ static void LedsP__Led1__makeOutput(void );
 #line 29
 static void LedsP__Led1__set(void );
 
-
+static void LedsP__Led2__toggle(void );
 
 
 
@@ -6219,6 +6237,8 @@ static inline error_t LedsP__Init__init(void );
 static inline void LedsP__Leds__led0Toggle(void );
 #line 88
 static inline void LedsP__Leds__led1Toggle(void );
+#line 103
+static inline void LedsP__Leds__led2Toggle(void );
 # 44 "/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIO.nc"
 static void /*PlatformLedsC.Led0Impl*/Msp430GpioC__0__HplGeneralIO__toggle(void );
 #line 71
@@ -6247,14 +6267,16 @@ static inline void /*PlatformLedsC.Led1Impl*/Msp430GpioC__1__GeneralIO__toggle(v
 
 
 static inline void /*PlatformLedsC.Led1Impl*/Msp430GpioC__1__GeneralIO__makeOutput(void );
-# 71 "/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIO.nc"
+# 44 "/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIO.nc"
+static void /*PlatformLedsC.Led2Impl*/Msp430GpioC__2__HplGeneralIO__toggle(void );
+#line 71
 static void /*PlatformLedsC.Led2Impl*/Msp430GpioC__2__HplGeneralIO__makeOutput(void );
 #line 34
 static void /*PlatformLedsC.Led2Impl*/Msp430GpioC__2__HplGeneralIO__set(void );
 # 37 "/opt/tinyos-2.1.1/tos/chips/msp430/pins/Msp430GpioC.nc"
 static inline void /*PlatformLedsC.Led2Impl*/Msp430GpioC__2__GeneralIO__set(void );
 
-
+static inline void /*PlatformLedsC.Led2Impl*/Msp430GpioC__2__GeneralIO__toggle(void );
 
 
 
@@ -6762,6 +6784,19 @@ static void PrintfP__AMSend__sendDone(message_t *msg, error_t error);
 
 
 int putchar(int c) __attribute((noinline))   ;
+# 69 "/opt/tinyos-2.1.1/tos/interfaces/AMSend.nc"
+static error_t RelayC__DataSend__send(am_addr_t addr, 
+#line 60
+message_t * msg, 
+
+
+
+
+
+
+
+
+uint8_t len);
 # 83 "/opt/tinyos-2.1.1/tos/interfaces/SplitControl.nc"
 static error_t RelayC__AMControl__start(void );
 # 69 "/opt/tinyos-2.1.1/tos/interfaces/AMSend.nc"
@@ -6811,9 +6846,13 @@ uint8_t len);
 static void RelayC__Leds__led0Toggle(void );
 #line 72
 static void RelayC__Leds__led1Toggle(void );
+#line 89
+static void RelayC__Leds__led2Toggle(void );
 # 19 "RelayC.nc"
 bool RelayC__busy_radio = FALSE;
-message_t RelayC__packet;
+message_t RelayC__car_packet;
+message_t RelayC__data_packet;
+
 uint32_t RelayC__pktID = 0;
 
 static inline void RelayC__Boot__booted(void );
@@ -6840,9 +6879,9 @@ static inline void RelayC__DataControl__startDone(error_t err);
 
 
 static inline message_t *RelayC__Receive__receive(message_t *msg, void *payload, uint8_t len);
-#line 88
+#line 90
 static inline message_t *RelayC__DataReceive__receive(message_t *msg, void *payload, uint8_t len);
-#line 123
+#line 125
 static inline void RelayC__AMSend__sendDone(message_t *msg, error_t error);
 
 
@@ -6850,6 +6889,7 @@ static inline void RelayC__AMSend__sendDone(message_t *msg, error_t error);
 
 
 static inline void RelayC__DataSend__sendDone(message_t *msg, error_t error);
+
 
 
 
@@ -6897,7 +6937,7 @@ message_t * amsg,
 
 am_id_t t);
 # 45 "/opt/tinyos-2.1.1/tos/system/AMQueueEntryP.nc"
-static error_t /*RelayAppC.AMSenderC.SenderC.AMQueueEntryP*/AMQueueEntryP__1__AMSend__send(am_addr_t dest, 
+static inline error_t /*RelayAppC.AMSenderC.SenderC.AMQueueEntryP*/AMQueueEntryP__1__AMSend__send(am_addr_t dest, 
 message_t *msg, 
 uint8_t len);
 
@@ -6987,7 +7027,7 @@ static void /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__tryToSend(void );
 
 static inline void /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__nextPacket(void );
 #line 82
-static inline error_t /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__Send__send(uint8_t clientId, message_t *msg, 
+static error_t /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__Send__send(uint8_t clientId, message_t *msg, 
 uint8_t len);
 #line 118
 static inline void /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__CancelTask__runTask(void );
@@ -9715,7 +9755,7 @@ static am_addr_t CC2420ActiveMessageP__AMPacket__destination(message_t *amsg);
 
 
 
-static inline void CC2420ActiveMessageP__AMPacket__setDestination(message_t *amsg, am_addr_t addr);
+static void CC2420ActiveMessageP__AMPacket__setDestination(message_t *amsg, am_addr_t addr);
 
 
 
@@ -9735,7 +9775,7 @@ static am_id_t CC2420ActiveMessageP__AMPacket__type(message_t *amsg);
 
 
 
-static inline void CC2420ActiveMessageP__AMPacket__setType(message_t *amsg, am_id_t type);
+static void CC2420ActiveMessageP__AMPacket__setType(message_t *amsg, am_id_t type);
 #line 181
 static inline uint8_t CC2420ActiveMessageP__Packet__payloadLength(message_t *msg);
 
@@ -9816,7 +9856,47 @@ message_t * msg,
 
 
 error_t error);
-# 57 "/opt/tinyos-2.1.1/tos/system/AMQueueEntryP.nc"
+# 64 "/opt/tinyos-2.1.1/tos/interfaces/Send.nc"
+static error_t /*RelayAppC.DataSender.SenderC.AMQueueEntryP*/AMQueueEntryP__2__Send__send(
+#line 56
+message_t * msg, 
+
+
+
+
+
+
+
+uint8_t len);
+# 92 "/opt/tinyos-2.1.1/tos/interfaces/AMPacket.nc"
+static void /*RelayAppC.DataSender.SenderC.AMQueueEntryP*/AMQueueEntryP__2__AMPacket__setDestination(
+#line 88
+message_t * amsg, 
+
+
+
+am_addr_t addr);
+#line 151
+static void /*RelayAppC.DataSender.SenderC.AMQueueEntryP*/AMQueueEntryP__2__AMPacket__setType(
+#line 147
+message_t * amsg, 
+
+
+
+am_id_t t);
+# 45 "/opt/tinyos-2.1.1/tos/system/AMQueueEntryP.nc"
+static inline error_t /*RelayAppC.DataSender.SenderC.AMQueueEntryP*/AMQueueEntryP__2__AMSend__send(am_addr_t dest, 
+message_t *msg, 
+uint8_t len);
+
+
+
+
+
+
+
+
+
 static inline void /*RelayAppC.DataSender.SenderC.AMQueueEntryP*/AMQueueEntryP__2__Send__sendDone(message_t *m, error_t err);
 # 212 "/opt/tinyos-2.1.1/tos/chips/msp430/msp430hardware.h"
 static inline  void __nesc_enable_interrupt(void )
@@ -14825,6 +14905,36 @@ static inline void /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__nextPacket(void )
     }
 }
 
+# 136 "/opt/tinyos-2.1.1/tos/interfaces/AMPacket.nc"
+inline static am_id_t /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__AMPacket__type(message_t * amsg){
+#line 136
+  unsigned char __nesc_result;
+#line 136
+
+#line 136
+  __nesc_result = CC2420ActiveMessageP__AMPacket__type(amsg);
+#line 136
+
+#line 136
+  return __nesc_result;
+#line 136
+}
+#line 136
+#line 67
+inline static am_addr_t /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__AMPacket__destination(message_t * amsg){
+#line 67
+  unsigned int __nesc_result;
+#line 67
+
+#line 67
+  __nesc_result = CC2420ActiveMessageP__AMPacket__destination(amsg);
+#line 67
+
+#line 67
+  return __nesc_result;
+#line 67
+}
+#line 67
 # 42 "/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420PacketBody.nc"
 inline static cc2420_header_t * CC2420ActiveMessageP__CC2420PacketBody__getHeader(message_t * msg){
 #line 42
@@ -14862,6 +14972,21 @@ inline static uint8_t /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__Packet__payloadL
 #line 67
 }
 #line 67
+# 69 "/opt/tinyos-2.1.1/tos/interfaces/AMSend.nc"
+inline static error_t /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__AMSend__send(am_id_t arg_0x40b77908, am_addr_t addr, message_t * msg, uint8_t len){
+#line 69
+  unsigned char __nesc_result;
+#line 69
+
+#line 69
+  __nesc_result = CC2420ActiveMessageP__AMSend__send(arg_0x40b77908, addr, msg, len);
+#line 69
+
+#line 69
+  return __nesc_result;
+#line 69
+}
+#line 69
 # 170 "/opt/tinyos-2.1.1/tos/chips/cc2420/csma/CC2420CsmaP.nc"
 static inline uint8_t CC2420CsmaP__Send__maxPayloadLength(void )
 #line 170
@@ -15532,6 +15657,46 @@ inline static void RelayC__Leds__led0Toggle(void ){
 #line 56
 }
 #line 56
+# 64 "/opt/tinyos-2.1.1/tos/interfaces/Send.nc"
+inline static error_t /*RelayAppC.AMSenderC.SenderC.AMQueueEntryP*/AMQueueEntryP__1__Send__send(message_t * msg, uint8_t len){
+#line 64
+  unsigned char __nesc_result;
+#line 64
+
+#line 64
+  __nesc_result = /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__Send__send(0U, msg, len);
+#line 64
+
+#line 64
+  return __nesc_result;
+#line 64
+}
+#line 64
+# 151 "/opt/tinyos-2.1.1/tos/interfaces/AMPacket.nc"
+inline static void /*RelayAppC.AMSenderC.SenderC.AMQueueEntryP*/AMQueueEntryP__1__AMPacket__setType(message_t * amsg, am_id_t t){
+#line 151
+  CC2420ActiveMessageP__AMPacket__setType(amsg, t);
+#line 151
+}
+#line 151
+#line 92
+inline static void /*RelayAppC.AMSenderC.SenderC.AMQueueEntryP*/AMQueueEntryP__1__AMPacket__setDestination(message_t * amsg, am_addr_t addr){
+#line 92
+  CC2420ActiveMessageP__AMPacket__setDestination(amsg, addr);
+#line 92
+}
+#line 92
+# 45 "/opt/tinyos-2.1.1/tos/system/AMQueueEntryP.nc"
+static inline error_t /*RelayAppC.AMSenderC.SenderC.AMQueueEntryP*/AMQueueEntryP__1__AMSend__send(am_addr_t dest, 
+message_t *msg, 
+uint8_t len)
+#line 47
+{
+  /*RelayAppC.AMSenderC.SenderC.AMQueueEntryP*/AMQueueEntryP__1__AMPacket__setDestination(msg, dest);
+  /*RelayAppC.AMSenderC.SenderC.AMQueueEntryP*/AMQueueEntryP__1__AMPacket__setType(msg, 2);
+  return /*RelayAppC.AMSenderC.SenderC.AMQueueEntryP*/AMQueueEntryP__1__Send__send(msg, len);
+}
+
 # 69 "/opt/tinyos-2.1.1/tos/interfaces/AMSend.nc"
 inline static error_t RelayC__AMSend__send(am_addr_t addr, message_t * msg, uint8_t len){
 #line 69
@@ -15584,15 +15749,15 @@ inline static void * RelayC__Packet__getPayload(message_t * msg, uint8_t len){
 #line 115
 }
 #line 115
-# 46 "RelayC.nc"
+# 48 "RelayC.nc"
 static inline message_t *RelayC__Receive__receive(message_t *msg, void *payload, uint8_t len)
-#line 46
+#line 48
 {
 
   test_car_msg_t *rm;
   test_car_msg_t *tcm;
 
-#line 50
+#line 52
   if (len == sizeof(test_car_msg_t )) 
     {
       rm = (test_car_msg_t *)payload;
@@ -15608,13 +15773,13 @@ static inline message_t *RelayC__Receive__receive(message_t *msg, void *payload,
 
       if (__nesc_ntoh_uint32(rm->seq.nxdata) > RelayC__pktID) 
         {
-          tcm = (test_car_msg_t *)RelayC__Packet__getPayload(&RelayC__packet, sizeof(test_car_msg_t ));
+          tcm = (test_car_msg_t *)RelayC__Packet__getPayload(&RelayC__car_packet, sizeof(test_car_msg_t ));
           __nesc_hton_uint32(tcm->seq.nxdata, __nesc_ntoh_uint32(rm->seq.nxdata));
           __nesc_hton_uint16(tcm->cmd.nxdata, __nesc_ntoh_uint16(rm->cmd.nxdata));
           if (!RelayC__busy_radio) 
             {
 
-              if (RelayC__AMSend__send(AM_BROADCAST_ADDR, &RelayC__packet, sizeof(test_car_msg_t ))) 
+              if (RelayC__AMSend__send(AM_BROADCAST_ADDR, &RelayC__car_packet, sizeof(test_car_msg_t ))) 
                 {
                   RelayC__busy_radio = TRUE;
                   RelayC__pktID = __nesc_ntoh_uint32(tcm->seq.nxdata);
@@ -15649,6 +15814,61 @@ static __inline  int16_t __nesc_hton_int16(void * target, int16_t value)
   return value;
 }
 
+# 64 "/opt/tinyos-2.1.1/tos/interfaces/Send.nc"
+inline static error_t /*RelayAppC.DataSender.SenderC.AMQueueEntryP*/AMQueueEntryP__2__Send__send(message_t * msg, uint8_t len){
+#line 64
+  unsigned char __nesc_result;
+#line 64
+
+#line 64
+  __nesc_result = /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__Send__send(1U, msg, len);
+#line 64
+
+#line 64
+  return __nesc_result;
+#line 64
+}
+#line 64
+# 151 "/opt/tinyos-2.1.1/tos/interfaces/AMPacket.nc"
+inline static void /*RelayAppC.DataSender.SenderC.AMQueueEntryP*/AMQueueEntryP__2__AMPacket__setType(message_t * amsg, am_id_t t){
+#line 151
+  CC2420ActiveMessageP__AMPacket__setType(amsg, t);
+#line 151
+}
+#line 151
+#line 92
+inline static void /*RelayAppC.DataSender.SenderC.AMQueueEntryP*/AMQueueEntryP__2__AMPacket__setDestination(message_t * amsg, am_addr_t addr){
+#line 92
+  CC2420ActiveMessageP__AMPacket__setDestination(amsg, addr);
+#line 92
+}
+#line 92
+# 45 "/opt/tinyos-2.1.1/tos/system/AMQueueEntryP.nc"
+static inline error_t /*RelayAppC.DataSender.SenderC.AMQueueEntryP*/AMQueueEntryP__2__AMSend__send(am_addr_t dest, 
+message_t *msg, 
+uint8_t len)
+#line 47
+{
+  /*RelayAppC.DataSender.SenderC.AMQueueEntryP*/AMQueueEntryP__2__AMPacket__setDestination(msg, dest);
+  /*RelayAppC.DataSender.SenderC.AMQueueEntryP*/AMQueueEntryP__2__AMPacket__setType(msg, 3);
+  return /*RelayAppC.DataSender.SenderC.AMQueueEntryP*/AMQueueEntryP__2__Send__send(msg, len);
+}
+
+# 69 "/opt/tinyos-2.1.1/tos/interfaces/AMSend.nc"
+inline static error_t RelayC__DataSend__send(am_addr_t addr, message_t * msg, uint8_t len){
+#line 69
+  unsigned char __nesc_result;
+#line 69
+
+#line 69
+  __nesc_result = /*RelayAppC.DataSender.SenderC.AMQueueEntryP*/AMQueueEntryP__2__AMSend__send(addr, msg, len);
+#line 69
+
+#line 69
+  return __nesc_result;
+#line 69
+}
+#line 69
 # 115 "/opt/tinyos-2.1.1/tos/interfaces/Packet.nc"
 inline static void * RelayC__DataPacket__getPayload(message_t * msg, uint8_t len){
 #line 115
@@ -15664,9 +15884,9 @@ inline static void * RelayC__DataPacket__getPayload(message_t * msg, uint8_t len
 #line 115
 }
 #line 115
-# 88 "RelayC.nc"
+# 90 "RelayC.nc"
 static inline message_t *RelayC__DataReceive__receive(message_t *msg, void *payload, uint8_t len)
-#line 88
+#line 90
 {
 
   test_data_msg_t *rm;
@@ -15682,13 +15902,13 @@ static inline message_t *RelayC__DataReceive__receive(message_t *msg, void *payl
 
 
 
-      tcm = (test_data_msg_t *)RelayC__DataPacket__getPayload(&RelayC__packet, sizeof(test_data_msg_t ));
+      tcm = (test_data_msg_t *)RelayC__DataPacket__getPayload(&RelayC__data_packet, sizeof(test_data_msg_t ));
       __nesc_hton_int16(tcm->id.nxdata, __nesc_ntoh_int16(rm->id.nxdata));
       __nesc_hton_int16(tcm->data.nxdata, __nesc_ntoh_int16(rm->data.nxdata));
       if (!RelayC__busy_radio) 
         {
 
-          if (RelayC__AMSend__send(AM_BROADCAST_ADDR, &RelayC__packet, sizeof(test_car_msg_t ))) 
+          if (RelayC__DataSend__send(AM_BROADCAST_ADDR, &RelayC__data_packet, sizeof(test_data_msg_t ))) 
             {
               RelayC__busy_radio = TRUE;
             }
@@ -16135,85 +16355,6 @@ static inline void CC2420ReceiveP__receiveDone_task__runTask(void )
   CC2420ReceiveP__waitForNextPacket();
 }
 
-# 136 "/opt/tinyos-2.1.1/tos/chips/cc2420/CC2420ActiveMessageP.nc"
-static inline void CC2420ActiveMessageP__AMPacket__setDestination(message_t *amsg, am_addr_t addr)
-#line 136
-{
-  cc2420_header_t *header = CC2420ActiveMessageP__CC2420PacketBody__getHeader(amsg);
-
-#line 138
-  __nesc_hton_leuint16(header->dest.nxdata, addr);
-}
-
-# 92 "/opt/tinyos-2.1.1/tos/interfaces/AMPacket.nc"
-inline static void /*RelayAppC.AMSenderC.SenderC.AMQueueEntryP*/AMQueueEntryP__1__AMPacket__setDestination(message_t * amsg, am_addr_t addr){
-#line 92
-  CC2420ActiveMessageP__AMPacket__setDestination(amsg, addr);
-#line 92
-}
-#line 92
-# 156 "/opt/tinyos-2.1.1/tos/chips/cc2420/CC2420ActiveMessageP.nc"
-static inline void CC2420ActiveMessageP__AMPacket__setType(message_t *amsg, am_id_t type)
-#line 156
-{
-  cc2420_header_t *header = CC2420ActiveMessageP__CC2420PacketBody__getHeader(amsg);
-
-#line 158
-  __nesc_hton_leuint8(header->type.nxdata, type);
-}
-
-# 151 "/opt/tinyos-2.1.1/tos/interfaces/AMPacket.nc"
-inline static void /*RelayAppC.AMSenderC.SenderC.AMQueueEntryP*/AMQueueEntryP__1__AMPacket__setType(message_t * amsg, am_id_t t){
-#line 151
-  CC2420ActiveMessageP__AMPacket__setType(amsg, t);
-#line 151
-}
-#line 151
-# 69 "/opt/tinyos-2.1.1/tos/interfaces/AMSend.nc"
-inline static error_t /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__AMSend__send(am_id_t arg_0x40b77908, am_addr_t addr, message_t * msg, uint8_t len){
-#line 69
-  unsigned char __nesc_result;
-#line 69
-
-#line 69
-  __nesc_result = CC2420ActiveMessageP__AMSend__send(arg_0x40b77908, addr, msg, len);
-#line 69
-
-#line 69
-  return __nesc_result;
-#line 69
-}
-#line 69
-# 67 "/opt/tinyos-2.1.1/tos/interfaces/AMPacket.nc"
-inline static am_addr_t /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__AMPacket__destination(message_t * amsg){
-#line 67
-  unsigned int __nesc_result;
-#line 67
-
-#line 67
-  __nesc_result = CC2420ActiveMessageP__AMPacket__destination(amsg);
-#line 67
-
-#line 67
-  return __nesc_result;
-#line 67
-}
-#line 67
-#line 136
-inline static am_id_t /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__AMPacket__type(message_t * amsg){
-#line 136
-  unsigned char __nesc_result;
-#line 136
-
-#line 136
-  __nesc_result = CC2420ActiveMessageP__AMPacket__type(amsg);
-#line 136
-
-#line 136
-  return __nesc_result;
-#line 136
-}
-#line 136
 # 185 "/opt/tinyos-2.1.1/tos/chips/cc2420/CC2420ActiveMessageP.nc"
 static inline void CC2420ActiveMessageP__Packet__setPayloadLength(message_t *msg, uint8_t len)
 #line 185
@@ -16228,60 +16369,6 @@ inline static void /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__Packet__setPayloadL
 #line 83
 }
 #line 83
-# 82 "/opt/tinyos-2.1.1/tos/system/AMQueueImplP.nc"
-static inline error_t /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__Send__send(uint8_t clientId, message_t *msg, 
-uint8_t len)
-#line 83
-{
-  if (clientId >= 2) {
-      return FAIL;
-    }
-  if (/*AMQueueP.AMQueueImplP*/AMQueueImplP__1__queue[clientId].msg != (void *)0) {
-      return EBUSY;
-    }
-  ;
-
-  /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__queue[clientId].msg = msg;
-  /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__Packet__setPayloadLength(msg, len);
-
-  if (/*AMQueueP.AMQueueImplP*/AMQueueImplP__1__current >= 2) {
-      error_t err;
-      am_id_t amId = /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__AMPacket__type(msg);
-      am_addr_t dest = /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__AMPacket__destination(msg);
-
-      ;
-      /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__current = clientId;
-
-      err = /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__AMSend__send(amId, dest, msg, len);
-      if (err != SUCCESS) {
-          ;
-          /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__current = 2;
-          /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__queue[clientId].msg = (void *)0;
-        }
-
-      return err;
-    }
-  else {
-      ;
-    }
-  return SUCCESS;
-}
-
-# 64 "/opt/tinyos-2.1.1/tos/interfaces/Send.nc"
-inline static error_t /*RelayAppC.AMSenderC.SenderC.AMQueueEntryP*/AMQueueEntryP__1__Send__send(message_t * msg, uint8_t len){
-#line 64
-  unsigned char __nesc_result;
-#line 64
-
-#line 64
-  __nesc_result = /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__Send__send(0U, msg, len);
-#line 64
-
-#line 64
-  return __nesc_result;
-#line 64
-}
-#line 64
 # 178 "/opt/tinyos-2.1.1/tos/chips/cc2420/spi/CC2420SpiP.nc"
 static inline uint8_t CC2420SpiP__Resource__isOwner(uint8_t id)
 #line 178
@@ -18280,15 +18367,15 @@ static inline void CC2420CsmaP__sendDone_task__runTask(void )
   CC2420CsmaP__Send__sendDone(CC2420CsmaP__m_msg, packetErr);
 }
 
-# 136 "RelayC.nc"
+# 139 "RelayC.nc"
 static inline void RelayC__DataControl__stopDone(error_t error)
-#line 136
+#line 139
 {
 }
 
-#line 134
+#line 137
 static inline void RelayC__AMControl__stopDone(error_t error)
-#line 134
+#line 137
 {
 }
 
@@ -18324,9 +18411,9 @@ inline static error_t RelayC__DataControl__start(void ){
 #line 83
 }
 #line 83
-# 38 "RelayC.nc"
+# 40 "RelayC.nc"
 static inline void RelayC__DataControl__startDone(error_t err)
-#line 38
+#line 40
 {
   if (err == SUCCESS) {
     }
@@ -18350,9 +18437,9 @@ inline static error_t RelayC__AMControl__start(void ){
 #line 83
 }
 #line 83
-# 29 "RelayC.nc"
+# 31 "RelayC.nc"
 static inline void RelayC__AMControl__startDone(error_t err)
-#line 29
+#line 31
 {
   if (err == SUCCESS) {
     }
@@ -18756,7 +18843,7 @@ inline static void RelayC__Leds__led1Toggle(void ){
 #line 72
 }
 #line 72
-# 123 "RelayC.nc"
+# 125 "RelayC.nc"
 static inline void RelayC__AMSend__sendDone(message_t *msg, error_t error)
 {
   RelayC__busy_radio = FALSE;
@@ -18777,10 +18864,50 @@ static inline void /*RelayAppC.AMSenderC.SenderC.AMQueueEntryP*/AMQueueEntryP__1
   /*RelayAppC.AMSenderC.SenderC.AMQueueEntryP*/AMQueueEntryP__1__AMSend__sendDone(m, err);
 }
 
-# 129 "RelayC.nc"
+# 44 "/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIO.nc"
+inline static void /*PlatformLedsC.Led2Impl*/Msp430GpioC__2__HplGeneralIO__toggle(void ){
+#line 44
+  /*HplMsp430GeneralIOC.P56*/HplMsp430GeneralIOP__38__IO__toggle();
+#line 44
+}
+#line 44
+# 39 "/opt/tinyos-2.1.1/tos/chips/msp430/pins/Msp430GpioC.nc"
+static inline void /*PlatformLedsC.Led2Impl*/Msp430GpioC__2__GeneralIO__toggle(void )
+#line 39
+{
+#line 39
+  /*PlatformLedsC.Led2Impl*/Msp430GpioC__2__HplGeneralIO__toggle();
+}
+
+# 31 "/opt/tinyos-2.1.1/tos/interfaces/GeneralIO.nc"
+inline static void LedsP__Led2__toggle(void ){
+#line 31
+  /*PlatformLedsC.Led2Impl*/Msp430GpioC__2__GeneralIO__toggle();
+#line 31
+}
+#line 31
+# 103 "/opt/tinyos-2.1.1/tos/system/LedsP.nc"
+static inline void LedsP__Leds__led2Toggle(void )
+#line 103
+{
+  LedsP__Led2__toggle();
+  ;
+#line 105
+  ;
+}
+
+# 89 "/opt/tinyos-2.1.1/tos/interfaces/Leds.nc"
+inline static void RelayC__Leds__led2Toggle(void ){
+#line 89
+  LedsP__Leds__led2Toggle();
+#line 89
+}
+#line 89
+# 131 "RelayC.nc"
 static inline void RelayC__DataSend__sendDone(message_t *msg, error_t error)
 {
   RelayC__busy_radio = FALSE;
+  RelayC__Leds__led2Toggle();
 }
 
 # 99 "/opt/tinyos-2.1.1/tos/interfaces/AMSend.nc"
@@ -20665,11 +20792,11 @@ static inline void SerialP__stopDoneTask__runTask(void )
   SerialP__SerialFlush__flush();
 }
 
-# 23 "RelayC.nc"
+# 25 "RelayC.nc"
 static inline void RelayC__Boot__booted(void )
-#line 23
+#line 25
 {
-  printf("RelayC BOOT\n");
+
   RelayC__AMControl__start();
   RelayC__DataControl__start();
 }
@@ -25038,6 +25165,18 @@ static am_addr_t ActiveMessageAddressC__amAddress(void )
 }
 
 # 47 "/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOP.nc"
+static void /*HplMsp430GeneralIOC.P56*/HplMsp430GeneralIOP__38__IO__toggle(void )
+#line 47
+{
+#line 47
+  { __nesc_atomic_t __nesc_atomic = __nesc_atomic_start();
+#line 47
+    * (volatile uint8_t * )49U ^= 0x01 << 6;
+#line 47
+    __nesc_atomic_end(__nesc_atomic); }
+}
+
+#line 47
 static void /*HplMsp430GeneralIOC.P55*/HplMsp430GeneralIOP__37__IO__toggle(void )
 #line 47
 {
@@ -25138,15 +25277,63 @@ static void *CC2420TinyosNetworkP__ActiveSend__getPayload(message_t *msg, uint8_
     }
 }
 
-# 45 "/opt/tinyos-2.1.1/tos/system/AMQueueEntryP.nc"
-static error_t /*RelayAppC.AMSenderC.SenderC.AMQueueEntryP*/AMQueueEntryP__1__AMSend__send(am_addr_t dest, 
-message_t *msg, 
-uint8_t len)
-#line 47
+# 136 "/opt/tinyos-2.1.1/tos/chips/cc2420/CC2420ActiveMessageP.nc"
+static void CC2420ActiveMessageP__AMPacket__setDestination(message_t *amsg, am_addr_t addr)
+#line 136
 {
-  /*RelayAppC.AMSenderC.SenderC.AMQueueEntryP*/AMQueueEntryP__1__AMPacket__setDestination(msg, dest);
-  /*RelayAppC.AMSenderC.SenderC.AMQueueEntryP*/AMQueueEntryP__1__AMPacket__setType(msg, 2);
-  return /*RelayAppC.AMSenderC.SenderC.AMQueueEntryP*/AMQueueEntryP__1__Send__send(msg, len);
+  cc2420_header_t *header = CC2420ActiveMessageP__CC2420PacketBody__getHeader(amsg);
+
+#line 138
+  __nesc_hton_leuint16(header->dest.nxdata, addr);
+}
+
+#line 156
+static void CC2420ActiveMessageP__AMPacket__setType(message_t *amsg, am_id_t type)
+#line 156
+{
+  cc2420_header_t *header = CC2420ActiveMessageP__CC2420PacketBody__getHeader(amsg);
+
+#line 158
+  __nesc_hton_leuint8(header->type.nxdata, type);
+}
+
+# 82 "/opt/tinyos-2.1.1/tos/system/AMQueueImplP.nc"
+static error_t /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__Send__send(uint8_t clientId, message_t *msg, 
+uint8_t len)
+#line 83
+{
+  if (clientId >= 2) {
+      return FAIL;
+    }
+  if (/*AMQueueP.AMQueueImplP*/AMQueueImplP__1__queue[clientId].msg != (void *)0) {
+      return EBUSY;
+    }
+  ;
+
+  /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__queue[clientId].msg = msg;
+  /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__Packet__setPayloadLength(msg, len);
+
+  if (/*AMQueueP.AMQueueImplP*/AMQueueImplP__1__current >= 2) {
+      error_t err;
+      am_id_t amId = /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__AMPacket__type(msg);
+      am_addr_t dest = /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__AMPacket__destination(msg);
+
+      ;
+      /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__current = clientId;
+
+      err = /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__AMSend__send(amId, dest, msg, len);
+      if (err != SUCCESS) {
+          ;
+          /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__current = 2;
+          /*AMQueueP.AMQueueImplP*/AMQueueImplP__1__queue[clientId].msg = (void *)0;
+        }
+
+      return err;
+    }
+  else {
+      ;
+    }
+  return SUCCESS;
 }
 
 # 764 "/opt/tinyos-2.1.1/tos/chips/cc2420/receive/CC2420ReceiveP.nc"
